@@ -46,7 +46,10 @@ Elkészítendő widgetek listája
 
 #### User workflow
 
-- [ ] főképernyő
+<details>
+	<summary>Főképernyő</summary>
+
+- [ ] főképernyő oldal
 	- [ ] felső üdv felirat
 	- [ ] Edzés gyors hozzáadása panel
 		- [ ] normál állapot
@@ -56,17 +59,35 @@ Elkészítendő widgetek listája
 		- [ ] Edzés elem panel
 		- [ ] hirdetés panel
 	- [ ] edzés hozzáadása "+" gomb
+
+</details>
+
+<details>
+	<summary>Első belépés</summary>
+
 - [ ] első belépési oldal
 	- [ ] üdv szöveg panel + ikon felette
 	- [ ] nyelv beállítása gomb
 	- [ ] bejelentés gomb
 	- [ ] regisztráció gomb
+	
+</details>
+
+<details>
+	<summary>Bejelentkezés</summary>
+
 - [ ] bejelentkeztető oldal
 	- [ ] vissza gomb
 	- [ ] főcím + ikon panel
 	- [ ] felhasználónév beírás
 	- [ ] jelszó beírás
 	- [ ] bejelentés gomb
+
+</details>
+
+<details>
+	<summary>Regisztráció</summary>
+
 - [ ] regisztrációs oldal
 	- [ ] vissza gomb
 	- [ ] főcím + ikon panel
@@ -74,6 +95,12 @@ Elkészítendő widgetek listája
 	- [ ] e-mail cím beírás
 	- [ ] jelszó beírás
 	- [ ] regisztráció gomb
+
+</details>
+
+<details>
+	<summary>Új aktivitás</summary>
+
 - [ ] új aktivitás oldal
 	- [ ] vissza gomb
 	- [ ] főcím
@@ -83,6 +110,12 @@ Elkészítendő widgetek listája
     - [ ] edzés időtartama választó
     - [ ] edzés helyszíne választó
     - [ ] mentés gomb
+
+</details>
+
+<details>
+	<summary>Részletes aktivitás</summary>
+
 - [ ] részletes aktivitás oldal
 	- [ ] vissza gomb
 	- [ ] ikon panel + cím
@@ -96,6 +129,12 @@ Elkészítendő widgetek listája
 		- [ ] szöveg
 		- [ ] igen gomb
 		- [ ] nem gomb
+
+</details>
+
+<details>
+	<summary>Aktivitás szerkesztése</summary>
+
 - [ ] aktivitás szerkesztése oldal
 	- [ ] vissza gomb
 	- [ ] főcím
@@ -105,6 +144,12 @@ Elkészítendő widgetek listája
     - [ ] edzés időtartama választó
     - [ ] edzés helyszíne választó
     - [ ] mentés gomb
+
+</details>
+
+<details>
+	<summary>Beállítások</summary>
+
 - [ ] beállítások oldal
 	- [ ] vissza gomb
 	- [ ] főcím
@@ -113,21 +158,45 @@ Elkészítendő widgetek listája
 	- [ ] felhasználói fiók cím
 	- [ ] hiba bejelentése cím
 	- [ ] alsó szöveg
+
+</details>
+
+<details>
+	<summary>Nyelv választó</summary>
+
 - [ ] nyelv választása cím
 	- [ ] vissza gomb
 	- [ ] főcím
 	- [ ] nyelvek listázása
 	- [ ] fordítása hozzájárulás szöveg
+
+</details>
+
+<details>
+	<summary>Téma választó</summary>
+
 - [ ] téma választása oldal
 	- [ ] vissza gomb
 	- [ ] főcím
 	- [ ] témák listázása
 	- [ ] téma hozzáadása szöveg
+
+</details>
+
+<details>
+	<summary>Hiba bejelentése</summary>
+
 - [ ] hiba bejelentése oldal
 	- [ ] vissza gomb
 	- [ ] főcím
 	- [ ] főszöveg
 	- [ ] alsó szöveg
+
+</details>
+
+<details>
+	<summary>Fiók</summary>
+
 - [ ] fiók oldal
 	- [ ] vissza gomb
 	- [ ] főcím
@@ -143,6 +212,12 @@ Elkészítendő widgetek listája
 		- [ ] szöveg
 		- [ ] igen gomb
 		- [ ] nem gomb
+
+</details>
+
+<details>
+	<summary>Fiók módosítása</summary>
+
 - [ ] fiók módosítása oldal
 	- [ ] vissza gomb
 	- [ ] főcím
@@ -152,3 +227,5 @@ Elkészítendő widgetek listája
 	- [ ] születési idő módosítása
 	- [ ] e-mail cím 
 	- [ ] rendben gomb
+
+</details>
