@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 class TextLabel extends StatelessWidget {
   final TextEditingController controller;
   final String? hint;
+  final bool pass;
 
-  const TextLabel({super.key, required this.controller, this.hint});
+  const TextLabel({
+    super.key,
+    required this.controller,
+    this.hint,
+    this.pass = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +19,7 @@ class TextLabel extends StatelessWidget {
         constraints: const BoxConstraints(maxWidth: 300),
         child: TextField(
         controller: controller,
+        obscureText: pass,
         decoration: InputDecoration(
           hintText: hint,
           hintStyle: const TextStyle(
