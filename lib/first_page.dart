@@ -13,17 +13,18 @@ class FirstPage extends StatelessWidget {
     return Scaffold(
         body: Column(
             children: [
-              SizedBox(height: 100,),
+              const Spacer(flex: 2),
               Heading(text: l10n.firstGreet),
-              SizedBox(height: 100,),
+              const Spacer(flex: 2),
               LanguageLabel(onPressed: () {},),
-              SizedBox(height: 200),
+              const Spacer(flex: 4),
               Button(text: l10n.login, onPressed: () {},),
               SizedBox(height: 20,),
               Button(text: l10n.register, onPressed: () {},
                 bgColor: Colors.white,
                 border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
-              )
+              ),
+              const Spacer(flex: 1,)
             ]
         )
     );
