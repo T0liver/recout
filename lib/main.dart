@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:recout/button.dart';
-import 'package:recout/texts.dart';
+import 'package:recout/first_page.dart';
 
 import 'package:recout/l10n/l10n.dart';
 
@@ -25,31 +24,9 @@ class RecOut extends StatelessWidget {
       ),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
-      home: HomeTest(),
+      home: FirstPage(),
     );
   }
 }
 
-class HomeTest extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final l10n = L10n.of(context)!;
-    return Scaffold(
-      body: Column(
-          children: [
-            Heading(text: l10n.firstGreet),
-            SizedBox(height: 100,),
-            LanguageLabel(),
-            SizedBox(height: 200),
-            Button(text: l10n.login, onPressed: () {},),
-            SizedBox(height: 20,),
-            Button(text: l10n.register, onPressed: () {},
-              bgColor: Colors.white,
-              border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
-            )
-          ]
-      )
-    );
-  }
 
-}

@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+import 'package:recout/l10n/l10n.dart';
+import 'package:recout/button.dart';
+import 'package:recout/texts.dart';
+
+class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = L10n.of(context)!;
+    return Scaffold(
+        body: Column(
+            children: [
+              SizedBox(height: 100,),
+              Heading(text: l10n.firstGreet),
+              SizedBox(height: 100,),
+              LanguageLabel(onPressed: () {},),
+              SizedBox(height: 200),
+              Button(text: l10n.login, onPressed: () {},),
+              SizedBox(height: 20,),
+              Button(text: l10n.register, onPressed: () {},
+                bgColor: Colors.white,
+                border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
+              )
+            ]
+        )
+    );
+  }
+}
