@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:recout/button.dart";
+import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
 
@@ -26,19 +27,20 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = L10n.of(context)!;
     return(
       Scaffold(
           body: Column(
               children: [
                 const Spacer(flex: 2),
                 Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),
-                Heading(text: "Bejelentkezés"),
+                Heading(text: l10n.login),
                 const Spacer(flex: 3),
-                TextLabel(controller: _unamecontroller, hint: "Felhasználónév"),
+                TextLabel(controller: _unamecontroller, hint: l10n.username),
                 const SizedBox(height: 20),
-                TextLabel(controller: _passcontroller, hint: "Jelszó", pass: true),
+                TextLabel(controller: _passcontroller, hint: l10n.password, pass: true),
                 const Spacer(flex: 2),
-                Button(text: "Indulás!", onPressed: getCredentials),
+                Button(text: l10n.letsgo, onPressed: getCredentials),
                 const Spacer(flex: 1,)
               ]
           )
