@@ -1,0 +1,23 @@
+{
+    "@@locale": "hu",
+    "firstGreet": "Üdvözöllek!\nSzia!",
+    "@firstGreet": {
+        "description": "Első üdvözlési szöveg",
+        "context": "FirstPage"
+    },
+    "setLanguage": "Nyelv beállítása",
+    "@setLanguage": {
+        "description": "Szöveg a nyelv beállísásának kiválasztására.",
+        "context": "FirstPage"
+    },
+    "login": "Bejelentkezés",
+    "@login": {
+        "description": "Bejelentkezés szövege",
+        "context": "FirstPage"
+    },
+    "register": "Regisztráció",
+    "@register": {
+        "description": "Regisztráció szövege.",
+        "context": "FirstPage"
+    }
+}
