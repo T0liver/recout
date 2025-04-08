@@ -116,6 +116,24 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Regisztráció'**
   String get register;
+
+  /// Felhasználónév szöveg helyekre
+  ///
+  /// In hu, this message translates to:
+  /// **'Felhasználónév'**
+  String get username;
+
+  /// Jelszó szöveg helyekre
+  ///
+  /// In hu, this message translates to:
+  /// **'Jelszó'**
+  String get password;
+
+  /// Vidám üzenet, O.K.
+  ///
+  /// In hu, this message translates to:
+  /// **'Indulás'**
+  String get letsgo;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

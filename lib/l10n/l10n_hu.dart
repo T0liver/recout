@@ -19,4 +19,13 @@ class L10nHu extends L10n {
 
   @override
   String get register => 'Regisztráció';
+
+  @override
+  String get username => 'Felhasználónév';
+
+  @override
+  String get password => 'Jelszó';
+
+  @override
+  String get letsgo => 'Indulás';
 }

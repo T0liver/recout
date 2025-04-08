@@ -19,5 +19,17 @@
     "@register": {
         "description": "Regisztráció szövege.",
         "context": "FirstPage"
+    },
+    "username": "Felhasználónév",
+    "@username": {
+        "description": "Felhasználónév szöveg helyekre"
+    },
+    "password": "Jelszó",
+    "@password": {
+        "description": "Jelszó szöveg helyekre"
+    },
+    "letsgo": "Indulás",
+    "@letsgo": {
+        "description": "Vidám üzenet, O.K."
     }
 }
