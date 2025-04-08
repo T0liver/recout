@@ -12,7 +12,7 @@ class Button extends StatelessWidget {
     required this.text,
     this.bgColor = const Color(0xFFF9DC5C),
     this.size = const Size(331, 66),
-    this.border = const BorderSide(width: 0, color: const Color(0xFFF9DC5C)),
+    this.border = const BorderSide(width: 0, color: Color(0xFFF9DC5C)),
     required this.onPressed,
   });
 
@@ -46,5 +46,4 @@ class Button extends StatelessWidget {
       ),
     );
   }
-
 }
