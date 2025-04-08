@@ -24,7 +24,9 @@ class FirstPage extends StatelessWidget {
               const Spacer(flex: 2),
               LanguageLabel(onPressed: () {},),
               const Spacer(flex: 4),
-              Button(text: l10n.login, onPressed: () {},),
+              Button(text: l10n.login, onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              }),
               SizedBox(height: 20,),
               Button(text: l10n.register, onPressed: () {},
                 bgColor: Colors.white,

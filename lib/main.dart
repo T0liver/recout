@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:recout/first_page.dart';
 
 import 'package:recout/l10n/l10n.dart';
+import 'package:recout/first_page.dart';
 import 'package:recout/login_page.dart';
 
 void main() {
@@ -25,7 +25,11 @@ class RecOut extends StatelessWidget {
       ),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
-      home: LoginPage(),
+      initialRoute: '/first',
+      routes: {
+        '/first': (context) => const FirstPage(),
+        '/login': (context) => const LoginPage(),
+      }
     );
   }
 }
