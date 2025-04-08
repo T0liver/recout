@@ -41,34 +41,37 @@ class Heading extends StatelessWidget {
 }
 
 class LanguageLabel extends StatelessWidget {
+  final VoidCallback onPressed;
 
-  const LanguageLabel({super.key});
+  const LanguageLabel({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Center(
-          child: SizedBox(
-            width: 32,
-            height: 32,
-            child: Image(image: AssetImage('assets/graphics/icons/icons8-communicate-32.png')),
-          ),
-        ),
-        const SizedBox(width: 8),
-        Text(
-          l10n.setLanguage,
-          style: const TextStyle(
-            fontFamily: "Inter",
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-          ),
-        )
-      ],
-    );
+    return ElevatedButton(
+        onPressed: onPressed,
+        child:  Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: SizedBox(
+                width: 32,
+                height: 32,
+                child: Image(image: AssetImage('assets/graphics/icons/icons8-communicate-32.png')),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              l10n.setLanguage,
+              style: const TextStyle(
+                fontFamily: "Inter",
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            )
+          ],
+        ));
   }
 
 }
