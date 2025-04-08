@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Spacer(flex: 3),
                 TextLabel(controller: _unamecontroller, hint: l10n.username),
                 const SizedBox(height: 20),
-                TextLabel(controller: _passcontroller, hint: l10n.password, pass: true),
+                PasswordLabel(controller: _passcontroller, hint: l10n.password),
                 const Spacer(flex: 2),
                 Button(text: l10n.letsgo, onPressed: getCredentials),
                 const Spacer(flex: 1,)
