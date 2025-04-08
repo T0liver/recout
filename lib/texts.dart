@@ -48,11 +48,15 @@ class LanguageLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(
-          width: 32,
-          height: 32,
-          // child: Icon(icon);
+        Center(
+          child: SizedBox(
+            width: 32,
+            height: 32,
+            child: Image(image: AssetImage('assets/graphics/icons/icons8-communicate-32.png')),
+          ),
         ),
         const SizedBox(width: 8),
         Text(
