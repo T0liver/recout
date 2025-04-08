@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:recout/first_page.dart';
 
 import 'package:recout/l10n/l10n.dart';
+import 'package:recout/login_page.dart';
 
 void main() {
   GlobalMaterialLocalizations.delegate;
@@ -24,7 +25,7 @@ class RecOut extends StatelessWidget {
       ),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
-      home: FirstPage(),
+      home: LoginPage(),
     );
   }
 }
