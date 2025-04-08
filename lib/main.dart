@@ -18,8 +18,16 @@ class RecOut extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
       ),
       home: Scaffold(
-        body: Button(text: "Bejelentkezés", onPressed: () {},
-        ),
+        body: Column(
+          children: [
+            Button(text: "Bejelentkezés", onPressed: () {},),
+            SizedBox(height: 20,),
+            Button(text: "Regisztráció", onPressed: () {},
+              bgColor: Colors.white,
+              border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
+            )
+          ]
+        )
       ),
     );
   }
