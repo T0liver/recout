@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recout/globals.dart';
+// import 'package:recout/globals.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -7,6 +7,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /*if (!Globals.isLoggedIn) {
+      Navigator.pushNamed(context, '/first');
+      return Text("not logged in");
+    }*/
     return Text("Home page");
   }
   
