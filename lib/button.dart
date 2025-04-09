@@ -84,7 +84,7 @@ class SettingsBtn extends StatelessWidget {
     return Container(
         alignment: Alignment(0.9, 0.9),
         child: SizedBox(
-          width: 40, height: 40,
+          width: 50, height: 50,
           child: IconButton(
               onPressed: () => Navigator.pushNamed(context, '/settings'),
               icon: Image.asset('assets/graphics/icons/icons8-settings-64.png')
