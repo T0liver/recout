@@ -4,7 +4,7 @@ class Globals {
   static bool isLoggedIn = true;
   String username = "";
 
-  bool loggedin() {
+  static bool loggedin() {
     return isLoggedIn;
   }
 
