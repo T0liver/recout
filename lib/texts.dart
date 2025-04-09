@@ -111,3 +111,34 @@ class HelloText extends StatelessWidget {
     );
   }
 }
+
+class PrevWorksTitle extends StatelessWidget {
+  const PrevWorksTitle ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final double width =
+    MediaQuery.of(context).size.width * 0.9 < 500
+        ? MediaQuery.of(context).size.width * 0.9
+        : 500;
+    return SizedBox(
+      width: width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            L10n.of(context)!.prevworkouts,
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 26,
+              fontWeight: FontWeight.w500,
+              color: Colors.black
+            ),
+          ),
+          const SizedBox(height: 8),
+          const Divider(height: 2, thickness: 1),
+        ],
+      ),
+    );
+  }
+}
