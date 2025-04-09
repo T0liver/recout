@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recout/button.dart';
+import 'package:recout/cards.dart';
 import 'package:recout/globals.dart';
 import 'package:recout/l10n/l10n.dart';
 import 'package:recout/texts.dart';
@@ -16,7 +17,6 @@ class HomePage extends StatelessWidget {
       });
       return SizedBox.shrink();
     }
-    final l10n = L10n.of(context);
     return Scaffold(
       body: Column(
         children: [
@@ -36,6 +36,9 @@ class HomePage extends StatelessWidget {
               SizedBox(width: 20,),
             ],
           ),
+          // Spacer(flex: 1,),
+          SizedBox(height: 50,),
+          RecWorkoutCard(),
         ],
       ),
     );
