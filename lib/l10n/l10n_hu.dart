@@ -34,4 +34,22 @@ class L10nHu extends L10n {
 
   @override
   String get goalright => 'Mehet a menet!';
+
+  @override
+  String get hello => 'Szia';
+
+  @override
+  String get homemsg => 'Mit edzettél mostanában?';
+
+  @override
+  String get recworkout => 'Edzés rögzízése';
+
+  @override
+  String get explworkout => 'pl. mario cart';
+
+  @override
+  String get hour => 'óra';
+
+  @override
+  String get noads => 'Nincs hirdetés, helyette itt egy kutyás kép';
 }

@@ -146,6 +146,42 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Mehet a menet!'**
   String get goalright;
+
+  /// Egyzerű üdvözlés
+  ///
+  /// In hu, this message translates to:
+  /// **'Szia'**
+  String get hello;
+
+  /// Fejléc üzenet, ami új edzés felvételére bátorít
+  ///
+  /// In hu, this message translates to:
+  /// **'Mit edzettél mostanában?'**
+  String get homemsg;
+
+  /// Edzés rögzítése gomb felirat
+  ///
+  /// In hu, this message translates to:
+  /// **'Edzés rögzízése'**
+  String get recworkout;
+
+  /// Vicces példa szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'pl. mario cart'**
+  String get explworkout;
+
+  /// óra szöveg kisbetűvel
+  ///
+  /// In hu, this message translates to:
+  /// **'óra'**
+  String get hour;
+
+  /// No description provided for @noads.
+  ///
+  /// In hu, this message translates to:
+  /// **'Nincs hirdetés, helyette itt egy kutyás kép'**
+  String get noads;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
