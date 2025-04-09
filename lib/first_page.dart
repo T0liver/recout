@@ -28,7 +28,9 @@ class FirstPage extends StatelessWidget {
                 Navigator.pushNamed(context, '/login');
               }),
               SizedBox(height: 20,),
-              Button(text: l10n.register, onPressed: () {},
+              Button(text: l10n.register, onPressed: () {
+                Navigator.pushNamed(context, '/register');
+              },
                 bgColor: Colors.white,
                 border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
               ),

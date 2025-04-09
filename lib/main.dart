@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:recout/l10n/l10n.dart';
 import 'package:recout/first_page.dart';
 import 'package:recout/login_page.dart';
+import 'package:recout/register_page.dart';
 
 void main() {
   GlobalMaterialLocalizations.delegate;
@@ -29,6 +30,7 @@ class RecOut extends StatelessWidget {
       routes: {
         '/first': (context) => const FirstPage(),
         '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
       }
     );
   }
