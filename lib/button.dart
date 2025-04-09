@@ -75,3 +75,21 @@ class BackBtn extends StatelessWidget {
     );
   }
 }
+
+class SettingsBtn extends StatelessWidget {
+  const SettingsBtn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        alignment: Alignment(0.9, 0.9),
+        child: SizedBox(
+          width: 40, height: 40,
+          child: IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
+              icon: Image.asset('assets/graphics/icons/icons8-settings-64.png')
+          ),
+        )
+    );
+  }
+}
