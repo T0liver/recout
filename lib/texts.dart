@@ -80,5 +80,36 @@ class LanguageLabel extends StatelessWidget {
       )
     );
   }
+}
 
+class HelloText extends StatelessWidget {
+  final String name;
+  const HelloText({super.key, required this.name});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          L10n.of(context)!.hello,
+          style: const TextStyle(
+              fontFamily: "Inter",
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF757575),
+          ),
+        ),
+        Text(
+          "$name!",
+          style: const TextStyle(
+              fontFamily: "Inter",
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
+              color: Colors.black
+          ),
+        )
+      ],
+    );
+  }
 }
