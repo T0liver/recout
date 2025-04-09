@@ -24,17 +24,15 @@ class Heading extends StatelessWidget {
     return SizedBox(
       width: size?.width,
       height: size?.height,
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontFamily: font,
-            fontWeight: fontWeight,
-            fontSize: fontSize,
-            color: color,
-          ),
-          textAlign: TextAlign.center,
+      child: Text(
+        text,
+        style: TextStyle(
+          fontFamily: font,
+          fontWeight: fontWeight,
+          fontSize: fontSize,
+          color: color,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }

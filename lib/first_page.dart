@@ -15,7 +15,9 @@ class FirstPage extends StatelessWidget {
             children: [
               const Spacer(flex: 2),
               Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),
-              Heading(text: l10n.firstGreet),
+              Center(
+                child: Heading(text: l10n.firstGreet),
+              ),
               const Spacer(flex: 2),
               LanguageLabel(onPressed: () {},),
               const Spacer(flex: 4),
