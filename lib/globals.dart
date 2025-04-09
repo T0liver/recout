@@ -1,18 +1,18 @@
-library globals;
+library;
 
 class Globals {
-  static bool isLoggedIn = true;
-  String username = "";
+  static bool _isLoggedIn = true;
+  static String username = "Teszt felhasználó";
 
   static bool loggedin() {
-    return isLoggedIn;
+    return _isLoggedIn;
   }
 
   void login() {
-    isLoggedIn = true;
+    _isLoggedIn = true;
   }
 
   void logout() {
-    isLoggedIn = false;
+    _isLoggedIn = false;
   }
 }

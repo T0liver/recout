@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:recout/button.dart';
 import 'package:recout/globals.dart';
 import 'package:recout/l10n/l10n.dart';
+import 'package:recout/texts.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -18,7 +20,22 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(width: 20,),
+              Column(
+                children: [
+                  SizedBox(height: 30,),
+                  HelloText(name: Globals.username),
+                ],
+              ),
+              Spacer(),
+              SettingsBtn(),
+              SizedBox(width: 20,),
+            ],
+          ),
         ],
       ),
     );
