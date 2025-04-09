@@ -32,6 +32,8 @@ class _LoginPageState extends State<LoginPage> {
       Scaffold(
           body: Column(
               children: [
+                const SizedBox(height: 10,),
+                const BackBtn(),
                 const Spacer(flex: 2),
                 Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),
                 Heading(text: l10n.login),

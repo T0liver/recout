@@ -47,3 +47,31 @@ class Button extends StatelessWidget {
     );
   }
 }
+
+class BackBtn extends StatelessWidget {
+  final String? whereto;
+
+  const BackBtn({super.key, this.whereto});
+
+  void goback(BuildContext context) {
+    if (whereto != null) {
+      Navigator.pushNamed(context, whereto!);
+    } else {
+      Navigator.pop(context);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment(-0.9, 0.9),
+      child: SizedBox(
+        width: 32, height: 32,
+        child: IconButton(
+            onPressed: () => goback(context),
+            icon: Image.asset('assets/graphics/icons/icons8-back-32.png')
+        ),
+      )
+    );
+  }
+}
