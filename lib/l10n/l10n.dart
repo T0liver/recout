@@ -147,7 +147,7 @@ abstract class L10n {
   /// **'Mehet a menet!'**
   String get goalright;
 
-  /// Egyzerű üdvözlés
+  /// Egyszerű üdvözlés
   ///
   /// In hu, this message translates to:
   /// **'Szia'**
@@ -170,6 +170,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'pl. mario cart'**
   String get explworkout;
+
+  /// Korábbi edzések szövege
+  ///
+  /// In hu, this message translates to:
+  /// **'Korábbi edzéseid'**
+  String get prevworkouts;
 
   /// óra szöveg kisbetűvel
   ///

@@ -48,6 +48,9 @@ class L10nHu extends L10n {
   String get explworkout => 'pl. mario cart';
 
   @override
+  String get prevworkouts => 'Korábbi edzéseid';
+
+  @override
   String get hour => 'óra';
 
   @override

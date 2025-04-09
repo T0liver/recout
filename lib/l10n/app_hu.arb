@@ -42,7 +42,7 @@
     },
     "hello": "Szia",
     "@hello": {
-        "description": "Egyzerű üdvözlés"
+        "description": "Egyszerű üdvözlés"
     },
     "homemsg": "Mit edzettél mostanában?",
     "@homemsg": {
@@ -55,6 +55,10 @@
     "explworkout": "pl. mario cart",
     "@explworkout": {
         "description": "Vicces példa szöveg"
+    },
+    "prevworkouts": "Korábbi edzéseid",
+    "@prevworkouts": {
+        "description": "Korábbi edzések szövege"
     },
     "hour": "óra",
     "@hour": {
