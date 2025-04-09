@@ -1,5 +1,3 @@
-import "dart:math";
-
 import "package:flutter/material.dart";
 import "package:recout/button.dart";
 import "package:recout/l10n/l10n.dart";

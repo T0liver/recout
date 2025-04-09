@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:recout/button.dart';
 import 'package:recout/cards.dart';
 import 'package:recout/globals.dart';
-import 'package:recout/l10n/l10n.dart';
 import 'package:recout/texts.dart';
 
 class HomePage extends StatelessWidget {
