@@ -6,6 +6,8 @@ class Button extends StatelessWidget {
   final Size? size;
   final BorderSide border;
   final VoidCallback onPressed;
+  final TextStyle style;
+  final EdgeInsetsGeometry padding;
 
   const Button({
     super.key,
@@ -13,6 +15,13 @@ class Button extends StatelessWidget {
     this.bgColor = const Color(0xFFF9DC5C),
     this.size = const Size(331, 66),
     this.border = const BorderSide(width: 0, color: Color(0xFFF9DC5C)),
+    this.style = const TextStyle(
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w600,
+        fontSize: 24,
+        color: Colors.black
+    ),
+    this.padding = const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
     required this.onPressed,
   });
 
@@ -25,7 +34,7 @@ class Button extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: bgColor,
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          padding: padding,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
             side: border,
@@ -35,12 +44,7 @@ class Button extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: TextStyle(
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                color: Colors.black
-            ),
+            style: style,
           ),
         ),
       ),
