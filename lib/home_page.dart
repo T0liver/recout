@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recout/globals.dart';
+import 'package:recout/l10n/l10n.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -13,6 +14,13 @@ class HomePage extends StatelessWidget {
       });
       return SizedBox.shrink();
     }
-    return Text("Home page");
+    final l10n = L10n.of(context);
+    return Scaffold(
+      body: Column(
+        children: [
+
+        ],
+      ),
+    );
   }
 }
