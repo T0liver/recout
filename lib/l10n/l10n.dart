@@ -162,7 +162,7 @@ abstract class L10n {
   /// Edzés rögzítése gomb felirat
   ///
   /// In hu, this message translates to:
-  /// **'Edzés rögzízése'**
+  /// **'Edzés rögzítése'**
   String get recworkout;
 
   /// Vicces példa szöveg

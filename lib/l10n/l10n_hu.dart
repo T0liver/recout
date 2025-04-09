@@ -42,7 +42,7 @@ class L10nHu extends L10n {
   String get homemsg => 'Mit edzettél mostanában?';
 
   @override
-  String get recworkout => 'Edzés rögzízése';
+  String get recworkout => 'Edzés rögzítése';
 
   @override
   String get explworkout => 'pl. mario cart';

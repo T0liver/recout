@@ -48,7 +48,7 @@
     "@homemsg": {
         "description": "Fejléc üzenet, ami új edzés felvételére bátorít"
     },
-    "recworkout": "Edzés rögzízése",
+    "recworkout": "Edzés rögzítése",
     "@recworkout": {
         "description": "Edzés rögzítése gomb felirat"
     },
