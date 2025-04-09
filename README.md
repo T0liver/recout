@@ -65,36 +65,36 @@ Elkészítendő widgetek listája
 <details>
 	<summary>Első belépés</summary>
 
-- [ ] első belépési oldal
-	- [ ] üdv szöveg panel + ikon felette
-	- [ ] nyelv beállítása gomb
-	- [ ] bejelentés gomb
-	- [ ] regisztráció gomb
+- [x] első belépési oldal
+	- [x] üdv szöveg panel + ikon felette
+	- [x] nyelv beállítása gomb
+	- [x] bejelentés gomb
+	- [x] regisztráció gomb
 	
 </details>
 
 <details>
 	<summary>Bejelentkezés</summary>
 
-- [ ] bejelentkeztető oldal
-	- [ ] vissza gomb
-	- [ ] főcím + ikon panel
-	- [ ] felhasználónév beírás
-	- [ ] jelszó beírás
-	- [ ] bejelentés gomb
+- [x] bejelentkeztető oldal
+	- [x] vissza gomb
+	- [x] főcím + ikon panel
+	- [x] felhasználónév beírás
+	- [x] jelszó beírás
+	- [x] bejelentés gomb
 
 </details>
 
 <details>
 	<summary>Regisztráció</summary>
 
-- [ ] regisztrációs oldal
-	- [ ] vissza gomb
-	- [ ] főcím + ikon panel
-	- [ ] felhasználónév beírás
-	- [ ] e-mail cím beírás
-	- [ ] jelszó beírás
-	- [ ] regisztráció gomb
+- [x] regisztrációs oldal
+	- [x] vissza gomb
+	- [x] főcím + ikon panel
+	- [x] felhasználónév beírás
+	- [x] e-mail cím beírás
+	- [x] jelszó beírás
+	- [x] regisztráció gomb
 
 </details>
 
