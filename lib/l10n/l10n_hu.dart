@@ -28,4 +28,10 @@ class L10nHu extends L10n {
 
   @override
   String get letsgo => 'Indulás';
+
+  @override
+  String get emailaddr => 'E-mail cím';
+
+  @override
+  String get goalright => 'Mehet a menet!';
 }

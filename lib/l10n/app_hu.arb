@@ -31,5 +31,13 @@
     "letsgo": "Indulás",
     "@letsgo": {
         "description": "Vidám üzenet, O.K."
+    },
+    "emailaddr": "E-mail cím",
+    "@emailaddr": {
+        "description": "E-mail cím szövege"
+    },
+    "goalright": "Mehet a menet!",
+    "@goalright": {
+        "description": "Vidám üzenet, O.K."
     }
 }

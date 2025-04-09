@@ -134,6 +134,18 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Indulás'**
   String get letsgo;
+
+  /// E-mail cím szövege
+  ///
+  /// In hu, this message translates to:
+  /// **'E-mail cím'**
+  String get emailaddr;
+
+  /// Vidám üzenet, O.K.
+  ///
+  /// In hu, this message translates to:
+  /// **'Mehet a menet!'**
+  String get goalright;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
