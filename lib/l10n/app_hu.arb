@@ -39,5 +39,29 @@
     "goalright": "Mehet a menet!",
     "@goalright": {
         "description": "Vidám üzenet, O.K."
+    },
+    "hello": "Szia",
+    "@hello": {
+        "description": "Egyzerű üdvözlés"
+    },
+    "homemsg": "Mit edzettél mostanában?",
+    "@homemsg": {
+        "description": "Fejléc üzenet, ami új edzés felvételére bátorít"
+    },
+    "recworkout": "Edzés rögzízése",
+    "@recworkout": {
+        "description": "Edzés rögzítése gomb felirat"
+    },
+    "explworkout": "pl. mario cart",
+    "@explworkout": {
+        "description": "Vicces példa szöveg"
+    },
+    "hour": "óra",
+    "@hour": {
+        "description": "óra szöveg kisbetűvel"
+    },
+    "noads": "Nincs hirdetés, helyette itt egy kutyás kép",
+    "@noads": {
+        "dedsctiption": "Vicces szöveg egy kedves kép fölé."
     }
 }
