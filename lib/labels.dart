@@ -149,17 +149,19 @@ class BoxInputLabel extends StatelessWidget {
 class NumberInputLabel extends StatelessWidget {
   final String? placeholder;
   final TextEditingController controller;
+  final double? width;
 
   const NumberInputLabel({
     super.key,
     required this.controller,
     this.placeholder = "...",
+    this.width = 60,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 60,
+      width: width,
       child: TextField(
         controller: controller,
         keyboardType: TextInputType.number,
