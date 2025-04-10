@@ -135,6 +135,13 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
     }
   }
 
+  void back() {
+    (context.
+    findAncestorStateOfType<_WorkoutRecCardState>()
+    as _WorkoutRecCardState)
+        .toggleInputVisibility();
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
@@ -192,21 +199,36 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
 
               const SizedBox(height: 16),
 
-              Align(
-                alignment: Alignment.centerRight,
-                child: Button(
-                  text: l10n.recworkout,
-                  size: const Size(200, 40),
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                    color: Colors.black,
+              Row(
+                children: [
+                  Container(
+                      alignment: Alignment(-0.9, 0.9),
+                      child: SizedBox(
+                        width: 32, height: 32,
+                        child: IconButton(
+                            onPressed: () => back(),
+                            icon: Image.asset('assets/graphics/icons/icons8-back-32.png')
+                        ),
+                      )
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  onPressed: () => getWorkoutData(),
-                ),
-              ),
+                  Spacer(),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Button(
+                      text: l10n.recworkout,
+                      size: const Size(200, 40),
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                        color: Colors.black,
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      onPressed: () => getWorkoutData(),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
