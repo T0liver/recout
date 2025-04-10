@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:recout/button.dart";
-import "package:recout/globals.dart";
 import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
@@ -103,15 +102,37 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
   final TextEditingController durationController = TextEditingController();
   String duration = '';
 
+  bool nameValid = true;
+  bool yearValid = true;
+  bool monthValid = true;
+  bool dayValid = true;
+  bool durationValid = true;
+
   void getWorkoutData() {
-    debugPrint('Edzés neve: ${nameController.text}');
-    debugPrint('Időpont: ${yearController.text}.${monthController.text}.${dayController.text}.');
-    debugPrint('Időtartam: ${durationController.text} $duration');
-    debugPrint('Helyszín: ${locationController.text}');
-    (context.
-    findAncestorStateOfType<_WorkoutRecCardState>()
-    as _WorkoutRecCardState)
-        .toggleInputVisibility();
+    final isYearValid = int.tryParse(yearController.text) != null;
+    final isMonthValid = int.tryParse(monthController.text) != null;
+    final isDayValid = int.tryParse(dayController.text) != null;
+    final isDurationValid = int.tryParse(durationController.text) != null;
+    final isNameValid = nameController.text != '';
+
+    setState(() {
+      yearValid = isYearValid;
+      monthValid = isMonthValid;
+      dayValid = isDayValid;
+      durationValid = isDurationValid;
+      nameValid = isNameValid;
+    });
+
+    if (isYearValid && isMonthValid && isDayValid && isDurationValid) {
+      debugPrint('Edzés neve: ${nameController.text}');
+      debugPrint('Időpont: ${yearController.text}.${monthController.text}.${dayController.text}.');
+      debugPrint('Időtartam: ${durationController.text} $duration');
+      debugPrint('Helyszín: ${locationController.text}');
+      (context.
+      findAncestorStateOfType<_WorkoutRecCardState>()
+      as _WorkoutRecCardState)
+          .toggleInputVisibility();
+    }
   }
 
   @override
@@ -133,7 +154,7 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout,),
+              BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout, valid: nameValid,),
               const SizedBox(height: 10),
 
               Row(
@@ -141,11 +162,11 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
                 children: [
                   Text('${l10n.date}:', style: const TextStyle(fontWeight: FontWeight.bold)),
                   const SizedBox(width: 12),
-                  NumberInputLabel(controller: yearController, placeholder: l10n.year,),
+                  NumberInputLabel(controller: yearController, placeholder: l10n.year, valid: yearValid,),
                   const SizedBox(width: 8),
-                  NumberInputLabel(controller: monthController, placeholder: l10n.month,),
+                  NumberInputLabel(controller: monthController, placeholder: l10n.month, valid: monthValid,),
                   const SizedBox(width: 8),
-                  NumberInputLabel(controller: dayController, placeholder: l10n.day,),
+                  NumberInputLabel(controller: dayController, placeholder: l10n.day, valid: dayValid,),
                   const Spacer(),
                 ],
               ),
@@ -156,7 +177,7 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
                   children: [
                     Text('${l10n.duration}:', style: TextStyle(fontWeight: FontWeight.bold)),
                     const SizedBox(width: 10),
-                    NumberInputLabel(controller: durationController, width: 30,),
+                    NumberInputLabel(controller: durationController, width: 30, valid: durationValid,),
                     DurationChooser(duration: duration),
                   ]
               ),

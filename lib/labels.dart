@@ -120,11 +120,13 @@ class _PasswordLabelState extends State<PasswordLabel> {
 class BoxInputLabel extends StatelessWidget {
   final String? placeholder;
   final TextEditingController controller;
+  final bool valid;
 
   const BoxInputLabel({
     super.key,
     required this.controller,
     this.placeholder = "...",
+    this.valid = true,
   });
 
   @override
@@ -133,7 +135,7 @@ class BoxInputLabel extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         hintText: placeholder,
-        hintStyle: const TextStyle(color: Colors.grey),
+        hintStyle: TextStyle(color: valid ? Colors.grey : Colors.red),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         filled: true,
         fillColor: Colors.grey.shade100,
@@ -150,12 +152,14 @@ class NumberInputLabel extends StatelessWidget {
   final String? placeholder;
   final TextEditingController controller;
   final double? width;
+  final bool valid;
 
   const NumberInputLabel({
     super.key,
     required this.controller,
     this.placeholder = "...",
     this.width = 60,
+    this.valid = true,
   });
 
   @override
@@ -166,12 +170,18 @@ class NumberInputLabel extends StatelessWidget {
         controller: controller,
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
+        style: TextStyle(
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          color: valid ? Colors.black : Colors.red,
+        ),
         decoration: InputDecoration(
           isDense: true,
           hintText: placeholder,
           contentPadding: const EdgeInsets.symmetric(vertical: 4),
-          hintStyle: const TextStyle(color: Color(0xFFB3B3B3)),
-          border: const UnderlineInputBorder(),
+          hintStyle: TextStyle(color: valid ? Color(0xFFB3B3B3) : Colors.red),
+          border: UnderlineInputBorder(borderSide: BorderSide(color: valid ? Colors.black : Colors.red)),
         ),
       ),
     );
@@ -274,12 +284,14 @@ class StringInputLabel extends StatelessWidget {
   final String? placeholder;
   final TextEditingController controller;
   final double? width;
+  final bool valid;
 
   const StringInputLabel({
     super.key,
     required this.controller,
     this.placeholder = "...",
     this.width = 200,
+    this.valid = true,
   });
 
   @override
@@ -288,13 +300,19 @@ class StringInputLabel extends StatelessWidget {
       width: width,
       child: TextField(
         controller: controller,
+        style: TextStyle(
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w500,
+        fontSize: 14,
+        color: valid ? Colors.black : Colors.red,
+      ),
         decoration: InputDecoration(
           isDense: true,
           hintText: placeholder,
           contentPadding: EdgeInsets.symmetric(vertical: 4),
-          border: UnderlineInputBorder(),
-          labelStyle: const TextStyle(color: Color(0xFFB3B3B3)),
-          hintStyle: const TextStyle(color: Color(0xFFB3B3B3)),
+          border: UnderlineInputBorder(borderSide: BorderSide(color: valid ? Colors.black : Colors.red)),
+          labelStyle: TextStyle(color: valid ? Color(0xFFB3B3B3) : Colors.red),
+          hintStyle: TextStyle(color: valid ? Color(0xFFB3B3B3) : Colors.red)
         ),
       ),
     );
