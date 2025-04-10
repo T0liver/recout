@@ -204,20 +204,53 @@ class _DurationChooserState extends State<DurationChooser> {
       duration = l10n.minute;
     }
 
-    return DropdownButton<String>(
-      value: duration,
-      underline: const SizedBox(),
-      items: [l10n.hour, l10n.minute].map((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value, style: const TextStyle(decoration: TextDecoration.underline)),
-        );
-      }).toList(),
-      onChanged: (newValue) {
+    final reorderedDurations = [
+      duration,
+      ...units.where((opt) => opt != duration)
+    ];
+
+    return PopupMenuButton<String>(
+      onSelected: (String value) {
         setState(() {
-          duration = newValue!;
+          duration = value;
         });
       },
+      offset: const Offset(0, -20),
+      itemBuilder: (BuildContext context) {
+        return reorderedDurations.map((String choice) {
+          return PopupMenuItem<String>(
+            value: choice,
+            child: Text(
+              choice,
+              style: const TextStyle(
+                fontFamily: 'Inter',
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
+                color: Colors.black,
+                letterSpacing: 2,
+              ),
+            ),
+          );
+        }).toList();
+      },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: BorderSide.none,
+      ),
+      color: Colors.white,
+      elevation: 0,
+      padding: EdgeInsets.zero,
+      child: Text(
+        duration,
+        style: const TextStyle(
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          color: Color(0xFFB3B3B3),
+          letterSpacing: 2,
+          decoration: TextDecoration.underline
+        ),
+      ),
     );
   }
 }
