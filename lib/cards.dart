@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:intl/intl.dart";
 import "package:recout/button.dart";
 import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
@@ -95,9 +96,10 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController locationController = TextEditingController();
 
-  final TextEditingController yearController = TextEditingController();
-  final TextEditingController monthController = TextEditingController();
-  final TextEditingController dayController = TextEditingController();
+  final DateTime today = DateTime.now();
+  late TextEditingController yearController = TextEditingController(text: '${today.year}');
+  late TextEditingController monthController = TextEditingController(text: DateFormat('MM').format(today));
+  late TextEditingController dayController = TextEditingController(text: DateFormat('dd').format(today));
 
   final TextEditingController durationController = TextEditingController();
   String duration = '';
