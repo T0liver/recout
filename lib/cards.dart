@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:recout/button.dart";
+import "package:recout/globals.dart";
 import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
@@ -38,7 +39,12 @@ class RecWorkoutCard extends StatelessWidget {
                           Button(
                             text: l10n.recworkout,
                             size: Size(width * 0.62, 50),
-                            onPressed: () {},
+                            onPressed: () {
+                              (context.
+                              findAncestorStateOfType<_WorkoutRecCardState>()
+                              as _WorkoutRecCardState)
+                                  .toggleInputVisibility();
+                            },
                             style: const TextStyle(
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w700,
@@ -102,6 +108,10 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
     debugPrint('Időpont: ${yearController.text}.${monthController.text}.${dayController.text}.');
     debugPrint('Időtartam: ${durationController.text} $duration');
     debugPrint('Helyszín: ${locationController.text}');
+    (context.
+    findAncestorStateOfType<_WorkoutRecCardState>()
+    as _WorkoutRecCardState)
+        .toggleInputVisibility();
   }
 
   @override
@@ -181,5 +191,27 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
         ),
       )
     );
+  }
+}
+
+class WorkoutRecCard extends StatefulWidget {
+  const WorkoutRecCard({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _WorkoutRecCardState();
+}
+
+class _WorkoutRecCardState extends State<WorkoutRecCard> {
+  bool showInput = false;
+
+  void toggleInputVisibility() {
+    setState(() {
+      showInput = !showInput;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return !showInput ? RecWorkoutCard() : InputWorkoutCard();
   }
 }
