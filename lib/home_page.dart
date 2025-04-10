@@ -38,6 +38,7 @@ class HomePage extends StatelessWidget {
           // Spacer(flex: 1,),
           SizedBox(height: 50,),
           RecWorkoutCard(),
+          InputWorkoutCard(),
           SizedBox(height: 20,),
           PrevWorksTitle(),
         ],
