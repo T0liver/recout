@@ -124,7 +124,7 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout,),
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
 
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -165,11 +165,12 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
                 alignment: Alignment.centerRight,
                 child: Button(
                   text: 'Edzés rögzítése',
+                  size: const Size(200, 40),
                   style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                      color: Colors.black
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                    color: Colors.black,
                   ),
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   onPressed: () => getWorkoutData(),
