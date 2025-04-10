@@ -129,13 +129,13 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('Időpont:', style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text('${l10n.date}:', style: const TextStyle(fontWeight: FontWeight.bold)),
                   const SizedBox(width: 12),
-                  NumberInputLabel(controller: yearController, placeholder: "év",),
+                  NumberInputLabel(controller: yearController, placeholder: l10n.year,),
                   const SizedBox(width: 8),
-                  NumberInputLabel(controller: monthController, placeholder: "hó",),
+                  NumberInputLabel(controller: monthController, placeholder: l10n.month,),
                   const SizedBox(width: 8),
-                  NumberInputLabel(controller: dayController, placeholder: "nap",),
+                  NumberInputLabel(controller: dayController, placeholder: l10n.day,),
                   const Spacer(),
                 ],
               ),
@@ -144,7 +144,7 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
               Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text('Időtartam:', style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text('${l10n.duration}:', style: TextStyle(fontWeight: FontWeight.bold)),
                     const SizedBox(width: 10),
                     NumberInputLabel(controller: durationController, width: 30,),
                     DurationChooser(duration: duration),
@@ -153,9 +153,9 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
               const SizedBox(height: 10,),
               Row(
                 children: [
-                  const Text('Helyszín:', style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text('${l10n.location}:', style: TextStyle(fontWeight: FontWeight.bold)),
                   const SizedBox(width: 12),
-                  StringInputLabel(controller: locationController, placeholder: "Helyszín",),
+                  StringInputLabel(controller: locationController, placeholder: l10n.location_l,),
                 ],
               ),
 
@@ -164,7 +164,7 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
               Align(
                 alignment: Alignment.centerRight,
                 child: Button(
-                  text: 'Edzés rögzítése',
+                  text: l10n.recworkout,
                   size: const Size(200, 40),
                   style: const TextStyle(
                     fontFamily: 'Inter',
