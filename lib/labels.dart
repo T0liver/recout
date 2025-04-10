@@ -240,17 +240,30 @@ class _DurationChooserState extends State<DurationChooser> {
       color: Colors.white,
       elevation: 0,
       padding: EdgeInsets.zero,
-      child: Text(
-        duration,
-        style: const TextStyle(
-          fontFamily: 'Inter',
-          fontWeight: FontWeight.w500,
-          fontSize: 14,
-          color: Color(0xFFB3B3B3),
-          letterSpacing: 2,
-          decoration: TextDecoration.underline
-        ),
-      ),
+      child: Column(
+        children: [
+          SizedBox(height: 7,),
+          Text(
+            duration,
+            style: const TextStyle(
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+
+              letterSpacing: 2,
+              shadows: [
+                Shadow(
+                    color: Color(0xFFB3B3B3),
+                    offset: Offset(0, -4))
+              ],
+              color: Colors.transparent,
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.black,
+              decorationThickness: 0.7
+            )
+          ),
+        ],
+      )
     );
   }
 }
