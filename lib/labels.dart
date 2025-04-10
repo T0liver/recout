@@ -255,7 +255,7 @@ class _DurationChooserState extends State<DurationChooser> {
               letterSpacing: 2,
               shadows: [
                 Shadow(
-                    color: Color(0xFFB3B3B3),
+                    color: Colors.black,
                     offset: Offset(0, -4))
               ],
               color: Colors.transparent,
