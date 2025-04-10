@@ -183,6 +183,12 @@ abstract class L10n {
   /// **'óra'**
   String get hour;
 
+  /// perc szöveg kisbetűvel
+  ///
+  /// In hu, this message translates to:
+  /// **'perc'**
+  String get minute;
+
   /// No description provided for @noads.
   ///
   /// In hu, this message translates to:

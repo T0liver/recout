@@ -54,5 +54,8 @@ class L10nHu extends L10n {
   String get hour => 'óra';
 
   @override
+  String get minute => 'perc';
+
+  @override
   String get noads => 'Nincs hirdetés, helyette itt egy kutyás kép';
 }

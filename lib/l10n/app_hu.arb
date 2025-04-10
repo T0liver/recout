@@ -64,6 +64,10 @@
     "@hour": {
         "description": "óra szöveg kisbetűvel"
     },
+    "minute": "perc",
+    "@minute": {
+        "description": "perc szöveg kisbetűvel"
+    },
     "noads": "Nincs hirdetés, helyette itt egy kutyás kép",
     "@noads": {
         "dedsctiption": "Vicces szöveg egy kedves kép fölé."
