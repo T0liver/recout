@@ -139,17 +139,18 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
                   const Spacer(),
                 ],
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
 
               Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text('Időtartam:', style: TextStyle(fontWeight: FontWeight.bold)),
-                    const SizedBox(width: 12),
+                    const SizedBox(width: 10),
+                    NumberInputLabel(controller: durationController, width: 30,),
                     DurationChooser(duration: duration),
                   ]
               ),
-              const SizedBox(width: 8),
+              const SizedBox(height: 10,),
               Row(
                 children: [
                   const Text('Helyszín:', style: TextStyle(fontWeight: FontWeight.bold)),
