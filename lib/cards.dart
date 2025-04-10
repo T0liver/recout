@@ -107,69 +107,77 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.grey.shade300),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout,),
-          const SizedBox(height: 16),
-
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text('Időpont:', style: TextStyle(fontWeight: FontWeight.bold)),
-              const SizedBox(width: 12),
-              NumberInputLabel(controller: yearController, placeholder: "év",),
-              const SizedBox(width: 8),
-              NumberInputLabel(controller: monthController, placeholder: "hó",),
-              const SizedBox(width: 8),
-              NumberInputLabel(controller: dayController, placeholder: "nap",),
-              const Spacer(),
-            ],
+    final double width =
+    MediaQuery.of(context).size.width * 0.9 < 500
+        ? MediaQuery.of(context).size.width * 0.9
+        : 500;
+    return ClipRect(
+      child: SizedBox(width: width,
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.grey.shade300),
           ),
-          const SizedBox(height: 8),
-
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Időtartam:', style: TextStyle(fontWeight: FontWeight.bold)),
-              const SizedBox(width: 12),
-              // DurationChooser(duration: duration),
-            ]
-          ),
-          const SizedBox(width: 8),
-          Row(
-            children: [
-              const Text('Helyszín:', style: TextStyle(fontWeight: FontWeight.bold)),
-              const SizedBox(width: 12),
-              StringInputLabel(controller: locationController, placeholder: "Helyszín",),
-            ],
-          ),
+              BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout,),
+              const SizedBox(height: 16),
 
-          const SizedBox(height: 16),
-
-          Align(
-            alignment: Alignment.centerRight,
-            child: Button(
-              text: 'Edzés rögzítése',
-              style: const TextStyle(
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                  color: Colors.black
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text('Időpont:', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const SizedBox(width: 12),
+                  NumberInputLabel(controller: yearController, placeholder: "év",),
+                  const SizedBox(width: 8),
+                  NumberInputLabel(controller: monthController, placeholder: "hó",),
+                  const SizedBox(width: 8),
+                  NumberInputLabel(controller: dayController, placeholder: "nap",),
+                  const Spacer(),
+                ],
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              onPressed: () => getWorkoutData(),
-            ),
+              const SizedBox(height: 8),
+
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text('Időtartam:', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const SizedBox(width: 12),
+                    DurationChooser(duration: duration),
+                  ]
+              ),
+              const SizedBox(width: 8),
+              Row(
+                children: [
+                  const Text('Helyszín:', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const SizedBox(width: 12),
+                  StringInputLabel(controller: locationController, placeholder: "Helyszín",),
+                ],
+              ),
+
+              const SizedBox(height: 16),
+
+              Align(
+                alignment: Alignment.centerRight,
+                child: Button(
+                  text: 'Edzés rögzítése',
+                  style: const TextStyle(
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: Colors.black
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  onPressed: () => getWorkoutData(),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      )
     );
   }
 }
