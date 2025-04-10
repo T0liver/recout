@@ -194,6 +194,54 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Nincs hirdetés, helyette itt egy kutyás kép'**
   String get noads;
+
+  /// A főképernyőn lévő kis kártyának a tipp felirata
+  ///
+  /// In hu, this message translates to:
+  /// **'Írd be az edzés nevét...'**
+  String get inputworkout;
+
+  /// Időpont szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Időpont'**
+  String get date;
+
+  /// Időtartam szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Időtartam'**
+  String get duration;
+
+  /// Helyszín szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Helyszín'**
+  String get location;
+
+  /// helyszín szöveg kisbetűsen
+  ///
+  /// In hu, this message translates to:
+  /// **'helyszín'**
+  String get location_l;
+
+  /// év szöveg kisbetűsen
+  ///
+  /// In hu, this message translates to:
+  /// **'év'**
+  String get year;
+
+  /// hó  szöveg kisbetűsen
+  ///
+  /// In hu, this message translates to:
+  /// **'hó'**
+  String get month;
+
+  /// nap szöveg kisbetűsen
+  ///
+  /// In hu, this message translates to:
+  /// **'nap'**
+  String get day;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

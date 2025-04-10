@@ -71,5 +71,37 @@
     "noads": "Nincs hirdetés, helyette itt egy kutyás kép",
     "@noads": {
         "dedsctiption": "Vicces szöveg egy kedves kép fölé."
+    },
+    "inputworkout": "Írd be az edzés nevét...",
+    "@inputworkout": {
+        "description": "A főképernyőn lévő kis kártyának a tipp felirata"
+    },
+    "date": "Időpont",
+    "@date": {
+        "description": "Időpont szöveg"
+    },
+    "duration": "Időtartam",
+    "@duration": {
+        "description": "Időtartam szöveg"
+    },
+    "location": "Helyszín",
+    "@location": {
+        "description": "Helyszín szöveg"
+    },
+    "location_l": "helyszín",
+    "@location_l": {
+        "description": "helyszín szöveg kisbetűsen"
+    },
+    "year": "év",
+    "@year": {
+        "description": "év szöveg kisbetűsen"
+    },
+    "month": "hó",
+    "@month": {
+        "description": "hó  szöveg kisbetűsen"
+    },
+    "day": "nap",
+    "@day": {
+        "description": "nap szöveg kisbetűsen"
     }
 }

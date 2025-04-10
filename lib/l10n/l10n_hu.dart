@@ -58,4 +58,28 @@ class L10nHu extends L10n {
 
   @override
   String get noads => 'Nincs hirdetés, helyette itt egy kutyás kép';
+
+  @override
+  String get inputworkout => 'Írd be az edzés nevét...';
+
+  @override
+  String get date => 'Időpont';
+
+  @override
+  String get duration => 'Időtartam';
+
+  @override
+  String get location => 'Helyszín';
+
+  @override
+  String get location_l => 'helyszín';
+
+  @override
+  String get year => 'év';
+
+  @override
+  String get month => 'hó';
+
+  @override
+  String get day => 'nap';
 }
