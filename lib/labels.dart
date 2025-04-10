@@ -168,6 +168,7 @@ class NumberInputLabel extends StatelessWidget {
           isDense: true,
           hintText: placeholder,
           contentPadding: const EdgeInsets.symmetric(vertical: 4),
+          hintStyle: const TextStyle(color: Color(0xFFB3B3B3)),
           border: const UnderlineInputBorder(),
         ),
       ),
@@ -176,9 +177,9 @@ class NumberInputLabel extends StatelessWidget {
 }
 
 class DurationChooser extends StatefulWidget {
-  String duration;
+  final String duration;
 
-  DurationChooser ({
+  const DurationChooser ({
     super.key,
     required this.duration
   });
@@ -188,7 +189,7 @@ class DurationChooser extends StatefulWidget {
 }
 
 class _DurationChooserState extends State<DurationChooser> {
-  String duration;
+  late String duration;
 
   _DurationChooserState ({
     required this.duration
@@ -197,10 +198,16 @@ class _DurationChooserState extends State<DurationChooser> {
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
+    final units = [l10n.hour, l10n.minute];
+
+    if (!units.contains(duration)) {
+      duration = l10n.minute;
+    }
+
     return DropdownButton<String>(
       value: duration,
       underline: const SizedBox(),
-      items: [l10n.hour,].map((String value) {
+      items: [l10n.hour, l10n.minute].map((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value, style: const TextStyle(decoration: TextDecoration.underline)),
@@ -218,23 +225,29 @@ class _DurationChooserState extends State<DurationChooser> {
 class StringInputLabel extends StatelessWidget {
   final String? placeholder;
   final TextEditingController controller;
+  final double? width;
 
   const StringInputLabel({
     super.key,
     required this.controller,
     this.placeholder = "...",
+    this.width = 200,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      width: width,
       child: TextField(
         controller: controller,
-        style: const TextStyle(
-          color: Colors.grey,
-          decoration: TextDecoration.underline,
+        decoration: InputDecoration(
+          isDense: true,
+          hintText: placeholder,
+          contentPadding: EdgeInsets.symmetric(vertical: 4),
+          border: UnderlineInputBorder(),
+          labelStyle: const TextStyle(color: Color(0xFFB3B3B3)),
+          hintStyle: const TextStyle(color: Color(0xFFB3B3B3)),
         ),
-        decoration: const InputDecoration(border: InputBorder.none),
       ),
     );
   }
