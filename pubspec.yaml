@@ -78,6 +78,7 @@ flutter:
     - assets/graphics/icons/icons8-strong-arm-32.png
     - assets/graphics/icons/icons8-strong-arm-128.png
     - assets/graphics/icons/icons8-test-account-32.png
+    - assets/graphics/icons/icons8-test-account-128.png
     - assets/graphics/icons/icons8-trash-can-32.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:recout/account.dart';
 import 'package:recout/button.dart';
 import 'package:recout/critique.dart';
 import 'package:recout/home_page.dart';
@@ -44,6 +45,7 @@ class RecOut extends StatelessWidget {
         '/languages': (context) => const LanguagePage(),
         '/themes': (context) => const ThemePage(),
         '/critique': (context) => const CritiquePage(),
+        '/profile': (context) => const AccountPage(),
       }
     );
   }

@@ -186,6 +186,7 @@ class TitleUndelineText extends StatelessWidget {
   final TextStyle style;
   final Divider divider;
   final double maxwidth;
+  final bool center;
 
   const TitleUndelineText ({
     super.key,
@@ -198,6 +199,7 @@ class TitleUndelineText extends StatelessWidget {
     ),
     this.divider = const Divider(height: 2, thickness: 1),
     this.maxwidth = 500,
+    this.center = false,
   });
 
   @override
@@ -209,7 +211,7 @@ class TitleUndelineText extends StatelessWidget {
     return SizedBox(
       width: width,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: center ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           Text(
             text,
@@ -234,5 +236,6 @@ class SmallTitleUndelineText extends TitleUndelineText {
     ),
     super.divider = const Divider(height: 1, thickness: 0.8),
     super.maxwidth = 500,
+    super.center,
   });
 }
