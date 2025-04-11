@@ -161,3 +161,27 @@ class TextIconBtn extends StatelessWidget {
     );
   }
 }
+
+class IconBtn extends StatelessWidget {
+  final String icon;
+  final Size size;
+  final VoidCallback onPressed;
+  
+  const IconBtn({
+    super.key,
+    required this.icon,
+    this.size = const Size(64, 64),
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: size.width, height: size.height,
+      child: IconButton(
+          onPressed: onPressed,
+          icon: Image.asset(icon, width: size.width, height: size.height,)
+      )
+    );
+  }
+}
