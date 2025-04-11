@@ -23,6 +23,36 @@ class _NewActivityPageState extends State<NewActivityPage> {
 
   WorkOut? workOut;
 
+  bool nameValid = true;
+  bool yearValid = true;
+  bool monthValid = true;
+  bool dayValid = true;
+  bool durationValid = true;
+
+  void getWorkoutData() {
+    final isYearValid = int.tryParse(yearController.text) != null;
+    final isMonthValid = int.tryParse(monthController.text) != null;
+    final isDayValid = int.tryParse(dayController.text) != null;
+    final isDurationValid = int.tryParse(durationController.text) != null;
+    final isNameValid = nameController.text != '';
+
+    setState(() {
+      yearValid = isYearValid;
+      monthValid = isMonthValid;
+      dayValid = isDayValid;
+      durationValid = isDurationValid;
+      nameValid = isNameValid;
+    });
+
+    if (isYearValid && isMonthValid && isDayValid && isDurationValid) {
+      debugPrint('Edzés neve: ${nameController.text}');
+      debugPrint('Időpont: ${yearController.text}.${monthController.text}.${dayController.text}.');
+      debugPrint('Időtartam: ${durationController.text} $duration');
+      debugPrint('Helyszín: ${locationController.text}');
+      Navigator.pushNamed(context, '/');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
@@ -46,18 +76,18 @@ class _NewActivityPageState extends State<NewActivityPage> {
                 height: MediaQuery.sizeOf(context).height * 0.15,
               ),
               const Spacer(flex: 1),
-              BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout,),
+              BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout, valid: nameValid,),
               SizedBox(height: 20),
               BodyBase(l10n.dateofworkout),
               SizedBox(height: 10),
               Row(
                 children: [
                   Spacer(),
-                  NumberInputLabel(controller: yearController, placeholder: l10n.year),
+                  NumberInputLabel(controller: yearController, placeholder: l10n.year, valid: yearValid,),
                   SizedBox(width: 10),
-                  NumberInputLabel(controller: monthController, placeholder: l10n.month),
+                  NumberInputLabel(controller: monthController, placeholder: l10n.month, valid: monthValid,),
                   SizedBox(width: 10),
-                  NumberInputLabel(controller: dayController, placeholder: l10n.day),
+                  NumberInputLabel(controller: dayController, placeholder: l10n.day, valid: dayValid,),
                   Spacer(),
                 ],
               ),
@@ -68,7 +98,7 @@ class _NewActivityPageState extends State<NewActivityPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Spacer(),
-                    NumberInputLabel(controller: durationController, width: 30),
+                    NumberInputLabel(controller: durationController, width: 30, valid: durationValid,),
                     DurationChooser(duration: duration),
                     Spacer(),
                   ]
@@ -78,7 +108,7 @@ class _NewActivityPageState extends State<NewActivityPage> {
               SizedBox(height: 10),
               BoxInputLabel(controller: locationController, placeholder: l10n.locationinput,),
               Spacer(flex: 1),
-              TextIconBtn(text: l10n.save, icon: 'assets/graphics/icons/icons8-save-32.png', onPressed: () {}),
+              TextIconBtn(text: l10n.save, icon: 'assets/graphics/icons/icons8-save-32.png', onPressed: () => getWorkoutData()),
               Spacer(flex: 1,)
             ],
           ),
