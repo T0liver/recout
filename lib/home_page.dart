@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recout/button.dart';
 import 'package:recout/cards.dart';
 import 'package:recout/globals.dart';
+import 'package:recout/l10n/l10n.dart';
 import 'package:recout/texts.dart';
 
 class HomePage extends StatelessWidget {
@@ -39,7 +40,7 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 50,),
           WorkoutRecCard(),
           SizedBox(height: 20,),
-          PrevWorksTitle(),
+          TitleUndelineText(text: L10n.of(context)!.prevworkouts),
           SizedBox(height: 2,),
           ListCard(name: 'Lábujjbirkózás', duration: '0,5 óra', date: '2025. 03. 16.', location: 'Budapest'),
         ],
