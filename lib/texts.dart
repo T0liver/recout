@@ -142,3 +142,49 @@ class PrevWorksTitle extends StatelessWidget {
     );
   }
 }
+
+class BodyStrongText extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+
+  const BodyStrongText(this.text, {
+    super.key,
+    this.style = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+        color: Colors.black
+    ),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: style,
+    );
+  }
+}
+
+class BodySmallText extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+
+  const BodySmallText(this.text, {
+    super.key,
+    this.style = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: Colors.black
+    ),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: style,
+    );
+  }
+}
