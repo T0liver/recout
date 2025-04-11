@@ -326,3 +326,94 @@ class ListCard extends StatelessWidget {
     );
   }
 }
+
+class DialogueCard extends StatelessWidget {
+  final String title;
+  final String body;
+  final double maxwidth;
+  final String okText;
+  final String okIcon;
+  final String noText;
+
+  const DialogueCard({
+    super.key,
+    required this.title,
+    required this.body,
+    this.maxwidth = 500,
+    this.okText = 'Igen',
+    this.noText = 'Nem',
+    this.okIcon = 'assets/graphics/icons/icons8-trash-can-32.png',
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final double width =
+    MediaQuery.of(context).size.width * 0.9 < 500
+        ? MediaQuery.of(context).size.width * 0.9
+        : 500;
+    return ClipRect(
+        child: SizedBox(width: width,
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: Colors.grey.shade300),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Heading(text: title, fontSize: 18,),
+                const SizedBox(height: 8,),
+                BodySmallText(
+                  body,
+                  style: const TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black
+                  ),
+                ),
+                const SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Spacer(),
+                    TextIconBtn(
+                        text: okText,
+                        icon: okIcon,
+                        textstyle: const TextStyle(
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Colors.black
+                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 5),
+                        size: Size(128, 50),
+                        onPressed: () {}
+                    ),
+                    Spacer(),
+                    Button(
+                        text: noText,
+                        style: const TextStyle(
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Colors.black
+                        ),
+                        bgColor: Colors.white,
+                        border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
+                        padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 5),
+                        size: Size(128, 50),
+                        onPressed: () {}
+                    ),
+                    Spacer(),
+                  ],
+                )
+              ],
+            ),
+          ),
+        )
+    );
+  }
+}
