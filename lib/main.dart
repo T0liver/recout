@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:recout/button.dart';
 import 'package:recout/home_page.dart';
 
 import 'package:recout/l10n/l10n.dart';
 import 'package:recout/first_page.dart';
 import 'package:recout/login_page.dart';
 import 'package:recout/new_activity.dart';
-import 'package:recout/open_activity.dart';
 import 'package:recout/register_page.dart';
+import 'package:recout/settings.dart';
 
 void main() {
   GlobalMaterialLocalizations.delegate;
@@ -36,6 +37,7 @@ class RecOut extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/new_activity': (context) => const NewActivityPage(),
+        '/settings': (context) => const SettingsPage(),
       }
     );
   }
