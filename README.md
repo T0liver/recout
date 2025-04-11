@@ -50,13 +50,13 @@ Elkészítendő widgetek listája
 	<summary>Főképernyő</summary>
 
 - [ ] főképernyő oldal
-	- [ ] felső üdv felirat
-	- [ ] Edzés gyors hozzáadása panel
-		- [ ] normál állapot
-		- [ ] hozzáadás állapot
-	- [ ] Korábbi edzések panel
-		- [ ] Korábbi edzések felirat
-		- [ ] Edzés elem panel
+	- [x] felső üdv felirat
+	- [x] Edzés gyors hozzáadása panel
+		- [x] normál állapot
+		- [x] hozzáadás állapot
+	- [x] Korábbi edzések panel
+		- [x] Korábbi edzések felirat
+		- [x] Edzés elem panel
 		- [ ] hirdetés panel
 	- [ ] edzés hozzáadása "+" gomb
 
