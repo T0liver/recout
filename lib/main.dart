@@ -5,6 +5,7 @@ import 'package:recout/home_page.dart';
 import 'package:recout/l10n/l10n.dart';
 import 'package:recout/first_page.dart';
 import 'package:recout/login_page.dart';
+import 'package:recout/new_activity.dart';
 import 'package:recout/register_page.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class RecOut extends StatelessWidget {
         '/first': (context) => const FirstPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
+        '/new_activity': (context) => const NewActivityPage(),
       }
     );
   }
