@@ -37,7 +37,10 @@ class SettingsPage extends StatelessWidget {
               const SizedBox(height: 10,),
               SmallTitleUndelineText(text: l10n.useracc),
               const SizedBox(height: 10,),
-              SmallTitleUndelineText(text: l10n.reporterror),
+              ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, '/critique'),
+                child: SmallTitleUndelineText(text: l10n.reporterror),
+              ),
               Spacer(flex: 3,),
               BodySmallText(l10n.impressum),
               Spacer(flex: 1,),
