@@ -4,6 +4,7 @@ import "package:recout/button.dart";
 import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
+import "package:recout/workout.dart";
 
 class RecWorkoutCard extends StatelessWidget {
 
@@ -262,19 +263,9 @@ class _WorkoutRecCardState extends State<WorkoutRecCard> {
 }
 
 class ListCard extends StatelessWidget {
-  final String name;
-  final String duration;
-  final String location;
-  final String date;
-  final String icon;
-  const ListCard({
-    super.key,
-    required this.name,
-    required this.duration,
-    required this.date,
-    this.location = '',
-    this.icon = 'assets/graphics/icons/icons8-strong-arm-128.png'
-  });
+  final WorkOut workOut;
+
+  const ListCard(this.workOut, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -298,17 +289,17 @@ class ListCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Image.asset(icon, width: 40, height: 40,),
+              Image.asset(workOut.icon, width: 40, height: 40,),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BodyStrongText(name),
+                    BodyStrongText(workOut.name),
                     SizedBox(height: 4),
-                    BodySmallText(duration),
-                    BodySmallText(location),
-                    BodySmallText(date),
+                    BodySmallText(workOut.duration.toString()),
+                    BodySmallText(workOut.location),
+                    BodySmallText('${workOut.date.year}.${workOut.date.month}.${workOut.date.day}.'),
                   ],
                 ),
               ),
