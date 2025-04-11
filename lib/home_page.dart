@@ -40,6 +40,8 @@ class HomePage extends StatelessWidget {
           WorkoutRecCard(),
           SizedBox(height: 20,),
           PrevWorksTitle(),
+          SizedBox(height: 2,),
+          ListCard(name: 'Lábujjbirkózás', duration: '0,5 óra', date: '2025. 03. 16.', location: 'Budapest'),
         ],
       ),
     );

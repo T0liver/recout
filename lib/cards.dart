@@ -260,3 +260,69 @@ class _WorkoutRecCardState extends State<WorkoutRecCard> {
     return !showInput ? RecWorkoutCard() : InputWorkoutCard();
   }
 }
+
+class ListCard extends StatelessWidget {
+  final String name;
+  final String duration;
+  final String location;
+  final String date;
+  final String icon;
+  const ListCard({
+    super.key,
+    required this.name,
+    required this.duration,
+    required this.date,
+    this.location = '',
+    this.icon = 'assets/graphics/icons/icons8-strong-arm-128.png'
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width * 0.9 < 500
+        ? MediaQuery.of(context).size.width * 0.9
+        : 500;
+    return SizedBox(
+      width: width,
+      child: GestureDetector(
+        onTap: () {
+          debugPrint('Details');
+          // Navigator.pushNamed(context, '/workout');
+        },
+        child: Container(
+          margin: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: Colors.grey.shade300),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            children: [
+              Image.asset(icon, width: 40, height: 40,),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BodyStrongText(name),
+                    SizedBox(height: 4),
+                    BodySmallText(duration),
+                    BodySmallText(location),
+                    BodySmallText(date),
+                  ],
+                ),
+              ),
+              IconButton(
+                icon: Image.asset('assets/graphics/icons/icons8-editing-32.png', width: 24, height: 24,),
+                onPressed: () {
+                  debugPrint('Edit');
+                  // Navigator.pushNamed(context,'/edit');
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
