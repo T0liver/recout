@@ -98,7 +98,7 @@ class SettingsBtn extends StatelessWidget {
   }
 }
 
-class IconBtn extends StatelessWidget {
+class TextIconBtn extends StatelessWidget {
   final String text;
   final String icon;
   final Size size;
@@ -109,7 +109,7 @@ class IconBtn extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final BorderSide border;
   
-  const IconBtn({
+  const TextIconBtn({
     super.key,
     this.text = '',
     this.icon = '',
