@@ -4,8 +4,8 @@ import 'package:recout/texts.dart';
 import 'button.dart';
 import 'l10n/l10n.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+class ThemePage extends StatelessWidget {
+  const ThemePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,23 +23,13 @@ class SettingsPage extends StatelessWidget {
               const SizedBox(height: 10,),
               const BackBtn(),
               SizedBox(height: 20),
-              TitleUndelineText(text: l10n.settings),
+              TitleUndelineText(text: l10n.theme),
               const SizedBox(height: 20,),
-              ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/languages'),
-                child: SmallTitleUndelineText(text: l10n.language),
-              ),
+              SmallTitleUndelineText(text: 'Világos'),
               const SizedBox(height: 10,),
-              ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/themes'),
-                child: SmallTitleUndelineText(text: l10n.changetheme),
-              ),
-              const SizedBox(height: 10,),
-              SmallTitleUndelineText(text: l10n.useracc),
-              const SizedBox(height: 10,),
-              SmallTitleUndelineText(text: l10n.reporterror),
+              SmallTitleUndelineText(text: 'Sötét'),
               Spacer(flex: 3,),
-              BodySmallText(l10n.impressum),
+              BodySmallText(l10n.helptranslate),
               Spacer(flex: 1,),
             ],
           ),

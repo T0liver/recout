@@ -10,6 +10,7 @@ import 'package:recout/login_page.dart';
 import 'package:recout/new_activity.dart';
 import 'package:recout/register_page.dart';
 import 'package:recout/settings.dart';
+import 'package:recout/theme.dart';
 
 void main() {
   GlobalMaterialLocalizations.delegate;
@@ -40,6 +41,7 @@ class RecOut extends StatelessWidget {
         '/new_activity': (context) => const NewActivityPage(),
         '/settings': (context) => const SettingsPage(),
         '/languages': (context) => const LanguagePage(),
+        '/themes': (context) => const ThemePage(),
       }
     );
   }
