@@ -103,5 +103,121 @@
     "day": "nap",
     "@day": {
         "description": "nap szöveg kisbetűsen"
+    },
+    "yes_uppercase": "IGEN",
+    "@yes_uppercase": {
+        "description": "igen csupa nagybetűkkel"
+    },
+    "no_uppercase": "NEM",
+    "@no_uppercase": {
+        "description": "nem csupa nagybetűkkel"
+    },
+    "deleteTitle": "Biztosan törölni akarod?",
+    "@deleteTitle": {
+        "description": "Törlés megerősítése dialógus cím"
+    },
+    "cantBeUndone": "Ez a művelet nem vonható vissza.",
+    "@cantBeUndone": {
+        "description": "Figyelmeztetés a törlés műveletről."
+    },
+    "cantBeUndoneAccount": "A fiókodról van szó. Ha törlöd, minden alkalmazásbeli tevékenységed elveszik a fiókoddal együtt!\nEz a művelet nem vonható vissza.",
+    "@cantBeUndoneAccount": {
+        "description": "Figyelmeztetés a fiók törlés műveletének visszavonhatatlanságáról."
+    },
+    "recordnewactivity": "Új aktivitás rögzítése...",
+    "@recordnewactivity": {
+        "description": "Új aktivitás rögzítésének szövege."
+    },
+    "dateofworkout": "Az edzés időpontja",
+    "@dateofworkout": {
+        "description": "Edzés időpontja szöveg"
+    },
+    "durationofworkout": "Az edzés időtartama",
+    "@durationofworkout": {
+        "description": "Edzés időtartama szöveg"
+    },
+    "locationofworkout": "Az edzés helyszíne",
+    "@locationofworkout": {
+        "description": "Edzés helyszíne szöveg"
+    },
+    "locationinput": "Helyszín beírása",
+    "@locationinput": {
+        "description": "Helyszín beírása beviteli mező"
+    },
+    "save": "Mentés",
+    "@save": {
+        "description": "Mentés szöveg nagybetűvel"
+    },
+    "editactivity": "Aktivitás szerkesztése",
+    "@editactivity": {
+        "description": "Aktivitás szerkesztése szöveg"
+    },
+    "settings": "Beállítások",
+    "@settings": {
+        "description": "Beállítások szöveg"
+    },
+    "language": "Nyelv",
+    "@language": {
+        "description": "Nyelv szöveg"
+    },
+    "changetheme": "Téma módosítása",
+    "@changetheme": {
+        "description": "Téma módosítása szöveg"
+    },
+    "useracc": "Felhasználói fiók",
+    "@useracc": {
+        "description": "Felhasználói fiók szöveg"
+    },
+    "reporterror": "Hiba bejelentése",
+    "@reporterror": {
+        "description": "Hiba bejelentése szöveg"
+    },
+    "impressum": "Az alkalmazást Taschner Olivér készítette a\nBME VIAUAV45 tantárgy keretében.\nAz ikonok az icons8.com-ról származnak.",
+    "@impressum": {
+        "description": "Impresszum szövege, ikonok forrása szöveg beállítások alján."
+    },
+    "helptranslate": "Nem elérhető a nyelveden?\nSegíts a fordításban!",
+    "@helptranslate": {
+        "description": "Közreműködés a fordításban szöveg."
+    },
+    "theme": "Téma",
+    "@theme": {
+        "description": "Téma szöveg"
+    },
+    "helptheme": "Szeretnéd más külsőben látni az appot?\nAdj hozzá új témát!",
+    "@helptheme": {
+        "description": "Közreműködés a témákban szöveg."
+    },
+    "failcritique": "Hiba, kritika",
+    "@failcritique": {
+        "description": "Hiba, kritika oldal címe."
+    },
+    "foundabugline": "Hibát találtál?\nMűködhetne valami jobban is?",
+    "@foundabugline": {
+        "description": "Hibát találtás felhívó szöveg."
+    },
+    "reportbughere": "Jelentsd be a recout@toliver.hu e-mail címen!",
+    "@reportbughere": {
+        "description": "Bejelentés menete szöveg."
+    },
+    "youraccount": "Fiókod",
+    "@youraccount": {
+        "description": "A te fiókod szöveg."
+    },
+    "editdatas": "Adatok módosítása",
+    "@editdatas": {
+        "description": "Adatok módosítása gomb szövege."
+    },
+    "deleteacc": "Fiók törlése",
+    "@deleteacc": {
+        "description": "Fiók törlése gomb szövege."
+    },
+    "modify": "Módosítás",
+    "@modify": {
+        "description": "Módosítá szöveg."
+    },
+    "allright": "Így már rendben van!",
+    "@allright": {
+        "description": "O.K., vicces szöveg."
     }
 }

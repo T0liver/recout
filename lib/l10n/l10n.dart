@@ -242,6 +242,180 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'nap'**
   String get day;
+
+  /// igen csupa nagybetűkkel
+  ///
+  /// In hu, this message translates to:
+  /// **'IGEN'**
+  String get yes_uppercase;
+
+  /// nem csupa nagybetűkkel
+  ///
+  /// In hu, this message translates to:
+  /// **'NEM'**
+  String get no_uppercase;
+
+  /// Törlés megerősítése dialógus cím
+  ///
+  /// In hu, this message translates to:
+  /// **'Biztosan törölni akarod?'**
+  String get deleteTitle;
+
+  /// Figyelmeztetés a törlés műveletről.
+  ///
+  /// In hu, this message translates to:
+  /// **'Ez a művelet nem vonható vissza.'**
+  String get cantBeUndone;
+
+  /// Figyelmeztetés a fiók törlés műveletének visszavonhatatlanságáról.
+  ///
+  /// In hu, this message translates to:
+  /// **'A fiókodról van szó. Ha törlöd, minden alkalmazásbeli tevékenységed elveszik a fiókoddal együtt!\nEz a művelet nem vonható vissza.'**
+  String get cantBeUndoneAccount;
+
+  /// Új aktivitás rögzítésének szövege.
+  ///
+  /// In hu, this message translates to:
+  /// **'Új aktivitás rögzítése...'**
+  String get recordnewactivity;
+
+  /// Edzés időpontja szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Az edzés időpontja'**
+  String get dateofworkout;
+
+  /// Edzés időtartama szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Az edzés időtartama'**
+  String get durationofworkout;
+
+  /// Edzés helyszíne szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Az edzés helyszíne'**
+  String get locationofworkout;
+
+  /// Helyszín beírása beviteli mező
+  ///
+  /// In hu, this message translates to:
+  /// **'Helyszín beírása'**
+  String get locationinput;
+
+  /// Mentés szöveg nagybetűvel
+  ///
+  /// In hu, this message translates to:
+  /// **'Mentés'**
+  String get save;
+
+  /// Aktivitás szerkesztése szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Aktivitás szerkesztése'**
+  String get editactivity;
+
+  /// Beállítások szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Beállítások'**
+  String get settings;
+
+  /// Nyelv szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Nyelv'**
+  String get language;
+
+  /// Téma módosítása szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Téma módosítása'**
+  String get changetheme;
+
+  /// Felhasználói fiók szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Felhasználói fiók'**
+  String get useracc;
+
+  /// Hiba bejelentése szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Hiba bejelentése'**
+  String get reporterror;
+
+  /// Impresszum szövege, ikonok forrása szöveg beállítások alján.
+  ///
+  /// In hu, this message translates to:
+  /// **'Az alkalmazást Taschner Olivér készítette a\nBME VIAUAV45 tantárgy keretében.\nAz ikonok az icons8.com-ról származnak.'**
+  String get impressum;
+
+  /// Közreműködés a fordításban szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Nem elérhető a nyelveden?\nSegíts a fordításban!'**
+  String get helptranslate;
+
+  /// Téma szöveg
+  ///
+  /// In hu, this message translates to:
+  /// **'Téma'**
+  String get theme;
+
+  /// Közreműködés a témákban szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Szeretnéd más külsőben látni az appot?\nAdj hozzá új témát!'**
+  String get helptheme;
+
+  /// Hiba, kritika oldal címe.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hiba, kritika'**
+  String get failcritique;
+
+  /// Hibát találtás felhívó szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hibát találtál?\nMűködhetne valami jobban is?'**
+  String get foundabugline;
+
+  /// Bejelentés menete szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Jelentsd be a recout@toliver.hu e-mail címen!'**
+  String get reportbughere;
+
+  /// A te fiókod szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Fiókod'**
+  String get youraccount;
+
+  /// Adatok módosítása gomb szövege.
+  ///
+  /// In hu, this message translates to:
+  /// **'Adatok módosítása'**
+  String get editdatas;
+
+  /// Fiók törlése gomb szövege.
+  ///
+  /// In hu, this message translates to:
+  /// **'Fiók törlése'**
+  String get deleteacc;
+
+  /// Módosítá szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Módosítás'**
+  String get modify;
+
+  /// O.K., vicces szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Így már rendben van!'**
+  String get allright;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

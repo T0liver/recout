@@ -82,4 +82,91 @@ class L10nHu extends L10n {
 
   @override
   String get day => 'nap';
+
+  @override
+  String get yes_uppercase => 'IGEN';
+
+  @override
+  String get no_uppercase => 'NEM';
+
+  @override
+  String get deleteTitle => 'Biztosan törölni akarod?';
+
+  @override
+  String get cantBeUndone => 'Ez a művelet nem vonható vissza.';
+
+  @override
+  String get cantBeUndoneAccount => 'A fiókodról van szó. Ha törlöd, minden alkalmazásbeli tevékenységed elveszik a fiókoddal együtt!\nEz a művelet nem vonható vissza.';
+
+  @override
+  String get recordnewactivity => 'Új aktivitás rögzítése...';
+
+  @override
+  String get dateofworkout => 'Az edzés időpontja';
+
+  @override
+  String get durationofworkout => 'Az edzés időtartama';
+
+  @override
+  String get locationofworkout => 'Az edzés helyszíne';
+
+  @override
+  String get locationinput => 'Helyszín beírása';
+
+  @override
+  String get save => 'Mentés';
+
+  @override
+  String get editactivity => 'Aktivitás szerkesztése';
+
+  @override
+  String get settings => 'Beállítások';
+
+  @override
+  String get language => 'Nyelv';
+
+  @override
+  String get changetheme => 'Téma módosítása';
+
+  @override
+  String get useracc => 'Felhasználói fiók';
+
+  @override
+  String get reporterror => 'Hiba bejelentése';
+
+  @override
+  String get impressum => 'Az alkalmazást Taschner Olivér készítette a\nBME VIAUAV45 tantárgy keretében.\nAz ikonok az icons8.com-ról származnak.';
+
+  @override
+  String get helptranslate => 'Nem elérhető a nyelveden?\nSegíts a fordításban!';
+
+  @override
+  String get theme => 'Téma';
+
+  @override
+  String get helptheme => 'Szeretnéd más külsőben látni az appot?\nAdj hozzá új témát!';
+
+  @override
+  String get failcritique => 'Hiba, kritika';
+
+  @override
+  String get foundabugline => 'Hibát találtál?\nMűködhetne valami jobban is?';
+
+  @override
+  String get reportbughere => 'Jelentsd be a recout@toliver.hu e-mail címen!';
+
+  @override
+  String get youraccount => 'Fiókod';
+
+  @override
+  String get editdatas => 'Adatok módosítása';
+
+  @override
+  String get deleteacc => 'Fiók törlése';
+
+  @override
+  String get modify => 'Módosítás';
+
+  @override
+  String get allright => 'Így már rendben van!';
 }
