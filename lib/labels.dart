@@ -197,15 +197,17 @@ class DurationChooser extends StatefulWidget {
   });
 
   @override
-  State<StatefulWidget> createState() => _DurationChooserState(duration: duration);
+  State<StatefulWidget> createState() => _DurationChooserState();
 }
 
 class _DurationChooserState extends State<DurationChooser> {
   late String duration;
 
-  _DurationChooserState ({
-    required this.duration
-  });
+  @override
+  void initState() {
+    super.initState();
+    duration = widget.duration;
+  }
 
   @override
   Widget build(BuildContext context) {

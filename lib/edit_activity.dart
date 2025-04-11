@@ -11,11 +11,11 @@ class EditActivityPage extends StatefulWidget {
   const EditActivityPage(this.workout, {super.key});
 
   @override
-  State<StatefulWidget> createState() => _EditActivityPageState(workout);
+  State<StatefulWidget> createState() => _EditActivityPageState();
 }
 
 class _EditActivityPageState extends State<EditActivityPage> {
-  WorkOut workOut;
+  late WorkOut workOut;
 
   late TextEditingController nameController = TextEditingController(text: workOut.name);
   late TextEditingController yearController = TextEditingController(text: '${workOut.date.year}');
@@ -25,7 +25,11 @@ class _EditActivityPageState extends State<EditActivityPage> {
   late String duration = workOut.durationUnit;
   late TextEditingController locationController = TextEditingController(text: workOut.location);
 
-  _EditActivityPageState(this.workOut);
+  @override
+  void initState() {
+    super.initState();
+    workOut = widget.workout;
+  }
 
   bool nameValid = true;
   bool yearValid = true;
