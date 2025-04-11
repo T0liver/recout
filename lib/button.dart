@@ -97,3 +97,67 @@ class SettingsBtn extends StatelessWidget {
     );
   }
 }
+
+class IconBtn extends StatelessWidget {
+  final String text;
+  final String icon;
+  final Size size;
+  final Size iconsize;
+  final TextStyle textstyle;
+  final VoidCallback onPressed;
+  final Color bgColor;
+  final EdgeInsetsGeometry padding;
+  final BorderSide border;
+  
+  const IconBtn({
+    super.key,
+    this.text = '',
+    this.icon = '',
+    this.size = const Size(200, 70),
+    this.iconsize = const Size(32, 32),
+    this.textstyle = const TextStyle(
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w600,
+        fontSize: 26,
+        color: Colors.black
+    ),
+    required this.onPressed,
+    this.bgColor = const Color(0xFFF9DC5C),
+    this.padding = const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+    this.border = const BorderSide(width: 0, color: Color(0xFFF9DC5C)),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: size.width,
+      height: size.height,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: bgColor,
+          padding: padding,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: border,
+          ),
+          elevation: 0,
+        ), // style
+        child: Center(
+          child: Row(
+            children: [
+              Spacer(),
+              Text(
+                text,
+                style: textstyle,
+              ),
+              Spacer(),
+              Image.asset(icon, width: iconsize.width, height: iconsize.height,),
+              Spacer(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
