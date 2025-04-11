@@ -188,3 +188,59 @@ class BodySmallText extends StatelessWidget {
     );
   }
 }
+
+class TitleUndelineText extends StatelessWidget {
+  final String text;
+  final TextStyle style;
+  final Divider divider;
+  final double maxwidth;
+
+  const TitleUndelineText ({
+    super.key,
+    required this.text,
+    this.style = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 26,
+        fontWeight: FontWeight.w800,
+        color: Colors.black
+    ),
+    this.divider = const Divider(height: 2, thickness: 1),
+    this.maxwidth = 500,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final double width =
+    MediaQuery.of(context).size.width * 0.9 < maxwidth
+        ? MediaQuery.of(context).size.width * 0.9
+        : maxwidth;
+    return SizedBox(
+      width: width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            text,
+            style: style,
+          ),
+          const SizedBox(height: 8),
+          const Divider(height: 2, thickness: 1),
+        ],
+      ),
+    );
+  }
+}
+
+class SmallTitleUndelineText extends TitleUndelineText {
+  const SmallTitleUndelineText({
+    required super.text,
+    super.style = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        color: Colors.black
+    ),
+    super.divider = const Divider(height: 1, thickness: 0.8),
+    super.maxwidth = 500,
+  });
+}
