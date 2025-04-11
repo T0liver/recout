@@ -18,6 +18,12 @@ class HomePage extends StatelessWidget {
       });
       return SizedBox.shrink();
     }
+    final String uname;
+    if (Globals.user?.username == null) {
+      uname = 'kondi_geza52';
+    } else {
+      uname = Globals.user!.username;
+    }
     return Scaffold(
       body: Column(
         children: [
@@ -29,7 +35,7 @@ class HomePage extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(height: 30,),
-                  HelloText(name: Globals.user!.username),
+                  HelloText(name: uname),
                 ],
               ),
               Spacer(),
