@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:recout/account.dart';
 import 'package:recout/critique.dart';
+import 'package:recout/globals.dart';
 import 'package:recout/home_page.dart';
 
 import 'package:recout/l10n/l10n.dart';
@@ -15,7 +16,7 @@ import 'package:recout/theme.dart';
 
 void main() {
   GlobalMaterialLocalizations.delegate;
-  const Locale("hu");
+  Locale(Globals.language);
   runApp(const RecOut());
 }
 

@@ -4,12 +4,13 @@ import 'package:recout/user.dart';
 import 'package:recout/workout.dart';
 
 class Globals {
-  static bool _isLoggedIn = true;
-  static String username = "Teszt felhasználó";
+  static  String language = "hu";
 
   static User? user;
 
   static WorkOut? workOut;
+
+  static bool _isLoggedIn = true;
 
   static bool loggedin() {
     return _isLoggedIn;

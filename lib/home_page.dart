@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(height: 30,),
-                  HelloText(name: Globals.username),
+                  HelloText(name: Globals.user!.username),
                 ],
               ),
               Spacer(),
