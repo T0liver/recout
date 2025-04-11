@@ -19,7 +19,7 @@ class FirstPage extends StatelessWidget {
                 child: Heading(text: l10n.firstGreet),
               ),
               const Spacer(flex: 2),
-              LanguageLabel(onPressed: () {},),
+              LanguageLabel(onPressed: () =>Navigator.pushNamed(context, '/languages'),),
               const Spacer(flex: 4),
               Button(text: l10n.login, onPressed: () {
                 Navigator.pushNamed(context, '/login');
