@@ -334,11 +334,15 @@ class DialogueCard extends StatelessWidget {
   final String okText;
   final String okIcon;
   final String noText;
+  final VoidCallback onYes;
+  final VoidCallback onNo;
 
   const DialogueCard({
     super.key,
     required this.title,
     required this.body,
+    required this.onYes,
+    required this.onNo,
     this.maxwidth = 500,
     this.okText = 'Igen',
     this.noText = 'Nem',
@@ -390,7 +394,7 @@ class DialogueCard extends StatelessWidget {
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 5),
                         size: Size(128, 50),
-                        onPressed: () {}
+                        onPressed: onYes
                     ),
                     Spacer(),
                     Button(
@@ -405,7 +409,7 @@ class DialogueCard extends StatelessWidget {
                         border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
                         padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 5),
                         size: Size(128, 50),
-                        onPressed: () {}
+                        onPressed: onNo
                     ),
                     Spacer(),
                   ],

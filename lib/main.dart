@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:recout/account.dart';
-import 'package:recout/button.dart';
 import 'package:recout/critique.dart';
 import 'package:recout/home_page.dart';
 
