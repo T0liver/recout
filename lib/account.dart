@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recout/cards.dart';
+import 'package:recout/globals.dart';
 import 'package:recout/texts.dart';
 
 import 'button.dart';
@@ -28,6 +29,21 @@ class _AccountPageState extends State<AccountPage> {
     MediaQuery.of(context).size.width * 0.9 < 700
         ? MediaQuery.of(context).size.width * 0.9
         : 700;
+
+    String uname, rname, dob, email;
+    if (Globals.user == null) {
+      uname = l10n.username_s;
+      rname = l10n.name_s;
+      dob = l10n.dateofbirth_s;
+      email = l10n.email_s;
+    } else {
+      uname = Globals.user!.username;
+      rname = Globals.user!.name;
+      DateTime dobTmp = Globals.user!.dateofbirth;
+      dob = '${dobTmp.year}.${dobTmp.month}.${dobTmp.day}.';
+      email = Globals.user!.email;
+    }
+
     return Scaffold(
       body: Stack(
         children: [
@@ -42,13 +58,13 @@ class _AccountPageState extends State<AccountPage> {
                   TitleUndelineText(text: l10n.useracc),
                   Spacer(),
                   Image.asset('assets/graphics/icons/icons8-test-account-128.png', height: 128,),
-                  SmallTitleUndelineText(text: '[felhasználónév]', center: true,),
+                  SmallTitleUndelineText(text: uname, center: true,),
                   Spacer(),
-                  SmallTitleUndelineText(text: '[vezetéknévnév][keresztnév]', center: true,),
+                  SmallTitleUndelineText(text: rname, center: true,),
                   Spacer(),
-                  SmallTitleUndelineText(text: '[születési idő]', center: true,),
+                  SmallTitleUndelineText(text: dob, center: true,),
                   Spacer(),
-                  SmallTitleUndelineText(text: '[e-mail cím ]', center: true,),
+                  SmallTitleUndelineText(text: email, center: true,),
                   Spacer(),
                   Button(text: l10n.editdatas, onPressed: () {}),
                   Spacer(),
