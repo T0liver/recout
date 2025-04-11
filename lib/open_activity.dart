@@ -65,7 +65,15 @@ class OpenActivity extends StatelessWidget {
               SizedBox(height: 10),
               BodyStrongText(workOut.location),
               Spacer(flex: 1),
-              TextIconBtn(text: l10n.save, icon: 'assets/graphics/icons/icons8-save-32.png', onPressed: () {}),
+              Row(
+                children: [
+                  Spacer(flex: 1),
+                  IconBtn(icon: 'assets/graphics/icons/icons8-remove-32.png', onPressed: () {}),
+                  Spacer(flex: 2),
+                  IconBtn(icon: 'assets/graphics/icons/icons8-edit-32.png', onPressed: () {}),
+                  Spacer(flex: 1),
+                ],
+              ),
               Spacer(flex: 1,)
             ],
           ),
