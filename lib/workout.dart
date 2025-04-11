@@ -3,7 +3,7 @@ class WorkOut {
   DateTime date;
   double duration;
   String durationUnit;
-  String? location;
+  String location;
   String icon;
 
   WorkOut({
@@ -11,7 +11,7 @@ class WorkOut {
     required this.date,
     required this.duration,
     required this.durationUnit,
-    this.location,
+    this.location ='',
     this.icon = 'assets/graphics/icons/icons8-strong-arm-128.png',
   });
 }

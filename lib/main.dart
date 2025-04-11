@@ -6,6 +6,7 @@ import 'package:recout/l10n/l10n.dart';
 import 'package:recout/first_page.dart';
 import 'package:recout/login_page.dart';
 import 'package:recout/new_activity.dart';
+import 'package:recout/open_activity.dart';
 import 'package:recout/register_page.dart';
 
 void main() {
