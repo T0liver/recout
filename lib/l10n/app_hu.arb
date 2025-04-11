@@ -219,5 +219,21 @@
     "allright": "Így már rendben van!",
     "@allright": {
         "description": "O.K., vicces szöveg."
+    },
+    "username_s": "[felhasználónév]",
+    "@username_s": {
+        "description": "Felhasználónév szögeltes zárójelek között"
+    },
+    "name_s": "[vezetéknév][keresztnév]",
+    "@name_s": {
+        "description": "Név szögeltes zárójelek között"
+    },
+    "dateofbirth_s": "[születési idő]",
+    "@dateofbirth_s": {
+        "description": "Születési idő szögeltes zárójelek között"
+    },
+    "email_s": "[e-mail cím]",
+    "@email_s": {
+        "description": "E-mail cím szögeltes zárójelek között"
     }
 }

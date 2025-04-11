@@ -169,4 +169,16 @@ class L10nHu extends L10n {
 
   @override
   String get allright => 'Így már rendben van!';
+
+  @override
+  String get username_s => '[felhasználónév]';
+
+  @override
+  String get name_s => '[vezetéknév][keresztnév]';
+
+  @override
+  String get dateofbirth_s => '[születési idő]';
+
+  @override
+  String get email_s => '[e-mail cím]';
 }

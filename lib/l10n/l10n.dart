@@ -416,6 +416,30 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Így már rendben van!'**
   String get allright;
+
+  /// Felhasználónév szögeltes zárójelek között
+  ///
+  /// In hu, this message translates to:
+  /// **'[felhasználónév]'**
+  String get username_s;
+
+  /// Név szögeltes zárójelek között
+  ///
+  /// In hu, this message translates to:
+  /// **'[vezetéknév][keresztnév]'**
+  String get name_s;
+
+  /// Születési idő szögeltes zárójelek között
+  ///
+  /// In hu, this message translates to:
+  /// **'[születési idő]'**
+  String get dateofbirth_s;
+
+  /// E-mail cím szögeltes zárójelek között
+  ///
+  /// In hu, this message translates to:
+  /// **'[e-mail cím]'**
+  String get email_s;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
