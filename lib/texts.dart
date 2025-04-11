@@ -158,6 +158,29 @@ class BodySmallText extends StatelessWidget {
   }
 }
 
+class BodyBase extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+
+  const BodyBase(this.text, {
+    super.key,
+    this.style = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: Colors.black
+    ),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: style,
+    );
+  }
+}
+
 class TitleUndelineText extends StatelessWidget {
   final String text;
   final TextStyle style;
