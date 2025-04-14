@@ -303,11 +303,11 @@ class StringInputLabel extends StatelessWidget {
       child: TextField(
         controller: controller,
         style: TextStyle(
-        fontFamily: 'Inter',
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
-        color: valid ? Colors.black : Colors.red,
-      ),
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          color: valid ? Colors.black : Colors.red,
+        ),
         decoration: InputDecoration(
           isDense: true,
           hintText: placeholder,
@@ -316,6 +316,59 @@ class StringInputLabel extends StatelessWidget {
           labelStyle: TextStyle(color: valid ? Color(0xFFB3B3B3) : Colors.red),
           hintStyle: TextStyle(color: valid ? Color(0xFFB3B3B3) : Colors.red)
         ),
+      ),
+    );
+  }
+}
+
+class SmallTitleUndelineInputLabel extends StatelessWidget {
+  final String? placeholder;
+  final TextEditingController controller;
+  final bool valid;
+  final TextStyle style;
+  final Divider divider;
+  final double maxwidth;
+  final bool center;
+
+  const SmallTitleUndelineInputLabel({
+    super.key,
+    required this.controller,
+    this.placeholder = "...",
+    this.valid = true,
+    this.style = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        color: Colors.black
+    ),
+    this.divider = const Divider(height: 1, thickness: 0.8),
+    this.maxwidth = 500,
+    this.center = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final double width =
+    MediaQuery.of(context).size.width * 0.9 < maxwidth
+        ? MediaQuery.of(context).size.width * 0.9
+        : maxwidth;
+    return SizedBox(
+      width: width,
+      child: Column(
+        crossAxisAlignment: center ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+        children: [
+          TextField(
+            textAlign: center ? TextAlign.center : TextAlign.start,
+            controller: controller,
+            style: style,
+            decoration: InputDecoration(
+              hintText: placeholder,
+              border: InputBorder.none
+            ),
+          ),
+          const SizedBox(height: 8),
+          const Divider(height: 2, thickness: 1),
+        ],
       ),
     );
   }
