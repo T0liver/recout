@@ -25,26 +25,26 @@ class SettingsPage extends StatelessWidget {
               SizedBox(height: 20),
               TitleUndelineText(text: l10n.settings),
               const SizedBox(height: 20,),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => Navigator.pushNamed(context, '/languages'),
                 child: SmallTitleUndelineText(text: l10n.language),
               ),
               const SizedBox(height: 10,),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => Navigator.pushNamed(context, '/themes'),
                 child: SmallTitleUndelineText(text: l10n.changetheme),
               ),
               const SizedBox(height: 10,),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => Navigator.pushNamed(context, '/profile'),
                 child: SmallTitleUndelineText(text: l10n.useracc),
               ),
               const SizedBox(height: 10,),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => Navigator.pushNamed(context, '/critique'),
                 child: SmallTitleUndelineText(text: l10n.reporterror),
               ),
-              Spacer(flex: 3,),
+              Spacer(flex: 7,),
               BodySmallText(l10n.impressum),
               Spacer(flex: 1,),
             ],
