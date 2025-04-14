@@ -311,7 +311,7 @@ class ListCard extends StatelessWidget {
                 icon: Image.asset('assets/graphics/icons/icons8-editing-32.png', width: 24, height: 24,),
                 onPressed: () {
                   debugPrint('Edit');
-                  // Navigator.pushNamed(context,'/edit');
+                  Navigator.pushNamed(context, '/workout/edit', arguments: workOut);
                 },
               ),
             ],
