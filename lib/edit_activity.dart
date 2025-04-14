@@ -19,8 +19,8 @@ class _EditActivityPageState extends State<EditActivityPage> {
 
   late TextEditingController nameController = TextEditingController(text: workOut.name);
   late TextEditingController yearController = TextEditingController(text: '${workOut.date.year}');
-  late TextEditingController monthController = TextEditingController(text: '${workOut.date.month}');
-  late TextEditingController dayController = TextEditingController(text: '${workOut.date.day}');
+  late TextEditingController monthController = TextEditingController(text: workOut.date.month.toString().padLeft(2, '0'));
+  late TextEditingController dayController = TextEditingController(text: workOut.date.day.toString().padLeft(2, '0'));
   late TextEditingController durationController = TextEditingController(text: (() {
     String wdur = workOut.duration.toString();
     if (wdur.contains('.')) {

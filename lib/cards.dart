@@ -303,7 +303,7 @@ class ListCard extends StatelessWidget {
                     SizedBox(height: 4),
                     BodySmallText('$wdur ${workOut.durationUnit}'),
                     BodySmallText(workOut.location),
-                    BodySmallText('${workOut.date.year}.${workOut.date.month}.${workOut.date.day}.'),
+                    BodySmallText('${workOut.date.year}.${workOut.date.month.toString().padLeft(2, '0')}.${workOut.date.day.toString().padLeft(2, '0')}.'),
                   ],
                 ),
               ),

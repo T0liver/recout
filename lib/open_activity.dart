@@ -51,8 +51,8 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
     } else {
       wname = workOut.name;
       wdatey = '${workOut.date.year}.';
-      wdatem = '${workOut.date.month}.';
-      wdated = '${workOut.date.day}.';
+      wdatem = '${workOut.date.month.toString().padLeft(2, '0')}.';
+      wdated = '${workOut.date.day.toString().padLeft(2, '0')}.';
       wdur = workOut.duration.toString();
       if (wdur.contains('.')) {
         wdur = wdur.replaceAll(RegExp(r'0+$'), '');
