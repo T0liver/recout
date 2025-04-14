@@ -101,131 +101,131 @@ Elkészítendő widgetek listája
 <details>
 	<summary>Új aktivitás</summary>
 
-- [ ] új aktivitás oldal
-	- [ ] vissza gomb
-	- [ ] főcím
-    - [ ] ikon panel
-    - [ ] edzés neve doboz
-    - [ ] edzés időpontja választó
-    - [ ] edzés időtartama választó
-    - [ ] edzés helyszíne választó
-    - [ ] mentés gomb
+- [x] új aktivitás oldal
+	- [x] vissza gomb
+	- [x] főcím
+    - [x] ikon panel
+    - [x] edzés neve doboz
+    - [x] edzés időpontja választó
+    - [x] edzés időtartama választó
+    - [x] edzés helyszíne választó
+    - [x] mentés gomb
 
 </details>
 
 <details>
 	<summary>Részletes aktivitás</summary>
 
-- [ ] részletes aktivitás oldal
-	- [ ] vissza gomb
-	- [ ] ikon panel + cím
-	- [ ] edzés neve
-    - [ ] edzés időpontja
-    - [ ] edzés időtartama
-    - [ ] edzés helyszíne
-	- [ ] törlés gomb
-	- [ ] törlés dialógus
-		- [ ] főszöveg
-		- [ ] szöveg
-		- [ ] igen gomb
-		- [ ] nem gomb
+- [x] részletes aktivitás oldal
+	- [x] vissza gomb
+	- [x] ikon panel + cím
+	- [x] edzés neve
+    - [x] edzés időpontja
+    - [x] edzés időtartama
+    - [x] edzés helyszíne
+	- [x] törlés gomb
+	- [x] törlés dialógus
+		- [x] főszöveg
+		- [x] szöveg
+		- [x] igen gomb
+		- [x] nem gomb
 
 </details>
 
 <details>
 	<summary>Aktivitás szerkesztése</summary>
 
-- [ ] aktivitás szerkesztése oldal
-	- [ ] vissza gomb
-	- [ ] főcím
-    - [ ] ikon panel
-    - [ ] edzés neve doboz
-    - [ ] edzés időpontja választó
-    - [ ] edzés időtartama választó
-    - [ ] edzés helyszíne választó
-    - [ ] mentés gomb
+- [x] aktivitás szerkesztése oldal
+	- [x] vissza gomb
+	- [x] főcím
+    - [x] ikon panel
+    - [x] edzés neve doboz
+    - [x] edzés időpontja választó
+    - [x] edzés időtartama választó
+    - [x] edzés helyszíne választó
+    - [x] mentés gomb
 
 </details>
 
 <details>
 	<summary>Beállítások</summary>
 
-- [ ] beállítások oldal
-	- [ ] vissza gomb
-	- [ ] főcím
-	- [ ] nyelv cím
-	- [ ] téma módosítása cím
-	- [ ] felhasználói fiók cím
-	- [ ] hiba bejelentése cím
-	- [ ] alsó szöveg
+- [x] beállítások oldal
+	- [x] vissza gomb
+	- [x] főcím
+	- [x] nyelv cím
+	- [x] téma módosítása cím
+	- [x] felhasználói fiók cím
+	- [x] hiba bejelentése cím
+	- [x] alsó szöveg
 
 </details>
 
 <details>
 	<summary>Nyelv választó</summary>
 
-- [ ] nyelv választása cím
-	- [ ] vissza gomb
-	- [ ] főcím
-	- [ ] nyelvek listázása
-	- [ ] fordítása hozzájárulás szöveg
+- [x] nyelv választása cím
+	- [x] vissza gomb
+	- [x] főcím
+	- [x] nyelvek listázása
+	- [x] fordítása hozzájárulás szöveg
 
 </details>
 
 <details>
 	<summary>Téma választó</summary>
 
-- [ ] téma választása oldal
-	- [ ] vissza gomb
-	- [ ] főcím
-	- [ ] témák listázása
-	- [ ] téma hozzáadása szöveg
+- [x] téma választása oldal
+	- [x] vissza gomb
+	- [x] főcím
+	- [x] témák listázása
+	- [x] téma hozzáadása szöveg
 
 </details>
 
 <details>
 	<summary>Hiba bejelentése</summary>
 
-- [ ] hiba bejelentése oldal
-	- [ ] vissza gomb
-	- [ ] főcím
-	- [ ] főszöveg
-	- [ ] alsó szöveg
+- [x] hiba bejelentése oldal
+	- [x] vissza gomb
+	- [x] főcím
+	- [x] főszöveg
+	- [x] alsó szöveg
 
 </details>
 
 <details>
 	<summary>Fiók</summary>
 
-- [ ] fiók oldal
-	- [ ] vissza gomb
-	- [ ] főcím
-	- [ ] fiókkép ikon
-	- [ ] felhasználónév
-	- [ ] vezetéknév, keresztnév
-	- [ ] születési idő
-	- [ ] e-mail cím
-	- [ ] adatok módosítása gomb
-	- [ ] fiók törlése gomb
-	- [ ] fiók törlése dialógus
-		- [ ] főszöveg
-		- [ ] szöveg
-		- [ ] igen gomb
-		- [ ] nem gomb
+- [x] fiók oldal
+	- [x] vissza gomb
+	- [x] főcím
+	- [x] fiókkép ikon
+	- [x] felhasználónév
+	- [x] vezetéknév, keresztnév
+	- [x] születési idő
+	- [x] e-mail cím
+	- [x] adatok módosítása gomb
+	- [x] fiók törlése gomb
+	- [x] fiók törlése dialógus
+		- [x] főszöveg
+		- [x] szöveg
+		- [x] igen gomb
+		- [x] nem gomb
 
 </details>
 
 <details>
 	<summary>Fiók módosítása</summary>
 
-- [ ] fiók módosítása oldal
-	- [ ] vissza gomb
-	- [ ] főcím
-	- [ ] fiókkép ikon
-	- [ ] felhasználónév
-	- [ ] vezetéknév, keresztnév módosítása
-	- [ ] születési idő módosítása
-	- [ ] e-mail cím 
-	- [ ] rendben gomb
+- [x] fiók módosítása oldal
+	- [x] vissza gomb
+	- [x] főcím
+	- [x] fiókkép ikon
+	- [x] felhasználónév
+	- [x] vezetéknév, keresztnév módosítása
+	- [x] születési idő módosítása
+	- [x] e-mail cím 
+	- [x] rendben gomb
 
 </details>
