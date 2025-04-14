@@ -1,5 +1,9 @@
 {
     "@@locale": "hu",
+    "languageName": "Magyar",
+    "@languageName": {
+        "description": "A nyelv neve, amire a fordítás történik, első betű nagybetű"
+    },
     "firstGreet": "Üdvözöllek!\nSzia!",
     "@firstGreet": {
         "description": "Első üdvözlési szöveg",

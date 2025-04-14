@@ -9,6 +9,9 @@ class L10nHu extends L10n {
   L10nHu([String locale = 'hu']) : super(locale);
 
   @override
+  String get languageName => 'Magyar';
+
+  @override
   String get firstGreet => 'Üdvözöllek!\nSzia!';
 
   @override

@@ -93,6 +93,12 @@ abstract class L10n {
     Locale('hu')
   ];
 
+  /// A nyelv neve, amire a fordítás történik, első betű nagybetű
+  ///
+  /// In hu, this message translates to:
+  /// **'Magyar'**
+  String get languageName;
+
   /// Első üdvözlési szöveg
   ///
   /// In hu, this message translates to:
