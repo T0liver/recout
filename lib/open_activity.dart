@@ -116,9 +116,10 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                   Row(
                     children: [
                       Spacer(flex: 1),
-                      IconBtn(icon: 'assets/graphics/icons/icons8-remove-32.png', onPressed: () {}),
+                      IconBtn(icon: 'assets/graphics/icons/icons8-remove-32.png', onPressed: () => _toggle()),
                       Spacer(flex: 2),
-                      IconBtn(icon: 'assets/graphics/icons/icons8-edit-32.png', onPressed: () {}),
+                      IconBtn(icon: 'assets/graphics/icons/icons8-edit-32.png',
+                          onPressed: () => Navigator.pushNamed(context, '/workout/edit', arguments: workOut)),
                       Spacer(flex: 1),
                     ],
                   ),
