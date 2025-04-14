@@ -21,7 +21,14 @@ class _EditActivityPageState extends State<EditActivityPage> {
   late TextEditingController yearController = TextEditingController(text: '${workOut.date.year}');
   late TextEditingController monthController = TextEditingController(text: '${workOut.date.month}');
   late TextEditingController dayController = TextEditingController(text: '${workOut.date.day}');
-  late TextEditingController durationController = TextEditingController(text: '${workOut.duration}');
+  late TextEditingController durationController = TextEditingController(text: (() {
+    String wdur = workOut.duration.toString();
+    if (wdur.contains('.')) {
+      wdur = wdur.replaceAll(RegExp(r'0+$'), '');
+      wdur = wdur.replaceAll(RegExp(r'\.$'), '');
+    }
+    return wdur;
+  })(),);
   late String duration = workOut.durationUnit;
   late TextEditingController locationController = TextEditingController(text: workOut.location);
 
@@ -41,7 +48,7 @@ class _EditActivityPageState extends State<EditActivityPage> {
     final isYearValid = int.tryParse(yearController.text) != null;
     final isMonthValid = int.tryParse(monthController.text) != null;
     final isDayValid = int.tryParse(dayController.text) != null;
-    final isDurationValid = int.tryParse(durationController.text) != null;
+    final isDurationValid = double.tryParse(durationController.text) != null;
     final isNameValid = nameController.text != '';
 
     setState(() {
@@ -77,15 +84,16 @@ class _EditActivityPageState extends State<EditActivityPage> {
             children: [
               const SizedBox(height: 10,),
               const BackBtn(),
-              Heading(text: l10n.recordnewactivity, fontSize: 24,),
-              SizedBox(height: 20),
+              Spacer(flex: 1,),
+              Heading(text: l10n.editactivity, fontSize: 24,),
+              Spacer(flex: 2,),
               Image.asset(
                 'assets/graphics/icons/icons8-strong-arm-128.png',
                 height: MediaQuery.sizeOf(context).height * 0.15,
               ),
-              const Spacer(flex: 1),
+              const Spacer(flex: 2),
               BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout, valid: nameValid,),
-              SizedBox(height: 20),
+              const Spacer(flex: 1),
               BodyBase(l10n.dateofworkout),
               SizedBox(height: 10),
               Row(
@@ -99,9 +107,9 @@ class _EditActivityPageState extends State<EditActivityPage> {
                   Spacer(),
                 ],
               ),
-              SizedBox(height: 20),
+              const Spacer(flex: 1),
               BodyBase(l10n.durationofworkout),
-              SizedBox(height: 10),
+              const Spacer(flex: 1),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -111,13 +119,13 @@ class _EditActivityPageState extends State<EditActivityPage> {
                     Spacer(),
                   ]
               ),
-              SizedBox(height: 20),
+              const Spacer(flex: 1),
               BodyBase(l10n.locationofworkout),
               SizedBox(height: 10),
               BoxInputLabel(controller: locationController, placeholder: l10n.locationinput,),
               Spacer(flex: 1),
               TextIconBtn(text: l10n.save, icon: 'assets/graphics/icons/icons8-save-32.png', onPressed: () => getWorkoutData()),
-              Spacer(flex: 1,)
+              Spacer(flex: 2,)
             ],
           ),
         ),
