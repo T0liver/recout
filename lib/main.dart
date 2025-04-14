@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:recout/account.dart';
 import 'package:recout/critique.dart';
+import 'package:recout/edit_activity.dart';
 import 'package:recout/globals.dart';
 import 'package:recout/home_page.dart';
 
@@ -51,7 +52,11 @@ class RecOut extends StatelessWidget {
         '/workout': (context) {
           final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
           return OpenActivityPage(workOut);
-        }
+        },
+        '/workout/edit': (context) {
+          final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
+          return EditActivityPage(workOut);
+        },
       }
     );
   }
