@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recout/cards.dart';
-import 'package:recout/first_page.dart';
 import 'package:recout/globals.dart';
 import 'package:recout/texts.dart';
 
@@ -54,7 +53,7 @@ class _AccountPageState extends State<AccountPage> {
               child: Column(
                 children: [
                   Spacer(),
-                  const BackBtn(),
+                  const BackBtn(whereto: '/settings'),
                   Spacer(),
                   TitleUndelineText(text: l10n.useracc),
                   Spacer(),
