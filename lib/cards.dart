@@ -128,7 +128,8 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
 
     if (isYearValid && isMonthValid && isDayValid && isDurationValid) {
       debugPrint('Edzés neve: ${nameController.text}');
-      debugPrint('Időpont: ${yearController.text}.${monthController.text}.${dayController.text}.');
+      DateTime date = DateTime(int.parse(yearController.text), int.parse(monthController.text), int.parse(dayController.text));
+      debugPrint('Időpont: ${date.toString()}');
       debugPrint('Időtartam: ${durationController.text} $duration');
       debugPrint('Helyszín: ${locationController.text}');
       (context.
@@ -219,11 +220,11 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
                     alignment: Alignment.centerRight,
                     child: Button(
                       text: l10n.recworkout,
-                      size: const Size(200, 40),
+                      size: const Size(200, 50),
                       style: const TextStyle(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w700,
-                        fontSize: 16,
+                        fontSize: 14,
                         color: Colors.black,
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -310,7 +311,6 @@ class ListCard extends StatelessWidget {
               IconButton(
                 icon: Image.asset('assets/graphics/icons/icons8-editing-32.png', width: 24, height: 24,),
                 onPressed: () {
-                  debugPrint('Edit');
                   Navigator.pushNamed(context, '/workout/edit', arguments: workOut);
                 },
               ),
