@@ -10,9 +10,11 @@ import 'package:recout/first_page.dart';
 import 'package:recout/language.dart';
 import 'package:recout/login_page.dart';
 import 'package:recout/new_activity.dart';
+import 'package:recout/open_activity.dart';
 import 'package:recout/register_page.dart';
 import 'package:recout/settings.dart';
 import 'package:recout/theme.dart';
+import 'package:recout/workout.dart';
 
 void main() {
   GlobalMaterialLocalizations.delegate;
@@ -46,6 +48,10 @@ class RecOut extends StatelessWidget {
         '/themes': (context) => const ThemePage(),
         '/critique': (context) => const CritiquePage(),
         '/profile': (context) => const AccountPage(),
+        '/workout': (context) {
+          final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
+          return OpenActivityPage(workOut);
+        }
       }
     );
   }

@@ -276,8 +276,7 @@ class ListCard extends StatelessWidget {
       width: width,
       child: GestureDetector(
         onTap: () {
-          debugPrint('Details');
-          // Navigator.pushNamed(context, '/workout');
+          Navigator.pushNamed(context, '/workout', arguments: workOut);
         },
         child: Container(
           margin: const EdgeInsets.all(12),
