@@ -38,7 +38,7 @@ class RecOut extends StatelessWidget {
       ),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
-      initialRoute: '/profile/edit',
+      initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
         '/first': (context) => const FirstPage(),
