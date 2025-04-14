@@ -227,6 +227,7 @@ class TitleUndelineText extends StatelessWidget {
 
 class SmallTitleUndelineText extends TitleUndelineText {
   const SmallTitleUndelineText({
+    super.key,
     required super.text,
     super.style = const TextStyle(
         fontFamily: 'Inter',
