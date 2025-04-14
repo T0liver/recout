@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:recout/account.dart';
 import 'package:recout/critique.dart';
+import 'package:recout/edit_account.dart';
 import 'package:recout/edit_activity.dart';
 import 'package:recout/globals.dart';
 import 'package:recout/home_page.dart';
@@ -37,7 +38,7 @@ class RecOut extends StatelessWidget {
       ),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
-      initialRoute: '/',
+      initialRoute: '/profile/edit',
       routes: {
         '/': (context) => const HomePage(),
         '/first': (context) => const FirstPage(),
@@ -49,6 +50,7 @@ class RecOut extends StatelessWidget {
         '/themes': (context) => const ThemePage(),
         '/critique': (context) => const CritiquePage(),
         '/profile': (context) => const AccountPage(),
+        '/profile/edit': (context) => const EditAccountPage(),
         '/workout': (context) {
           final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
           return OpenActivityPage(workOut);

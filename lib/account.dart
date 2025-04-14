@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recout/cards.dart';
+import 'package:recout/first_page.dart';
 import 'package:recout/globals.dart';
 import 'package:recout/texts.dart';
 
@@ -66,7 +67,10 @@ class _AccountPageState extends State<AccountPage> {
                   Spacer(),
                   SmallTitleUndelineText(text: email, center: true,),
                   Spacer(),
-                  Button(text: l10n.editdatas, onPressed: () {}),
+                  Button(text: l10n.editdatas, onPressed: () {
+                    debugPrint("Edit");
+                    Navigator.pushNamed(context, '/profile/edit');
+                  }),
                   Spacer(),
                   Button(
                       text: l10n.deleteacc,
@@ -90,9 +94,7 @@ class _AccountPageState extends State<AccountPage> {
                       body: l10n.cantBeUndoneAccount,
                       onYes: () {
                         //TODO: törlés
-                        setState(() {
-                          _showDialogue = false;
-                        });
+                        Navigator.pushNamed(context, '/first');
                       },
                       onNo: _toggle,
                     ),
