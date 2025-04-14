@@ -74,7 +74,7 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                     height: MediaQuery.sizeOf(context).height * 0.15,
                   ),
                   Spacer(flex: 1),
-                  Heading(text: wname, fontSize: 24, fontWeight: FontWeight.w400,),
+                  Heading(text: wname, fontSize: 32, fontWeight: FontWeight.w600,),
                   const Spacer(flex: 1),
 
                   SizedBox(height: 20),
