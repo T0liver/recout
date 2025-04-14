@@ -153,6 +153,7 @@ class NumberInputLabel extends StatelessWidget {
   final TextEditingController controller;
   final double? width;
   final bool valid;
+  final double fontSize;
 
   const NumberInputLabel({
     super.key,
@@ -160,6 +161,7 @@ class NumberInputLabel extends StatelessWidget {
     this.placeholder = "...",
     this.width = 60,
     this.valid = true,
+    this.fontSize = 14
   });
 
   @override
@@ -173,7 +175,7 @@ class NumberInputLabel extends StatelessWidget {
         style: TextStyle(
           fontFamily: 'Inter',
           fontWeight: FontWeight.w500,
-          fontSize: 14,
+          fontSize: fontSize,
           color: valid ? Colors.black : Colors.red,
         ),
         decoration: InputDecoration(
