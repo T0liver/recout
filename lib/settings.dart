@@ -21,7 +21,7 @@ class SettingsPage extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 10,),
-              const BackBtn(),
+              const BackBtn(whereto: '/'),
               SizedBox(height: 20),
               TitleUndelineText(text: l10n.settings),
               const SizedBox(height: 20,),
