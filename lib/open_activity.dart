@@ -20,6 +20,12 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
 
   bool _showDialogue = false;
 
+  @override
+  void initState() {
+    super.initState();
+    workOut = widget.workOut;
+  }
+
   void _toggle() {
     setState(() {
       _showDialogue = !_showDialogue;
@@ -33,6 +39,24 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
     MediaQuery.of(context).size.width * 0.9 < 700
         ? MediaQuery.of(context).size.width * 0.9
         : 700;
+    String wname, wdatey, wdatem, wdated, wdur, wduru, wloc;
+    if(workOut.name == "") {
+      wname = '_';
+      wdatey = '_';
+      wdatem = '_';
+      wdated = '_';
+      wdur = '_';
+      wduru = '_';
+      wloc = '_';
+    } else {
+      wname = workOut.name;
+      wdatey = '${workOut.date.year}.';
+      wdatem = '${workOut.date.month}.';
+      wdated = '${workOut.date.day}.';
+      wdur = workOut.duration.toString();
+      wduru = workOut.durationUnit;
+      wloc = workOut.location;
+    }
     return Scaffold(
       body: Stack(
         children: [
@@ -42,14 +66,15 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 20,),
                   const BackBtn(),
-                  SizedBox(height: 20),
+                  Spacer(flex: 1),
                   Image.asset(
                     'assets/graphics/icons/icons8-strong-arm-128.png',
                     height: MediaQuery.sizeOf(context).height * 0.15,
                   ),
-                  Heading(text: workOut.name, fontSize: 24, fontWeight: FontWeight.w400,),
+                  Spacer(flex: 1),
+                  Heading(text: wname, fontSize: 24, fontWeight: FontWeight.w400,),
                   const Spacer(flex: 1),
 
                   SizedBox(height: 20),
@@ -58,14 +83,15 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                   Row(
                     children: [
                       Spacer(),
-                      BodyStrongText('${workOut.date.year}.'),
+                      BodyStrongText(wdatey),
                       SizedBox(width: 10),
-                      BodyStrongText('${workOut.date.month}.'),
+                      BodyStrongText(wdatem),
                       SizedBox(width: 10),
-                      BodyStrongText('${workOut.date.day}.'),
+                      BodyStrongText(wdated),
                       Spacer(),
                     ],
                   ),
+                  Spacer(flex: 1),
                   SizedBox(height: 20),
                   BodyBase(l10n.durationofworkout),
                   SizedBox(height: 10),
@@ -73,16 +99,17 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Spacer(),
-                        BodyStrongText('${workOut.duration}'),
-                        BodyStrongText(workOut.durationUnit),
+                        BodyStrongText(wdur),
+                        BodyStrongText(wduru),
                         Spacer(),
                       ]
                   ),
+                  Spacer(flex: 1),
                   SizedBox(height: 20),
                   BodyBase(l10n.locationofworkout),
                   SizedBox(height: 10),
-                  BodyStrongText(workOut.location),
-                  Spacer(flex: 1),
+                  BodyStrongText(wloc),
+                  Spacer(flex: 2),
                   Row(
                     children: [
                       Spacer(flex: 1),
@@ -92,7 +119,7 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                       Spacer(flex: 1),
                     ],
                   ),
-                  Spacer(flex: 1,)
+                  Spacer(flex: 2,)
                 ],
               ),
             ),
