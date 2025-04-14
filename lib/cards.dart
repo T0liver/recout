@@ -272,6 +272,11 @@ class ListCard extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width * 0.9 < 500
         ? MediaQuery.of(context).size.width * 0.9
         : 500;
+    String wdur = workOut.duration.toString();
+    if (wdur.contains('.')) {
+      wdur = wdur.replaceAll(RegExp(r'0+$'), '');
+      wdur = wdur.replaceAll(RegExp(r'\.$'), '');
+    }
     return SizedBox(
       width: width,
       child: GestureDetector(
@@ -296,7 +301,7 @@ class ListCard extends StatelessWidget {
                   children: [
                     BodyStrongText(workOut.name),
                     SizedBox(height: 4),
-                    BodySmallText(workOut.duration.toString()),
+                    BodySmallText('$wdur ${workOut.durationUnit}'),
                     BodySmallText(workOut.location),
                     BodySmallText('${workOut.date.year}.${workOut.date.month}.${workOut.date.day}.'),
                   ],

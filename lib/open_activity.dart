@@ -54,6 +54,10 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
       wdatem = '${workOut.date.month}.';
       wdated = '${workOut.date.day}.';
       wdur = workOut.duration.toString();
+      if (wdur.contains('.')) {
+        wdur = wdur.replaceAll(RegExp(r'0+$'), '');
+        wdur = wdur.replaceAll(RegExp(r'\.$'), '');
+      }
       wduru = workOut.durationUnit;
       wloc = workOut.location;
     }
@@ -99,8 +103,7 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Spacer(),
-                        BodyStrongText(wdur),
-                        BodyStrongText(wduru),
+                        BodyStrongText('$wdur $wduru'),
                         Spacer(),
                       ]
                   ),
