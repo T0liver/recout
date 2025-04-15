@@ -12,8 +12,10 @@ class AuthGate extends StatelessWidget {
 
   Future<void> _syncUserData(BuildContext context, User user) async {
     final prefs = await SharedPreferences.getInstance();
-    final uname = Provider.of<UserState>(context, listen: false).username;
-    if (uname != null) return;
+    if (context.mounted) {
+      final uname = Provider.of<UserState>(context, listen: false).username;
+      if (uname != null) return;
+    }
 
     final query = await FirebaseFirestore.instance
         .collection('users')
@@ -23,7 +25,9 @@ class AuthGate extends StatelessWidget {
     if (query.exists) {
       final data = query.data();
       if (data != null && data['username'] != null) {
-        Provider.of<UserState>(context, listen: false).setUsername(data['username']);
+        if (context.mounted) {
+          Provider.of<UserState>(context, listen: false).setUsername(data['username']);
+        }
         await prefs.setBool('isLoggedIn', true);
       }
     }
