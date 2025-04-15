@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class UserR {
   final String userid;
   final String username;
@@ -12,5 +10,6 @@ class UserR {
     required this.email,
     this.name,
     this.dateofbirth,
-  }) : userid = UniqueKey().toString();
+    required this.userid
+  });
 }
