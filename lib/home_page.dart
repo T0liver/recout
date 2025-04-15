@@ -25,18 +25,40 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> getLoginData() async {
     final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      if (mounted) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          Navigator.pushReplacementNamed(context, '/first');
+        });
+      }
+      return;
+    }
+
+    final username = Provider.of<UserState>(context, listen: false).username;
+    if (username != null) return;
 
     final userQuery = await FirebaseFirestore.instance
         .collection('users')
-        .where('email', isEqualTo: user?.email)
+        .where('email', isEqualTo: user.email)
         .limit(1)
         .get();
 
-    if (userQuery.docs.isEmpty || user == null) {
+    if (userQuery.docs.isEmpty) {
       if (mounted) {
-        Navigator.pushNamed(context, '/first');
+        Navigator.pushReplacementNamed(context, '/first');
+      }
+    } else {
+      final userData = userQuery.docs.first.data();
+      if (mounted) {
+        Provider.of<UserState>(context, listen: false).setUsername(userData['username']);
       }
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getLoginData();
   }
 
   @override
@@ -49,11 +71,7 @@ class _HomePageState extends State<HomePage> {
       return SizedBox.shrink();
     }
 
-    getLoginData();
-
-    String? uname = Provider.of<UserState>(context).username;
-
-    uname ??= L10n.of(context)!.username_s;
+    final uname = Provider.of<UserState>(context).username ?? L10n.of(context)!.username_s;
 
     return Scaffold(
       body: Column(
@@ -62,24 +80,24 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(width: 20,),
+              const SizedBox(width: 20,),
               Column(
                 children: [
-                  SizedBox(height: 30,),
+                  const SizedBox(height: 30,),
                   HelloText(name: uname),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               SettingsBtn(),
-              SizedBox(width: 20,),
+              const SizedBox(width: 20,),
             ],
           ),
           // Spacer(flex: 1,),
-          SizedBox(height: 50,),
+          const SizedBox(height: 50,),
           WorkoutRecCard(),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           TitleUndelineText(text: L10n.of(context)!.prevworkouts),
-          SizedBox(height: 2,),
+          const SizedBox(height: 2,),
           ListCard(WorkOut(name: 'Birkózás', date: DateTime(2025, 03, 18), duration: 30, durationUnit: 'perc', location: 'Balaton')),
         ],
       ),

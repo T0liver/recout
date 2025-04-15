@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:recout/auth_gate.dart';
 import 'package:recout/user_state.dart';
 import 'firebase_options.dart';
 
@@ -14,7 +15,6 @@ import 'package:recout/critique.dart';
 import 'package:recout/edit_account.dart';
 import 'package:recout/edit_activity.dart';
 import 'package:recout/first_page.dart';
-import 'package:recout/home_page.dart';
 import 'package:recout/language.dart';
 import 'package:recout/login_page.dart';
 import 'package:recout/new_activity.dart';
@@ -57,7 +57,7 @@ class RecOut extends StatelessWidget {
       supportedLocales: L10n.supportedLocales,
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const AuthGate(),
         '/critique': (context) => const CritiquePage(),
         '/first': (context) => const FirstPage(),
         '/languages': (context) => const LanguagePage(),
