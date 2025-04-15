@@ -500,6 +500,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Hiba történt'**
   String get errorOccurred;
+
+  /// A kijelentkezés szövege.
+  ///
+  /// In hu, this message translates to:
+  /// **'Kijelentkezés'**
+  String get logout;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

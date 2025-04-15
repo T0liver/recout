@@ -211,4 +211,7 @@ class L10nHu extends L10n {
 
   @override
   String get errorOccurred => 'Hiba történt';
+
+  @override
+  String get logout => 'Kijelentkezés';
 }

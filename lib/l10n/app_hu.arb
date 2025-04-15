@@ -275,5 +275,9 @@
     "errorOccurred": "Hiba történt",
     "@errorOccurred": {
         "description": "Egy hiba állt be."
+    },
+    "logout": "Kijelentkezés",
+    "@logout": {
+        "description": "A kijelentkezés szövege."
     }
 }
