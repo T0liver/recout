@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/button.dart';
@@ -19,57 +17,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  late String username;
-  late String uid;
-  late String uemail;
-
-  Future<void> getLoginData() async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      if (mounted) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          Navigator.pushReplacementNamed(context, '/first');
-        });
-      }
-      return;
-    }
-
-    final username = Provider.of<UserState>(context, listen: false).username;
-    if (username != null) return;
-
-    final userQuery = await FirebaseFirestore.instance
-        .collection('users')
-        .where('email', isEqualTo: user.email)
-        .limit(1)
-        .get();
-
-    if (userQuery.docs.isEmpty) {
-      if (mounted) {
-        Navigator.pushReplacementNamed(context, '/first');
-      }
-    } else {
-      final userData = userQuery.docs.first.data();
-      if (mounted) {
-        Provider.of<UserState>(context, listen: false).setUsername(userData['username']);
-      }
-    }
-  }
-
   @override
   void initState() {
     super.initState();
-    getLoginData();
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.pushReplacementNamed(context, '/first');
-      });
-      return SizedBox.shrink();
-    }
 
     final uname = Provider.of<UserState>(context).username ?? L10n.of(context)!.username_s;
 

@@ -49,6 +49,7 @@ class RecOut extends StatelessWidget {
   Widget build(BuildContext context) {
     // the changes here will be just test for running and testing if the UI is working
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'RecOut!',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
