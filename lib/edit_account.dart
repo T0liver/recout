@@ -16,11 +16,11 @@ class EditAccountPage extends StatefulWidget {
 class _EditAccountPageState extends State<EditAccountPage> {
   late TextEditingController nameController = TextEditingController(text: Globals.user?.name);
   late TextEditingController yearController = TextEditingController(text:
-    Globals.user?.dateofbirth.year != null
-    ? Globals.user?.dateofbirth.year.toString()
+    Globals.user?.dateofbirth?.year != null
+    ? Globals.user?.dateofbirth?.year.toString()
     : '');
-  late TextEditingController monthController = TextEditingController(text: Globals.user?.dateofbirth.month.toString().padLeft(2, '0'));
-  late TextEditingController dayController = TextEditingController(text: Globals.user?.dateofbirth.day.toString().padLeft(2, '0'));
+  late TextEditingController monthController = TextEditingController(text: Globals.user?.dateofbirth?.month.toString().padLeft(2, '0'));
+  late TextEditingController dayController = TextEditingController(text: Globals.user?.dateofbirth?.day.toString().padLeft(2, '0'));
 
   bool yearValid = true;
   bool monthValid = true;

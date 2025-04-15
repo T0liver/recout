@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class UserR {
   final String userid;
   final String username;
-  final String name;
-  late DateTime dateofbirth;
+  String? name;
+  DateTime? dateofbirth;
   final String email;
 
   UserR({
     required this.username,
     required this.email,
-    this.name = '',
-    required this.dateofbirth,
+    this.name,
+    this.dateofbirth,
   }) : userid = UniqueKey().toString();
 }

@@ -38,9 +38,17 @@ class _AccountPageState extends State<AccountPage> {
       email = l10n.email_s;
     } else {
       uname = Globals.user!.username;
-      rname = Globals.user!.name;
-      DateTime dobTmp = Globals.user!.dateofbirth;
-      dob = '${dobTmp.year}.${dobTmp.month}.${dobTmp.day}.';
+      if (Globals.user?.name == null) {
+        rname = l10n.name_s;
+      } else {
+        rname = Globals.user!.name!;
+      }
+      DateTime? dobTmp = Globals.user!.dateofbirth;
+      if (dobTmp == null) {
+        dob = l10n.dateofbirth_s;
+      } else {
+        dob = '${dobTmp.year}.${dobTmp.month}.${dobTmp.day}.';
+      }
       email = Globals.user!.email;
     }
 
