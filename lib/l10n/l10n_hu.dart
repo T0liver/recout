@@ -196,4 +196,7 @@ class L10nHu extends L10n {
 
   @override
   String get unknownError => 'Ismeretlen hiba';
+
+  @override
+  String get successfulRegister => 'Sikeres regisztráció!';
 }

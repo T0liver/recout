@@ -255,5 +255,9 @@
     "unknownError": "Ismeretlen hiba",
     "@unknownError": {
         "description": "Olyan hiba, ami egy nem taglalt esetben történik meg."
+    },
+    "successfulRegister": "Sikeres regisztráció!",
+    "@successfulRegister": {
+        "description": "Ha sikerült a regisztráció."
     }
 }

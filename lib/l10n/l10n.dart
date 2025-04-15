@@ -470,6 +470,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Ismeretlen hiba'**
   String get unknownError;
+
+  /// Ha sikerült a regisztráció.
+  ///
+  /// In hu, this message translates to:
+  /// **'Sikeres regisztráció!'**
+  String get successfulRegister;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
