@@ -259,5 +259,21 @@
     "successfulRegister": "Sikeres regisztráció!",
     "@successfulRegister": {
         "description": "Ha sikerült a regisztráció."
+    },
+    "userNotFound": "A felhasználónév nem létezik!",
+    "@userNotFound": {
+        "description": "Hiba, ha bejelentkezésnél nem létező felhasználónévvel próbálkoznak."
+    },
+    "invalidEmailLogin": "A felhasználónévhez tartozó email nem érvényes.",
+    "@invalidEmailLogin": {
+        "description": "Hiba, ha bejelentkezéskor a felhasználónévhez tartozó email nem érvényes."
+    },
+    "wrongPassword": "Hibás jelszó!",
+    "@wrongPassword": {
+        "description": "Hiba, ha bejelentkezéskor hibás jelszóval próbálkoznak."
+    },
+    "errorOccurred": "Hiba történt",
+    "@errorOccurred": {
+        "description": "Egy hiba állt be."
     }
 }

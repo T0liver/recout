@@ -476,6 +476,30 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Sikeres regisztráció!'**
   String get successfulRegister;
+
+  /// Hiba, ha bejelentkezésnél nem létező felhasználónévvel próbálkoznak.
+  ///
+  /// In hu, this message translates to:
+  /// **'A felhasználónév nem létezik!'**
+  String get userNotFound;
+
+  /// Hiba, ha bejelentkezéskor a felhasználónévhez tartozó email nem érvényes.
+  ///
+  /// In hu, this message translates to:
+  /// **'A felhasználónévhez tartozó email nem érvényes.'**
+  String get invalidEmailLogin;
+
+  /// Hiba, ha bejelentkezéskor hibás jelszóval próbálkoznak.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hibás jelszó!'**
+  String get wrongPassword;
+
+  /// Egy hiba állt be.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hiba történt'**
+  String get errorOccurred;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

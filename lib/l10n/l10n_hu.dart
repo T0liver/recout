@@ -199,4 +199,16 @@ class L10nHu extends L10n {
 
   @override
   String get successfulRegister => 'Sikeres regisztráció!';
+
+  @override
+  String get userNotFound => 'A felhasználónév nem létezik!';
+
+  @override
+  String get invalidEmailLogin => 'A felhasználónévhez tartozó email nem érvényes.';
+
+  @override
+  String get wrongPassword => 'Hibás jelszó!';
+
+  @override
+  String get errorOccurred => 'Hiba történt';
 }
