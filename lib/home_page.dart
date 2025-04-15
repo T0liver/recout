@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recout/button.dart';
 import 'package:recout/cards.dart';
 import 'package:recout/globals.dart';
 import 'package:recout/l10n/l10n.dart';
 import 'package:recout/texts.dart';
 import 'package:recout/user.dart';
+import 'package:recout/user_state.dart';
 import 'package:recout/workout.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,13 +56,10 @@ class _HomePageState extends State<HomePage> {
 
     getLoginData();
 
-    final String uname;
-    if (Globals.user?.username == null) {
-      uname = 'kondi_geza52';
-    } else {
-      uname = Globals.user!.username;
-      Globals.login();
-    }
+    String? uname = Provider.of<UserState>(context).username;
+
+    uname ??= L10n.of(context)!.username_s;
+
     return Scaffold(
       body: Column(
         children: [

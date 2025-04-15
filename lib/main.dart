@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+import 'package:recout/user_state.dart';
 import 'firebase_options.dart';
 
 import 'package:recout/globals.dart';
@@ -30,7 +32,13 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform
   );
 
-  runApp(const RecOut());
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserState())
+      ],
+    child: const RecOut(),
+    )
+  );
 }
 
 class RecOut extends StatelessWidget {
