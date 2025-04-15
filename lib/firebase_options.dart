@@ -41,46 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAKkLbJVBLGV5R1LVz8_lbhHEAbg24vTow',
-    appId: '1:730039735191:web:4897bca62fea855e6daad2',
-    messagingSenderId: '730039735191',
-    projectId: 'recout-68e18',
-    authDomain: 'recout-68e18.firebaseapp.com',
-    storageBucket: 'recout-68e18.firebasestorage.app',
+    apiKey: 'AIzaSyAcx-HhpTW7xxfZTWrSiI7Z3lMD7iGuzVg',
+    appId: '1:860290219507:web:11715aa24671902589a686',
+    messagingSenderId: '860290219507',
+    projectId: 'recout-13b03',
+    authDomain: 'recout-13b03.firebaseapp.com',
+    storageBucket: 'recout-13b03.firebasestorage.app',
+    measurementId: 'G-1RD6TZGHTW',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDVlQWVR22OGooDUPlI_LvRfDV20DS7u2Y',
-    appId: '1:730039735191:android:6fdbdb616e121df76daad2',
-    messagingSenderId: '730039735191',
-    projectId: 'recout-68e18',
-    storageBucket: 'recout-68e18.firebasestorage.app',
+    apiKey: 'AIzaSyBdqiC-Dtv1xnnxerEFsOOW5flm8uXitAk',
+    appId: '1:860290219507:android:3ba23db073a2a0bc89a686',
+    messagingSenderId: '860290219507',
+    projectId: 'recout-13b03',
+    storageBucket: 'recout-13b03.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC7DQNPcniyKJ2azXwVm99XwI-O2ZlYhNk',
-    appId: '1:730039735191:ios:ae426bca8fa367786daad2',
-    messagingSenderId: '730039735191',
-    projectId: 'recout-68e18',
-    storageBucket: 'recout-68e18.firebasestorage.app',
-    iosBundleId: 'com.example.recout',
+    apiKey: 'AIzaSyBC4ZjxFQmJVjQIbexmhvBoxQDWjRWSKHo',
+    appId: '1:860290219507:ios:816de9438f6a2c9289a686',
+    messagingSenderId: '860290219507',
+    projectId: 'recout-13b03',
+    storageBucket: 'recout-13b03.firebasestorage.app',
+    iosBundleId: 'hu.toliver.recout',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC7DQNPcniyKJ2azXwVm99XwI-O2ZlYhNk',
-    appId: '1:730039735191:ios:ae426bca8fa367786daad2',
-    messagingSenderId: '730039735191',
-    projectId: 'recout-68e18',
-    storageBucket: 'recout-68e18.firebasestorage.app',
-    iosBundleId: 'com.example.recout',
+    apiKey: 'AIzaSyBC4ZjxFQmJVjQIbexmhvBoxQDWjRWSKHo',
+    appId: '1:860290219507:ios:816de9438f6a2c9289a686',
+    messagingSenderId: '860290219507',
+    projectId: 'recout-13b03',
+    storageBucket: 'recout-13b03.firebasestorage.app',
+    iosBundleId: 'hu.toliver.recout',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAKkLbJVBLGV5R1LVz8_lbhHEAbg24vTow',
-    appId: '1:730039735191:web:cab44c8b2be79eb86daad2',
-    messagingSenderId: '730039735191',
-    projectId: 'recout-68e18',
-    authDomain: 'recout-68e18.firebaseapp.com',
-    storageBucket: 'recout-68e18.firebasestorage.app',
+    apiKey: 'AIzaSyAcx-HhpTW7xxfZTWrSiI7Z3lMD7iGuzVg',
+    appId: '1:860290219507:web:8cafe3905a1b0b2e89a686',
+    messagingSenderId: '860290219507',
+    projectId: 'recout-13b03',
+    authDomain: 'recout-13b03.firebaseapp.com',
+    storageBucket: 'recout-13b03.firebasestorage.app',
+    measurementId: 'G-SNVGGNCNXM',
   );
+
 }

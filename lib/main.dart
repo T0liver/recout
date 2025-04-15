@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 import 'package:recout/globals.dart';
 import 'package:recout/l10n/l10n.dart';
@@ -24,11 +24,12 @@ import 'package:recout/theme.dart';
 Future<void> main() async {
   GlobalMaterialLocalizations.delegate;
   Locale(Globals.language);
-/*
+
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
-*/
+
   runApp(const RecOut());
 }
 
