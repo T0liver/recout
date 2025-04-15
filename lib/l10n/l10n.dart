@@ -446,6 +446,30 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'[e-mail cím]'**
   String get email_s;
+
+  /// Hiba üzenet, ha regisztrációkor az email címet már más regisztrálta.
+  ///
+  /// In hu, this message translates to:
+  /// **'Ez az email cím már használatban van.'**
+  String get emailAlreadyInUse;
+
+  /// Hiba üzenet, ha regisztrációkor az e-mail cím nem megfelelő formátumu.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hibás e-mail formátum.'**
+  String get invalidEmail;
+
+  /// Hiba üzenet, ha regisztrációkor a jelszó túl gyenge.
+  ///
+  /// In hu, this message translates to:
+  /// **'A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!'**
+  String get weakPassword;
+
+  /// Olyan hiba, ami egy nem taglalt esetben történik meg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Ismeretlen hiba'**
+  String get unknownError;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

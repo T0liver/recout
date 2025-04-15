@@ -239,5 +239,21 @@
     "email_s": "[e-mail cím]",
     "@email_s": {
         "description": "E-mail cím szögeltes zárójelek között"
+    },
+    "emailAlreadyInUse": "Ez az email cím már használatban van.",
+    "@emailAlreadyInUse": {
+        "description": "Hiba üzenet, ha regisztrációkor az email címet már más regisztrálta."
+    },
+    "invalidEmail": "Hibás e-mail formátum.",
+    "@invalidEmail": {
+        "description": "Hiba üzenet, ha regisztrációkor az e-mail cím nem megfelelő formátumu."
+    },
+    "weakPassword": "A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!",
+    "@weakPassword": {
+        "description": "Hiba üzenet, ha regisztrációkor a jelszó túl gyenge."
+    },
+    "unknownError": "Ismeretlen hiba",
+    "@unknownError": {
+        "description": "Olyan hiba, ami egy nem taglalt esetben történik meg."
     }
 }

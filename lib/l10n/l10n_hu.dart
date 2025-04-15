@@ -184,4 +184,16 @@ class L10nHu extends L10n {
 
   @override
   String get email_s => '[e-mail cím]';
+
+  @override
+  String get emailAlreadyInUse => 'Ez az email cím már használatban van.';
+
+  @override
+  String get invalidEmail => 'Hibás e-mail formátum.';
+
+  @override
+  String get weakPassword => 'A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!';
+
+  @override
+  String get unknownError => 'Ismeretlen hiba';
 }
