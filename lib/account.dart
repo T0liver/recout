@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recout/cards.dart';
-import 'package:recout/globals.dart';
 import 'package:recout/texts.dart';
+import 'package:recout/user_state.dart';
 
 import 'button.dart';
 import 'l10n/l10n.dart';
@@ -16,10 +19,32 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   bool _showDialogue = false;
 
+  late String uname = '', rname = '', dob, email = '';
+  DateTime? dobTmp;
+
   void _toggle() {
     setState(() {
       _showDialogue = !_showDialogue;
     });
+  }
+
+  Future<void> getUserData() async {
+    final user = FirebaseAuth.instance.currentUser;
+
+    final userQuery = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: user?.email)
+        .limit(1)
+        .get();
+    final userData = userQuery.docs.first.data();
+
+    if(userData['name'] != null) {
+      rname = userData['name'];
+    }
+    email = user!.email!;
+    if(userData['dateOfBirth'] != null) {
+      dobTmp = userData['dateOfBirth'];
+    }
   }
 
   @override
@@ -30,26 +55,24 @@ class _AccountPageState extends State<AccountPage> {
         ? MediaQuery.of(context).size.width * 0.9
         : 700;
 
-    String uname, rname, dob, email;
-    if (Globals.user == null) {
+    if (Provider.of<UserState>(context).username == null) {
       uname = l10n.username_s;
       rname = l10n.name_s;
       dob = l10n.dateofbirth_s;
       email = l10n.email_s;
     } else {
-      uname = Globals.user!.username;
-      if (Globals.user?.name == null) {
+      uname = Provider.of<UserState>(context).username!;
+
+      getUserData();
+
+      if (rname == '') {
         rname = l10n.name_s;
-      } else {
-        rname = Globals.user!.name!;
       }
-      DateTime? dobTmp = Globals.user!.dateofbirth;
       if (dobTmp == null) {
         dob = l10n.dateofbirth_s;
       } else {
-        dob = '${dobTmp.year}.${dobTmp.month}.${dobTmp.day}.';
+        dob = '${dobTmp?.year}.${dobTmp?.month}.${dobTmp?.day}.';
       }
-      email = Globals.user!.email;
     }
 
     return Scaffold(
