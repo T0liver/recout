@@ -33,7 +33,9 @@ class _HomePageState extends State<HomePage> {
         .get();
 
     if (userQuery.docs.isEmpty || user == null) {
-      Navigator.pushNamed(context, '/first');
+      if (mounted) {
+        Navigator.pushNamed(context, '/first');
+      }
     }
 
     final userData = userQuery.docs.first.data();

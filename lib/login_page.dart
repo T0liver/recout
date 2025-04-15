@@ -52,7 +52,9 @@ class _LoginPageState extends State<LoginPage> {
       Globals.user = UserR(username: enteredUsername, email: email, userid: userQuery.docs.first.id);
       Globals.login();
 
-      Navigator.pushReplacementNamed(context, '/');
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, '/');
+      }
     } on FirebaseAuthException catch (e) {
       String msg;
       switch (e.code) {
@@ -69,9 +71,11 @@ class _LoginPageState extends State<LoginPage> {
           msg = '${l10n.errorOccurred}: ${e.message}';
       }
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(msg)),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(msg)),
+        );
+      }
     } finally {
       if (mounted) {
         setState(() {

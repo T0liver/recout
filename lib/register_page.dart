@@ -49,7 +49,9 @@ class _RegisterPageState extends State<RegisterPage> {
       Globals.user = UserR(userid: credential.user!.uid, username: _unamecontroller.text.trim(), email: _emailcontroller.text.trim());
       Globals.login();
 
-      Navigator.pushReplacementNamed(context, '/');
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, '/');
+      }
     } on FirebaseAuthException catch (e) {
       String msg;
       switch (e.code) {
@@ -66,9 +68,11 @@ class _RegisterPageState extends State<RegisterPage> {
           msg = '${l10n.unknownError}: ${e.message}';
       }
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(msg)),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(msg)),
+        );
+      }
     } finally {
       if (mounted) {
         setState(() {
