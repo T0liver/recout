@@ -6,7 +6,7 @@ import 'package:recout/workout.dart';
 class Globals {
   static  String language = "hu";
 
-  static User? user;
+  static UserR? user;
 
   static WorkOut? workOut;
 
