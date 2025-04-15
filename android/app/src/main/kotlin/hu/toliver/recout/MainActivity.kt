@@ -1,4 +1,4 @@
-package com.example.recout
+package hu.toliver.recout
 
 import io.flutter.embedding.android.FlutterActivity
 
