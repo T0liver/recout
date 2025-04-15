@@ -4,11 +4,9 @@ import "package:cloud_firestore/cloud_firestore.dart";
 import "package:provider/provider.dart";
 
 import "package:recout/button.dart";
-import "package:recout/globals.dart";
 import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
-import "package:recout/user.dart";
 import "package:recout/user_state.dart";
 
 class LoginPage extends StatefulWidget {
@@ -50,9 +48,6 @@ class _LoginPageState extends State<LoginPage> {
         email: email,
         password: enteredPassword,
       );
-
-      Globals.user = UserR(username: enteredUsername, email: email, userid: userQuery.docs.first.id);
-      Globals.login();
 
       if (mounted) {
         Provider.of<UserState>(context, listen: false).setUsername(userData['username']);

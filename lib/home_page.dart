@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/button.dart';
 import 'package:recout/cards.dart';
-import 'package:recout/globals.dart';
 import 'package:recout/l10n/l10n.dart';
 import 'package:recout/texts.dart';
-import 'package:recout/user.dart';
 import 'package:recout/user_state.dart';
 import 'package:recout/workout.dart';
 
@@ -39,9 +37,6 @@ class _HomePageState extends State<HomePage> {
         Navigator.pushNamed(context, '/first');
       }
     }
-
-    final userData = userQuery.docs.first.data();
-    Globals.user = UserR(username: userData['username'], email: userData['email'], userid: user!.uid);
   }
 
   @override

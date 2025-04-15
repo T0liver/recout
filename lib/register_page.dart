@@ -2,14 +2,12 @@ import "package:flutter/material.dart";
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:provider/provider.dart";
-import "package:recout/globals.dart";
 
 import "package:recout/l10n/l10n.dart";
 
 import "package:recout/button.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
-import "package:recout/user.dart";
 import "package:recout/user_state.dart";
 
 class RegisterPage extends StatefulWidget {
@@ -47,9 +45,6 @@ class _RegisterPageState extends State<RegisterPage> {
         'email': _emailcontroller.text.trim(),
         'createdAt': Timestamp.now(),
       });
-      
-      Globals.user = UserR(userid: credential.user!.uid, username: _unamecontroller.text.trim(), email: _emailcontroller.text.trim());
-      Globals.login();
 
       if (mounted) {
         Provider.of<UserState>(context, listen: false).setUsername(_unamecontroller.text.trim());
