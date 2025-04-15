@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+import 'package:recout/globals.dart';
+import 'package:recout/l10n/l10n.dart';
+import 'package:recout/workout.dart';
+
 import 'package:recout/account.dart';
 import 'package:recout/critique.dart';
 import 'package:recout/edit_account.dart';
 import 'package:recout/edit_activity.dart';
-import 'package:recout/globals.dart';
-import 'package:recout/home_page.dart';
-
-import 'package:recout/l10n/l10n.dart';
 import 'package:recout/first_page.dart';
+import 'package:recout/home_page.dart';
 import 'package:recout/language.dart';
 import 'package:recout/login_page.dart';
 import 'package:recout/new_activity.dart';
@@ -16,11 +20,15 @@ import 'package:recout/open_activity.dart';
 import 'package:recout/register_page.dart';
 import 'package:recout/settings.dart';
 import 'package:recout/theme.dart';
-import 'package:recout/workout.dart';
 
-void main() {
+Future<void> main() async {
   GlobalMaterialLocalizations.delegate;
   Locale(Globals.language);
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
+
   runApp(const RecOut());
 }
 
@@ -41,16 +49,16 @@ class RecOut extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
-        '/first': (context) => const FirstPage(),
-        '/login': (context) => const LoginPage(),
-        '/register': (context) => const RegisterPage(),
-        '/new_activity': (context) => const NewActivityPage(),
-        '/settings': (context) => const SettingsPage(),
-        '/languages': (context) => const LanguagePage(),
-        '/themes': (context) => const ThemePage(),
         '/critique': (context) => const CritiquePage(),
+        '/first': (context) => const FirstPage(),
+        '/languages': (context) => const LanguagePage(),
+        '/login': (context) => const LoginPage(),
+        '/new_activity': (context) => const NewActivityPage(),
         '/profile': (context) => const AccountPage(),
         '/profile/edit': (context) => const EditAccountPage(),
+        '/register': (context) => const RegisterPage(),
+        '/settings': (context) => const SettingsPage(),
+        '/themes': (context) => const ThemePage(),
         '/workout': (context) {
           final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
           return OpenActivityPage(workOut);
