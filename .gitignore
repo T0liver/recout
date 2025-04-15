@@ -43,3 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase local only config files
+/.flutter-plugins
+/.flutter-plugins-dependencies
