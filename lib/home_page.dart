@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/button.dart';
@@ -16,6 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final userId = FirebaseAuth.instance.currentUser?.uid;
 
   @override
   void initState() {
@@ -27,34 +30,86 @@ class _HomePageState extends State<HomePage> {
 
     final uname = Provider.of<UserState>(context).username ?? L10n.of(context)!.username_s;
 
+    final double width = MediaQuery.of(context).size.width * 0.9 < 500
+        ? MediaQuery.of(context).size.width * 0.9
+        : 500;
+
     return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 10,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const SizedBox(width: 20,),
-              Column(
-                children: [
-                  const SizedBox(height: 30,),
-                  HelloText(name: uname),
-                ],
-              ),
-              const Spacer(),
-              SettingsBtn(),
-              const SizedBox(width: 20,),
-            ],
-          ),
-          // Spacer(flex: 1,),
-          const SizedBox(height: 50,),
-          WorkoutRecCard(),
-          const SizedBox(height: 20,),
-          TitleUndelineText(text: L10n.of(context)!.prevworkouts),
-          const SizedBox(height: 2,),
-          ListCard(WorkOut(name: 'Birkózás', date: DateTime(2025, 03, 18), duration: 30, durationUnit: 'perc', location: 'Balaton')),
-        ],
-      ),
+      body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const SizedBox(width: 20,),
+                    Column(
+                      children: [
+                        const SizedBox(height: 30,),
+                        HelloText(name: uname),
+                      ],
+                    ),
+                    const Spacer(),
+                    SettingsBtn(),
+                    const SizedBox(width: 20,),
+                  ],
+                ),
+                // Spacer(flex: 1,),
+                const SizedBox(height: 50,),
+                WorkoutRecCard(),
+                const SizedBox(height: 20,),
+                TitleUndelineText(text: L10n.of(context)!.prevworkouts),
+                const SizedBox(height: 2,),
+
+                ListCard(WorkOut(name: 'Birkózás', date: DateTime(2025, 03, 18), duration: 30, durationUnit: 'perc', location: 'Balaton')),
+
+                SizedBox(
+                  width: width,
+                  child: StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance
+                          .collection('workouts')
+                          .where('userid', isEqualTo: userId)
+                          .orderBy('date', descending: true)
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return const CircularProgressIndicator();
+                        }
+
+                        if (!snapshot.hasData ||snapshot.data!.docs.isEmpty) {
+                          return const Padding(
+                            padding: EdgeInsets.all(16),
+                            child: BodyBase('Még üres a listád.\nPróbálj felvenni egy edzést itt feljebb!'),
+                          );
+                        }
+
+                        final workouts = snapshot.data!.docs.map((doc){
+                          final data = doc.data() as Map<String, dynamic>;
+                          return WorkOut(
+                              name: data['name'] ?? '',
+                              date: (data['date'] as Timestamp).toDate(),
+                              duration: data['duration'] ?? 0,
+                              durationUnit: data['durationUnit'] ?? '',
+                              location: data['location'] ?? ''
+                          );
+                        }).toList();
+
+                        return ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: workouts.length,
+                            itemBuilder: (context, index) {
+                              return ListCard(workouts[index]);
+                            }
+                        );
+                      }
+                  )
+                ),
+              ],
+            )
+          )
+      )
     );
   }
 }
