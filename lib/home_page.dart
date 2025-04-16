@@ -62,8 +62,6 @@ class _HomePageState extends State<HomePage> {
                 TitleUndelineText(text: L10n.of(context)!.prevworkouts),
                 const SizedBox(height: 2,),
 
-                ListCard(WorkOut(name: 'Birkózás', date: DateTime(2025, 03, 18), duration: 30, durationUnit: 'perc', location: 'Balaton')),
-
                 SizedBox(
                   width: width,
                   child: StreamBuilder<QuerySnapshot>(
