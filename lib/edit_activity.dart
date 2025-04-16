@@ -29,13 +29,14 @@ class _EditActivityPageState extends State<EditActivityPage> {
     }
     return wdur;
   })(),);
-  late String duration = workOut.durationUnit;
+  final ValueNotifier<String> duration = ValueNotifier<String>('');
   late TextEditingController locationController = TextEditingController(text: workOut.location);
 
   @override
   void initState() {
     super.initState();
     workOut = widget.workout;
+    duration.value = workOut.durationUnit;
   }
 
   bool nameValid = true;

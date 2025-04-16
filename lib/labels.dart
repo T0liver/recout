@@ -191,7 +191,8 @@ class NumberInputLabel extends StatelessWidget {
 }
 
 class DurationChooser extends StatefulWidget {
-  final String duration;
+  // final String duration;
+  final ValueNotifier<String> duration;
 
   const DurationChooser ({
     super.key,
@@ -208,7 +209,19 @@ class _DurationChooserState extends State<DurationChooser> {
   @override
   void initState() {
     super.initState();
-    duration = widget.duration;
+    duration = widget.duration.value;
+    
+    widget.duration.addListener(() {
+      setState(() {
+        duration = widget.duration.value;
+      });
+    });
+  }
+  
+  @override
+  void dispose() {
+    widget.duration.removeListener(() {});
+    super.dispose();
   }
 
   @override
