@@ -78,9 +78,9 @@ class _HomePageState extends State<HomePage> {
                         }
 
                         if (!snapshot.hasData ||snapshot.data!.docs.isEmpty) {
-                          return const Padding(
-                            padding: EdgeInsets.all(16),
-                            child: BodyBase('Még üres a listád.\nPróbálj felvenni egy edzést itt feljebb!'),
+                          return Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: BodyBase(L10n.of(context)!.noListElement),
                           );
                         }
 

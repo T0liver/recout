@@ -214,4 +214,7 @@ class L10nHu extends L10n {
 
   @override
   String get logout => 'Kijelentkezés';
+
+  @override
+  String get noListElement => 'Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!';
 }
