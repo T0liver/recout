@@ -191,7 +191,6 @@ class NumberInputLabel extends StatelessWidget {
 }
 
 class DurationChooser extends StatefulWidget {
-  // final String duration;
   final ValueNotifier<String> duration;
 
   const DurationChooser ({
@@ -204,23 +203,26 @@ class DurationChooser extends StatefulWidget {
 }
 
 class _DurationChooserState extends State<DurationChooser> {
-  late String duration;
+  late String duration = L10n.of(context)!.minute;
+  late VoidCallback _listener;
 
   @override
   void initState() {
     super.initState();
     duration = widget.duration.value;
-    
-    widget.duration.addListener(() {
+
+    _listener = () {
       setState(() {
         duration = widget.duration.value;
       });
-    });
+    };
+
+    widget.duration.addListener(_listener);
   }
   
   @override
   void dispose() {
-    widget.duration.removeListener(() {});
+    widget.duration.removeListener(_listener);
     super.dispose();
   }
 
@@ -241,6 +243,7 @@ class _DurationChooserState extends State<DurationChooser> {
     return PopupMenuButton<String>(
       onSelected: (String value) {
         setState(() {
+          widget.duration.value = value;
           duration = value;
         });
       },
