@@ -112,10 +112,7 @@ class _AccountPageState extends State<AccountPage> {
                   Spacer(),
                   SmallTitleUndelineText(text: email, center: true,),
                   Spacer(),
-                  Button(text: l10n.editdatas, onPressed: () {
-                    debugPrint("Edit");
-                    Navigator.pushNamed(context, '/profile/edit');
-                  }),
+                  Button(text: l10n.editdatas, onPressed: () => Navigator.pushNamed(context, '/profile/edit')),
                   Spacer(),
                   Button(
                       text: l10n.deleteacc,
