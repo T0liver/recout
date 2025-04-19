@@ -124,7 +124,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
               Spacer(),
               const BackBtn(),
               Spacer(),
-              TitleUndelineText(text: l10n.useracc),
+              TitleUndelineText(text: l10n.editdatas),
               Spacer(),
               Image.asset('assets/graphics/icons/icons8-test-account-128.png', height: 128,),
               SmallTitleUndelineText(text: funame, center: true,),
