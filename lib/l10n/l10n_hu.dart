@@ -184,4 +184,43 @@ class L10nHu extends L10n {
 
   @override
   String get email_s => '[e-mail cím]';
+
+  @override
+  String get emailAlreadyInUse => 'Ez az email cím már használatban van.';
+
+  @override
+  String get invalidEmail => 'Hibás e-mail formátum.';
+
+  @override
+  String get weakPassword => 'A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!';
+
+  @override
+  String get unknownError => 'Ismeretlen hiba';
+
+  @override
+  String get successfulRegister => 'Sikeres regisztráció!';
+
+  @override
+  String get userNotFound => 'A felhasználónév nem létezik!';
+
+  @override
+  String get invalidEmailLogin => 'A felhasználónévhez tartozó email nem érvényes.';
+
+  @override
+  String get wrongPassword => 'Hibás jelszó!';
+
+  @override
+  String get errorOccurred => 'Hiba történt';
+
+  @override
+  String get logout => 'Kijelentkezés';
+
+  @override
+  String get noListElement => 'Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!';
+
+  @override
+  String get deleteError => 'Hiba történt a fiók törlésekor';
+
+  @override
+  String get sucessfullDelete => 'Sikeresen törölve!';
 }

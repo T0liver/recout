@@ -191,7 +191,7 @@ class NumberInputLabel extends StatelessWidget {
 }
 
 class DurationChooser extends StatefulWidget {
-  final String duration;
+  final ValueNotifier<String> duration;
 
   const DurationChooser ({
     super.key,
@@ -203,12 +203,27 @@ class DurationChooser extends StatefulWidget {
 }
 
 class _DurationChooserState extends State<DurationChooser> {
-  late String duration;
+  late String duration = L10n.of(context)!.minute;
+  late VoidCallback _listener;
 
   @override
   void initState() {
     super.initState();
-    duration = widget.duration;
+    duration = widget.duration.value;
+
+    _listener = () {
+      setState(() {
+        duration = widget.duration.value;
+      });
+    };
+
+    widget.duration.addListener(_listener);
+  }
+  
+  @override
+  void dispose() {
+    widget.duration.removeListener(_listener);
+    super.dispose();
   }
 
   @override
@@ -228,6 +243,7 @@ class _DurationChooserState extends State<DurationChooser> {
     return PopupMenuButton<String>(
       onSelected: (String value) {
         setState(() {
+          widget.duration.value = value;
           duration = value;
         });
       },
@@ -328,6 +344,7 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
   final TextEditingController controller;
   final bool valid;
   final TextStyle style;
+  final TextStyle hintStyle;
   final Divider divider;
   final double maxwidth;
   final bool center;
@@ -342,6 +359,12 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
         fontSize: 24,
         fontWeight: FontWeight.w400,
         color: Colors.black
+    ),
+    this.hintStyle = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        color: Color(0xFFB3B3B3)
     ),
     this.divider = const Divider(height: 1, thickness: 0.8),
     this.maxwidth = 500,
@@ -365,7 +388,8 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
             style: style,
             decoration: InputDecoration(
               hintText: placeholder,
-              border: InputBorder.none
+              border: InputBorder.none,
+              hintStyle: hintStyle
             ),
           ),
           const SizedBox(height: 8),

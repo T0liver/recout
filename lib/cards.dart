@@ -1,5 +1,7 @@
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "package:intl/intl.dart";
+import "package:cloud_firestore/cloud_firestore.dart";
 import "package:recout/button.dart";
 import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
@@ -103,7 +105,7 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
   late TextEditingController dayController = TextEditingController(text: DateFormat('dd').format(today));
 
   final TextEditingController durationController = TextEditingController();
-  String duration = '';
+  final ValueNotifier<String> durationUnit = ValueNotifier<String>('perc');
 
   bool nameValid = true;
   bool yearValid = true;
@@ -111,12 +113,13 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
   bool dayValid = true;
   bool durationValid = true;
 
-  void getWorkoutData() {
+  void getWorkoutData() async {
     final isYearValid = int.tryParse(yearController.text) != null;
     final isMonthValid = int.tryParse(monthController.text) != null;
     final isDayValid = int.tryParse(dayController.text) != null;
     final isDurationValid = int.tryParse(durationController.text) != null;
     final isNameValid = nameController.text != '';
+    final isDurationUnitValid = durationUnit.value != '';
 
     setState(() {
       yearValid = isYearValid;
@@ -126,16 +129,33 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
       nameValid = isNameValid;
     });
 
-    if (isYearValid && isMonthValid && isDayValid && isDurationValid) {
-      debugPrint('Edzés neve: ${nameController.text}');
-      DateTime date = DateTime(int.parse(yearController.text), int.parse(monthController.text), int.parse(dayController.text));
-      debugPrint('Időpont: ${date.toString()}');
-      debugPrint('Időtartam: ${durationController.text} $duration');
-      debugPrint('Helyszín: ${locationController.text}');
-      (context.
-      findAncestorStateOfType<_WorkoutRecCardState>()
-      as _WorkoutRecCardState)
-          .toggleInputVisibility();
+    if (isYearValid && isMonthValid && isDayValid && isDurationValid && isDurationUnitValid) {
+      final DateTime date = DateTime(
+        int.parse(yearController.text),
+        int.parse(monthController.text),
+        int.parse(dayController.text),
+      );
+
+      final workoutData = {
+        'userid': FirebaseAuth.instance.currentUser?.uid,
+        'name': nameController.text,
+        'date': Timestamp.fromDate(date),
+        'duration': double.parse(durationController.text),
+        'durationUnit': durationUnit.value,
+        'location': locationController.text,
+        'createdAt': FieldValue.serverTimestamp(),
+      };
+
+      try {
+        await FirebaseFirestore.instance.collection('workouts').add(workoutData);
+        debugPrint('Workout mentve Firestore-ba: $workoutData');
+
+        if (mounted) {
+          (context.findAncestorStateOfType<_WorkoutRecCardState>() as _WorkoutRecCardState).toggleInputVisibility();
+        }
+      } catch (e) {
+        debugPrint('Hiba a Firestore mentés során: $e');
+      }
     }
   }
 
@@ -189,7 +209,7 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
                     Text('${l10n.duration}:', style: TextStyle(fontWeight: FontWeight.bold)),
                     const SizedBox(width: 10),
                     NumberInputLabel(controller: durationController, width: 30, valid: durationValid,),
-                    DurationChooser(duration: duration),
+                    DurationChooser(duration: durationUnit),
                   ]
               ),
               const SizedBox(height: 10,),
@@ -228,7 +248,11 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
                         color: Colors.black,
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                      onPressed: () => getWorkoutData(),
+                      onPressed: () {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          getWorkoutData();
+                        });
+                      },
                     ),
                   ),
                 ],
@@ -416,3 +440,5 @@ class DialogueCard extends StatelessWidget {
     );
   }
 }
+
+// TODO: add "ad" card with a cute dog picture from API call

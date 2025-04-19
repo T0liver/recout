@@ -5,6 +5,8 @@ import 'package:recout/labels.dart';
 import 'package:recout/texts.dart';
 import 'package:recout/workout.dart';
 
+// TODO: add firebase to this page and add this somehow to the main activity
+
 class NewActivityPage extends StatefulWidget {
   const NewActivityPage({super.key});
 
@@ -18,7 +20,7 @@ class _NewActivityPageState extends State<NewActivityPage> {
   final TextEditingController monthController = TextEditingController();
   final TextEditingController dayController = TextEditingController();
   final TextEditingController durationController = TextEditingController();
-  late String duration = '';
+  final ValueNotifier<String> durationNotifier = ValueNotifier<String>('');
   final TextEditingController locationController = TextEditingController();
 
   WorkOut? workOut;
@@ -47,7 +49,7 @@ class _NewActivityPageState extends State<NewActivityPage> {
     if (isYearValid && isMonthValid && isDayValid && isDurationValid) {
       debugPrint('Edzés neve: ${nameController.text}');
       debugPrint('Időpont: ${yearController.text}.${monthController.text}.${dayController.text}.');
-      debugPrint('Időtartam: ${durationController.text} $duration');
+      debugPrint('Időtartam: ${durationController.text} ${durationNotifier.value}');
       debugPrint('Helyszín: ${locationController.text}');
       Navigator.pushNamed(context, '/');
     }
@@ -99,7 +101,7 @@ class _NewActivityPageState extends State<NewActivityPage> {
                   children: [
                     Spacer(),
                     NumberInputLabel(controller: durationController, width: 30, valid: durationValid,),
-                    DurationChooser(duration: duration),
+                    DurationChooser(duration: durationNotifier),
                     Spacer(),
                   ]
               ),

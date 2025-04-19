@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+import 'package:recout/auth_gate.dart';
+import 'package:recout/user_state.dart';
+import 'firebase_options.dart';
 
 import 'package:recout/globals.dart';
 import 'package:recout/l10n/l10n.dart';
@@ -12,7 +15,6 @@ import 'package:recout/critique.dart';
 import 'package:recout/edit_account.dart';
 import 'package:recout/edit_activity.dart';
 import 'package:recout/first_page.dart';
-import 'package:recout/home_page.dart';
 import 'package:recout/language.dart';
 import 'package:recout/login_page.dart';
 import 'package:recout/new_activity.dart';
@@ -24,12 +26,19 @@ import 'package:recout/theme.dart';
 Future<void> main() async {
   GlobalMaterialLocalizations.delegate;
   Locale(Globals.language);
-/*
+
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
-*/
-  runApp(const RecOut());
+
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserState())
+      ],
+    child: const RecOut(),
+    )
+  );
 }
 
 class RecOut extends StatelessWidget {
@@ -40,6 +49,7 @@ class RecOut extends StatelessWidget {
   Widget build(BuildContext context) {
     // the changes here will be just test for running and testing if the UI is working
     return MaterialApp(
+      // debugShowCheckedModeBanner: false,
       title: 'RecOut!',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
@@ -48,7 +58,7 @@ class RecOut extends StatelessWidget {
       supportedLocales: L10n.supportedLocales,
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const AuthGate(),
         '/critique': (context) => const CritiquePage(),
         '/first': (context) => const FirstPage(),
         '/languages': (context) => const LanguagePage(),

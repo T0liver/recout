@@ -1,16 +1,15 @@
-import 'package:flutter/material.dart';
-
-class User {
+class UserR {
   final String userid;
   final String username;
-  final String name;
-  late DateTime dateofbirth;
+  String? name;
+  DateTime? dateofbirth;
   final String email;
 
-  User(DateTime dob, {
+  UserR({
     required this.username,
     required this.email,
-    this.name = '',
-    required this.dateofbirth,
-  }) : userid = UniqueKey().toString();
+    this.name,
+    this.dateofbirth,
+    required this.userid
+  });
 }

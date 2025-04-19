@@ -1,5 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recout/texts.dart';
+import 'package:recout/user_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'button.dart';
 import 'l10n/l10n.dart';
@@ -44,7 +48,22 @@ class SettingsPage extends StatelessWidget {
                 onPressed: () => Navigator.pushNamed(context, '/critique'),
                 child: SmallTitleUndelineText(text: l10n.reporterror),
               ),
-              Spacer(flex: 7,),
+              const SizedBox(height: 10,),
+              TextButton(
+                onPressed: () async {
+                  await FirebaseAuth.instance.signOut();
+
+                  final prefs = await SharedPreferences.getInstance();
+                  await prefs.setBool('isLoggedIn', false);
+
+                  if (context.mounted) {
+                    Provider.of<UserState>(context, listen: false).clear();
+                    Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
+                  }
+              },
+                child: SmallTitleUndelineText(text: l10n.logout),
+              ),
+              Spacer(flex: 6,),
               BodySmallText(l10n.impressum),
               Spacer(flex: 1,),
             ],

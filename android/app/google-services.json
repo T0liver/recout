@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "730039735191",
-    "project_id": "recout-68e18",
-    "storage_bucket": "recout-68e18.firebasestorage.app"
+    "project_number": "860290219507",
+    "project_id": "recout-13b03",
+    "storage_bucket": "recout-13b03.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:730039735191:android:6fdbdb616e121df76daad2",
+        "mobilesdk_app_id": "1:860290219507:android:3ba23db073a2a0bc89a686",
         "android_client_info": {
-          "package_name": "com.example.recout"
+          "package_name": "hu.toliver.recout"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDVlQWVR22OGooDUPlI_LvRfDV20DS7u2Y"
+          "current_key": "AIzaSyBdqiC-Dtv1xnnxerEFsOOW5flm8uXitAk"
         }
       ],
       "services": {

@@ -446,6 +446,84 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'[e-mail cím]'**
   String get email_s;
+
+  /// Hiba üzenet, ha regisztrációkor az email címet már más regisztrálta.
+  ///
+  /// In hu, this message translates to:
+  /// **'Ez az email cím már használatban van.'**
+  String get emailAlreadyInUse;
+
+  /// Hiba üzenet, ha regisztrációkor az e-mail cím nem megfelelő formátumu.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hibás e-mail formátum.'**
+  String get invalidEmail;
+
+  /// Hiba üzenet, ha regisztrációkor a jelszó túl gyenge.
+  ///
+  /// In hu, this message translates to:
+  /// **'A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!'**
+  String get weakPassword;
+
+  /// Olyan hiba, ami egy nem taglalt esetben történik meg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Ismeretlen hiba'**
+  String get unknownError;
+
+  /// Ha sikerült a regisztráció.
+  ///
+  /// In hu, this message translates to:
+  /// **'Sikeres regisztráció!'**
+  String get successfulRegister;
+
+  /// Hiba, ha bejelentkezésnél nem létező felhasználónévvel próbálkoznak.
+  ///
+  /// In hu, this message translates to:
+  /// **'A felhasználónév nem létezik!'**
+  String get userNotFound;
+
+  /// Hiba, ha bejelentkezéskor a felhasználónévhez tartozó email nem érvényes.
+  ///
+  /// In hu, this message translates to:
+  /// **'A felhasználónévhez tartozó email nem érvényes.'**
+  String get invalidEmailLogin;
+
+  /// Hiba, ha bejelentkezéskor hibás jelszóval próbálkoznak.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hibás jelszó!'**
+  String get wrongPassword;
+
+  /// Egy hiba állt be.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hiba történt'**
+  String get errorOccurred;
+
+  /// A kijelentkezés szövege.
+  ///
+  /// In hu, this message translates to:
+  /// **'Kijelentkezés'**
+  String get logout;
+
+  /// Visszajelzés a listánál, hogyha a felhasználó még nem vett fel edzést.
+  ///
+  /// In hu, this message translates to:
+  /// **'Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!'**
+  String get noListElement;
+
+  /// Üzenet, ha hiba történt a fiók törlése folyamán.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hiba történt a fiók törlésekor'**
+  String get deleteError;
+
+  /// Visszajelzés a sikeres törlésről.
+  ///
+  /// In hu, this message translates to:
+  /// **'Sikeresen törölve!'**
+  String get sucessfullDelete;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

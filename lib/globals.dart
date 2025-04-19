@@ -6,21 +6,21 @@ import 'package:recout/workout.dart';
 class Globals {
   static  String language = "hu";
 
-  static User? user;
+  static UserR? user;
 
   static WorkOut? workOut;
 
-  static bool _isLoggedIn = true;
+  static bool _isLoggedIn = false;
 
   static bool loggedin() {
     return _isLoggedIn;
   }
 
-  void login() {
+  static void login() {
     _isLoggedIn = true;
   }
 
-  void logout() {
+  static void logout() {
     _isLoggedIn = false;
   }
 

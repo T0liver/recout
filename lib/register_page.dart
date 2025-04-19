@@ -1,8 +1,14 @@
 import "package:flutter/material.dart";
-import "package:recout/button.dart";
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import "package:provider/provider.dart";
+
 import "package:recout/l10n/l10n.dart";
+
+import "package:recout/button.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
+import "package:recout/user_state.dart";
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -15,18 +21,65 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _unamecontroller = TextEditingController();
   final TextEditingController _passcontroller = TextEditingController();
   final TextEditingController _emailcontroller = TextEditingController();
-  String _username = '';
-  String _password = '';
-  String _emailadr = '';
 
-  void getCredentials() {
+  bool _isLoading = false;
+
+  Future<void> getCredentials() async {
+    final l10n = L10n.of(context)!;
+
     setState(() {
-      _username = _unamecontroller.text;
-      _password = _passcontroller.text;
-      _emailadr = _emailcontroller.text;
+      _isLoading = true;
     });
-    debugPrint("Username: $_username    E-mail: $_emailadr    Password: $_password");
+
+    try {
+      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailcontroller.text.trim(),
+        password: _passcontroller.text.trim(),
+      );
+
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(credential.user!.uid)
+          .set({
+        'username': _unamecontroller.text.trim(),
+        'email': _emailcontroller.text.trim(),
+        'createdAt': Timestamp.now(),
+      });
+
+      if (mounted) {
+        Provider.of<UserState>(context, listen: false).setUsername(_unamecontroller.text.trim());
+        Navigator.pushReplacementNamed(context, '/');
+      }
+    } on FirebaseAuthException catch (e) {
+      String msg;
+      switch (e.code) {
+        case 'email-already-in-use':
+          msg = l10n.emailAlreadyInUse;
+          break;
+        case 'invalid-email':
+          msg = l10n.invalidEmail;
+          break;
+        case 'weak-password':
+          msg = l10n.weakPassword;
+          break;
+        default:
+          msg = '${l10n.unknownError}: ${e.message}';
+      }
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(msg)),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +100,15 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 20),
                   PasswordLabel(controller: _passcontroller, hint: l10n.password),
                   const Spacer(flex: 2),
-                  Button(text: l10n.goalright, onPressed: getCredentials),
+                  Button(
+                    text: _isLoading ? '...' : l10n.goalright,
+                    onPressed: () {
+                      if (!_isLoading) {
+                        getCredentials();
+                      }
+                    },
+                    bgColor: _isLoading ? const Color(0x99F9DC5C) : const Color(0xFFF9DC5C),
+                  ),
                   const Spacer(flex: 1,)
                 ]
             )
