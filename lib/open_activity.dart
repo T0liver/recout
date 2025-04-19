@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:recout/texts.dart';
 import 'package:recout/workout.dart';
@@ -30,6 +31,23 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
     setState(() {
       _showDialogue = !_showDialogue;
     });
+  }
+
+  Future<void> deleteWorkout() async {
+    try {
+      await FirebaseFirestore.instance.collection('workouts').doc(workOut.wid).delete();
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(L10n.of(context)!.sucessfullDelete)),
+        );
+      }
+    } catch(e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('${L10n.of(context)!.errorOccurred}: $e')),
+        );
+      }
+    }
   }
 
   @override
@@ -136,12 +154,10 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                     Spacer(),
                     Center(
                       child: DialogueCard(title: l10n.deleteTitle,
-                        body: l10n.cantBeUndoneAccount,
+                        body: l10n.cantBeUndone,
                         onYes: () {
-                          //törlés
-                          setState(() {
-                            _showDialogue = false;
-                          });
+                          deleteWorkout();
+                          Navigator.pushNamed(context, '/');
                         },
                         onNo: _toggle,
                       ),
