@@ -344,6 +344,7 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
   final TextEditingController controller;
   final bool valid;
   final TextStyle style;
+  final TextStyle hintStyle;
   final Divider divider;
   final double maxwidth;
   final bool center;
@@ -358,6 +359,12 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
         fontSize: 24,
         fontWeight: FontWeight.w400,
         color: Colors.black
+    ),
+    this.hintStyle = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        color: Color(0xFFB3B3B3)
     ),
     this.divider = const Divider(height: 1, thickness: 0.8),
     this.maxwidth = 500,
@@ -381,7 +388,8 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
             style: style,
             decoration: InputDecoration(
               hintText: placeholder,
-              border: InputBorder.none
+              border: InputBorder.none,
+              hintStyle: hintStyle
             ),
           ),
           const SizedBox(height: 8),
