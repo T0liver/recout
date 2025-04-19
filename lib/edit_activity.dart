@@ -85,9 +85,9 @@ class _EditActivityPageState extends State<EditActivityPage> {
 
       try {
         await FirebaseFirestore.instance
-            .collection('workouts')
-            .doc(workOut.wid)
-            .update(workoutUpdate);
+          .collection('workouts')
+          .doc(workOut.wid)
+          .update(workoutUpdate);
 
         debugPrint('Frissítve Firestore-ban: $workoutUpdate');
         if (mounted) {
@@ -105,65 +105,63 @@ class _EditActivityPageState extends State<EditActivityPage> {
     final double width =
     MediaQuery.of(context).size.width * 0.9 < 700 ? MediaQuery.of(context).size.width * 0.9 : 700;
 
-    return Scaffold(
-      body: Center(
-        child: SizedBox(
-          width: width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 10),
-              const BackBtn(),
-              const Spacer(flex: 1),
-              Heading(text: l10n.editactivity, fontSize: 24),
-              const Spacer(flex: 2),
-              Image.asset(
-                'assets/graphics/icons/icons8-strong-arm-128.png',
-                height: MediaQuery.sizeOf(context).height * 0.15,
-              ),
-              const Spacer(flex: 2),
-              BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout, valid: nameValid),
-              const Spacer(flex: 1),
-              BodyBase(l10n.dateofworkout),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  const Spacer(),
-                  NumberInputLabel(controller: yearController, placeholder: l10n.year, valid: yearValid),
-                  const SizedBox(width: 10),
-                  NumberInputLabel(controller: monthController, placeholder: l10n.month, valid: monthValid),
-                  const SizedBox(width: 10),
-                  NumberInputLabel(controller: dayController, placeholder: l10n.day, valid: dayValid),
-                  const Spacer(),
-                ],
-              ),
-              const Spacer(flex: 1),
-              BodyBase(l10n.durationofworkout),
-              const Spacer(flex: 1),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Spacer(),
-                  NumberInputLabel(controller: durationController, width: 30, valid: durationValid),
-                  DurationChooser(duration: duration),
-                  const Spacer(),
-                ],
-              ),
-              const Spacer(flex: 1),
-              BodyBase(l10n.locationofworkout),
-              const SizedBox(height: 10),
-              BoxInputLabel(controller: locationController, placeholder: l10n.locationinput),
-              const Spacer(flex: 1),
-              TextIconBtn(
-                text: l10n.save,
-                icon: 'assets/graphics/icons/icons8-save-32.png',
-                onPressed: () => updateWorkoutData(),
-              ),
-              const Spacer(flex: 2),
-            ],
-          ),
+    return Center(
+      child: SizedBox(
+        width: width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 10),
+            const BackBtn(),
+            const Spacer(flex: 1),
+            Heading(text: l10n.editactivity, fontSize: 24),
+            const Spacer(flex: 2),
+            Image.asset(
+              'assets/graphics/icons/icons8-strong-arm-128.png',
+              height: MediaQuery.sizeOf(context).height * 0.15,
+            ),
+            const Spacer(flex: 2),
+            BoxInputLabel(controller: nameController, placeholder: l10n.inputworkout, valid: nameValid),
+            const Spacer(flex: 1),
+            BodyBase(l10n.dateofworkout),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                const Spacer(),
+                NumberInputLabel(controller: yearController, placeholder: l10n.year, valid: yearValid),
+                const SizedBox(width: 10),
+                NumberInputLabel(controller: monthController, placeholder: l10n.month, valid: monthValid),
+                const SizedBox(width: 10),
+                NumberInputLabel(controller: dayController, placeholder: l10n.day, valid: dayValid),
+                const Spacer(),
+              ],
+            ),
+            const Spacer(flex: 1),
+            BodyBase(l10n.durationofworkout),
+            const Spacer(flex: 1),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Spacer(),
+                NumberInputLabel(controller: durationController, width: 30, valid: durationValid),
+                DurationChooser(duration: duration),
+                const Spacer(),
+              ],
+            ),
+            const Spacer(flex: 1),
+            BodyBase(l10n.locationofworkout),
+            const SizedBox(height: 10),
+            BoxInputLabel(controller: locationController, placeholder: l10n.locationinput),
+            const Spacer(flex: 1),
+            TextIconBtn(
+              text: l10n.save,
+              icon: 'assets/graphics/icons/icons8-save-32.png',
+              onPressed: () => updateWorkoutData(),
+            ),
+            const Spacer(flex: 2),
+          ],
         ),
-      ),
+      )
     );
   }
 }

@@ -86,34 +86,32 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
-    return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 10),
-          const BackBtn(),
-          const Spacer(flex: 2),
-          Image.asset(
-            'assets/graphics/icons/icons8-strong-arm-128.png',
-            height: MediaQuery.sizeOf(context).height * 0.15,
-          ),
-          Heading(text: l10n.login),
-          const Spacer(flex: 3),
-          TextLabel(controller: _unamecontroller, hint: l10n.username),
-          const SizedBox(height: 20),
-          PasswordLabel(controller: _passcontroller, hint: l10n.password),
-          const Spacer(flex: 2),
-          Button(
-              bgColor: _isLoading ? const Color(0x99F9DC5C) : const Color(0xFFF9DC5C),
-              text: _isLoading ? '...' : l10n.letsgo,
-              onPressed: () {
-                if (!_isLoading) {
-                  loginWithUsernameAndPassword();
-                }
-              },
-          ),
-          const Spacer(flex: 1),
-        ],
-      ),
+    return Column(
+      children: [
+        const SizedBox(height: 10),
+        const BackBtn(),
+        const Spacer(flex: 2),
+        Image.asset(
+          'assets/graphics/icons/icons8-strong-arm-128.png',
+          height: MediaQuery.sizeOf(context).height * 0.15,
+        ),
+        Heading(text: l10n.login),
+        const Spacer(flex: 3),
+        TextLabel(controller: _unamecontroller, hint: l10n.username),
+        const SizedBox(height: 20),
+        PasswordLabel(controller: _passcontroller, hint: l10n.password),
+        const Spacer(flex: 2),
+        Button(
+          bgColor: _isLoading ? const Color(0x99F9DC5C) : const Color(0xFFF9DC5C),
+          text: _isLoading ? '...' : l10n.letsgo,
+          onPressed: () {
+            if (!_isLoading) {
+              loginWithUsernameAndPassword();
+            }
+          },
+        ),
+        const Spacer(flex: 1),
+      ],
     );
   }
 }

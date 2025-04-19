@@ -102,9 +102,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
+      return const Center(child: CircularProgressIndicator());
     }
     final l10n = L10n.of(context)!;
     final double width =
@@ -115,40 +113,38 @@ class _EditAccountPageState extends State<EditAccountPage> {
     String funame = uname.isEmpty ? l10n.username_s : uname;
     String femail = email.isEmpty ? l10n.email_s : email;
 
-    return Scaffold(
-      body: Center(
-        child: SizedBox(
-          width: width,
-          child: Column(
-            children: [
-              Spacer(),
-              const BackBtn(),
-              Spacer(),
-              TitleUndelineText(text: l10n.editdatas),
-              Spacer(),
-              Image.asset('assets/graphics/icons/icons8-test-account-128.png', height: 128,),
-              SmallTitleUndelineText(text: funame, center: true,),
-              Spacer(),
-              SmallTitleUndelineInputLabel(controller: nameController, placeholder: l10n.name_s, center: true,),
-              Spacer(),
-              Row(
-                children: [
-                  Spacer(),
-                  NumberInputLabel(controller: yearController, placeholder: l10n.year, fontSize: 24, width: 80,),
-                  SizedBox(width: 10),
-                  NumberInputLabel(controller: monthController, placeholder: l10n.month, fontSize: 24),
-                  SizedBox(width: 10),
-                  NumberInputLabel(controller: dayController, placeholder: l10n.day, fontSize: 24),
-                  Spacer(),
-                ],
-              ),
-              Spacer(),
-              SmallTitleUndelineText(text: femail, center: true,),
-              Spacer(),
-              Button(text: l10n.allright, onPressed: saveUserData),
-              Spacer(),
-            ],
-          ),
+    return Center(
+      child: SizedBox(
+        width: width,
+        child: Column(
+          children: [
+            Spacer(),
+            const BackBtn(),
+            Spacer(),
+            TitleUndelineText(text: l10n.editdatas),
+            Spacer(),
+            Image.asset('assets/graphics/icons/icons8-test-account-128.png', height: 128,),
+            SmallTitleUndelineText(text: funame, center: true,),
+            Spacer(),
+            SmallTitleUndelineInputLabel(controller: nameController, placeholder: l10n.name_s, center: true,),
+            Spacer(),
+            Row(
+              children: [
+                Spacer(),
+                NumberInputLabel(controller: yearController, placeholder: l10n.year, fontSize: 24, width: 80,),
+                SizedBox(width: 10),
+                NumberInputLabel(controller: monthController, placeholder: l10n.month, fontSize: 24),
+                SizedBox(width: 10),
+                NumberInputLabel(controller: dayController, placeholder: l10n.day, fontSize: 24),
+                Spacer(),
+              ],
+            ),
+            Spacer(),
+            SmallTitleUndelineText(text: femail, center: true,),
+            Spacer(),
+            Button(text: l10n.allright, onPressed: saveUserData),
+            Spacer(),
+          ],
         ),
       )
     );

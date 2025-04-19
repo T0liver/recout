@@ -10,30 +10,28 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
-    return Scaffold(
-        body: Column(
-            children: [
-              const Spacer(flex: 2),
-              Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),
-              Center(
-                child: Heading(text: l10n.firstGreet),
-              ),
-              const Spacer(flex: 2),
-              LanguageLabel(onPressed: () =>Navigator.pushNamed(context, '/languages'),),
-              const Spacer(flex: 4),
-              Button(text: l10n.login, onPressed: () {
-                Navigator.pushNamed(context, '/login');
-              }),
-              SizedBox(height: 20,),
-              Button(text: l10n.register, onPressed: () {
-                Navigator.pushNamed(context, '/register');
-              },
-                bgColor: Colors.white,
-                border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
-              ),
-              const Spacer(flex: 1,)
-            ]
-        )
+    return Column(
+      children: [
+        const Spacer(flex: 2),
+        Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),
+        Center(
+          child: Heading(text: l10n.firstGreet),
+        ),
+        const Spacer(flex: 2),
+        LanguageLabel(onPressed: () =>Navigator.pushNamed(context, '/languages'),),
+        const Spacer(flex: 4),
+        Button(text: l10n.login, onPressed: () {
+          Navigator.pushNamed(context, '/login');
+        }),
+        SizedBox(height: 20,),
+        Button(text: l10n.register, onPressed: () {
+          Navigator.pushNamed(context, '/register');
+        },
+          bgColor: Colors.white,
+          border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
+        ),
+        const Spacer(flex: 1,)
+      ]
     );
   }
 }

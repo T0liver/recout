@@ -62,9 +62,7 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
+      return const Center(child: CircularProgressIndicator());
     }
     final l10n = L10n.of(context)!;
     final double width =
@@ -90,92 +88,90 @@ class _AccountPageState extends State<AccountPage> {
       }
     }
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          Center(
-            child: SizedBox(
-              width: width,
-              child: Column(
-                children: [
-                  Spacer(),
-                  const BackBtn(whereto: '/settings'),
-                  Spacer(),
-                  TitleUndelineText(text: l10n.useracc),
-                  Spacer(),
-                  Image.asset('assets/graphics/icons/icons8-test-account-128.png', height: 128,),
-                  SmallTitleUndelineText(text: uname, center: true,),
-                  Spacer(),
-                  SmallTitleUndelineText(text: rname, center: true,),
-                  Spacer(),
-                  SmallTitleUndelineText(text: dob, center: true,),
-                  Spacer(),
-                  SmallTitleUndelineText(text: email, center: true,),
-                  Spacer(),
-                  Button(text: l10n.editdatas, onPressed: () => Navigator.pushNamed(context, '/profile/edit')),
-                  Spacer(),
-                  Button(
-                      text: l10n.deleteacc,
-                      onPressed: _toggle,
-                      bgColor: Colors.white,
-                      border: const BorderSide(width: 2, color: Color(0xFFF9DC5C))
-                  ),
-                  Spacer(),
-                ],
-              ),
+    return Stack(
+      children: [
+        Center(
+          child: SizedBox(
+            width: width,
+            child: Column(
+              children: [
+                Spacer(),
+                const BackBtn(whereto: '/settings'),
+                Spacer(),
+                TitleUndelineText(text: l10n.useracc),
+                Spacer(),
+                Image.asset('assets/graphics/icons/icons8-test-account-128.png', height: 128,),
+                SmallTitleUndelineText(text: uname, center: true,),
+                Spacer(),
+                SmallTitleUndelineText(text: rname, center: true,),
+                Spacer(),
+                SmallTitleUndelineText(text: dob, center: true,),
+                Spacer(),
+                SmallTitleUndelineText(text: email, center: true,),
+                Spacer(),
+                Button(text: l10n.editdatas, onPressed: () => Navigator.pushNamed(context, '/profile/edit')),
+                Spacer(),
+                Button(
+                    text: l10n.deleteacc,
+                    onPressed: _toggle,
+                    bgColor: Colors.white,
+                    border: const BorderSide(width: 2, color: Color(0xFFF9DC5C))
+                ),
+                Spacer(),
+              ],
             ),
           ),
-          if (_showDialogue) ...[
-            Container(
-              color: Colors.black12.withAlpha(50),
-              child: Column(
-                children: [
-                  Spacer(),
-                  Center(
-                    child: DialogueCard(title: l10n.deleteTitle,
-                      body: l10n.cantBeUndoneAccount,
-                      onYes: () async {
-                        try {
-                          final user = FirebaseAuth.instance.currentUser;
-                          if (user == null) return;
-                          final uid = user.uid;
+        ),
+        if (_showDialogue) ...[
+          Container(
+            color: Colors.black12.withAlpha(50),
+            child: Column(
+              children: [
+                Spacer(),
+                Center(
+                  child: DialogueCard(title: l10n.deleteTitle,
+                    body: l10n.cantBeUndoneAccount,
+                    onYes: () async {
+                      try {
+                        final user = FirebaseAuth.instance.currentUser;
+                        if (user == null) return;
+                        final uid = user.uid;
 
-                          final workoutsQuery = await FirebaseFirestore.instance
-                              .collection('workouts')
-                              .where('userid', isEqualTo: uid)
-                              .get();
-                          for (var doc in workoutsQuery.docs) {
-                            await doc.reference.delete();
-                          }
-
-                          await FirebaseFirestore.instance.collection('users').doc(uid).delete();
-                          await user.delete();
-
-                          final prefs = await SharedPreferences.getInstance();
-                          await prefs.setBool('isLoggedIn', false);
-
-                          if (mounted && context.mounted) {
-                            Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
-                          }
-                        } catch (e) {
-                          debugPrint('Hiba: $e');
-                          if (mounted && context.mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('${L10n.of(context)!.deleteError}: $e')),
-                            );
-                          }
+                        final workoutsQuery = await FirebaseFirestore.instance
+                            .collection('workouts')
+                            .where('userid', isEqualTo: uid)
+                            .get();
+                        for (var doc in workoutsQuery.docs) {
+                          await doc.reference.delete();
                         }
-                      },
-                      onNo: _toggle,
-                    ),
+
+                        await FirebaseFirestore.instance.collection('users').doc(uid).delete();
+                        await user.delete();
+
+                        final prefs = await SharedPreferences.getInstance();
+                        await prefs.setBool('isLoggedIn', false);
+
+                        if (mounted && context.mounted) {
+                          Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
+                        }
+                      } catch (e) {
+                        debugPrint('Hiba: $e');
+                        if (mounted && context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('${L10n.of(context)!.deleteError}: $e')),
+                          );
+                        }
+                      }
+                    },
+                    onNo: _toggle,
                   ),
-                  Spacer()
-                ],
-              )
+                ),
+                Spacer()
+              ],
             )
-          ]
-        ],
-      )
+          )
+        ]
+      ]
     );
   }
 }

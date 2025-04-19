@@ -79,96 +79,94 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
       wduru = workOut.durationUnit;
       wloc = workOut.location;
     }
-    return Scaffold(
-      body: Stack(
-        children: [
-          Center(
-            child: SizedBox(
-              width: width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 20,),
-                  const BackBtn(),
-                  Spacer(flex: 1),
-                  Image.asset(
-                    'assets/graphics/icons/icons8-strong-arm-128.png',
-                    height: MediaQuery.sizeOf(context).height * 0.15,
-                  ),
-                  Spacer(flex: 1),
-                  Heading(text: wname, fontSize: 32, fontWeight: FontWeight.w600,),
-                  const Spacer(flex: 1),
+    return Stack(
+      children: [
+        Center(
+          child: SizedBox(
+            width: width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20,),
+                const BackBtn(),
+                Spacer(flex: 1),
+                Image.asset(
+                  'assets/graphics/icons/icons8-strong-arm-128.png',
+                  height: MediaQuery.sizeOf(context).height * 0.15,
+                ),
+                Spacer(flex: 1),
+                Heading(text: wname, fontSize: 32, fontWeight: FontWeight.w600,),
+                const Spacer(flex: 1),
 
-                  SizedBox(height: 20),
-                  BodyBase(l10n.dateofworkout),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Spacer(),
-                      BodyStrongText(wdatey),
-                      SizedBox(width: 10),
-                      BodyStrongText(wdatem),
-                      SizedBox(width: 10),
-                      BodyStrongText(wdated),
-                      Spacer(),
-                    ],
-                  ),
-                  Spacer(flex: 1),
-                  SizedBox(height: 20),
-                  BodyBase(l10n.durationofworkout),
-                  SizedBox(height: 10),
-                  Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Spacer(),
-                        BodyStrongText('$wdur $wduru'),
-                        Spacer(),
-                      ]
-                  ),
-                  Spacer(flex: 1),
-                  SizedBox(height: 20),
-                  BodyBase(l10n.locationofworkout),
-                  SizedBox(height: 10),
-                  BodyStrongText(wloc),
-                  Spacer(flex: 2),
-                  Row(
-                    children: [
-                      Spacer(flex: 1),
-                      IconBtn(icon: 'assets/graphics/icons/icons8-remove-32.png', onPressed: () => _toggle()),
-                      Spacer(flex: 2),
-                      IconBtn(icon: 'assets/graphics/icons/icons8-edit-32.png',
-                          onPressed: () => Navigator.pushNamed(context, '/workout/edit', arguments: workOut)),
-                      Spacer(flex: 1),
-                    ],
-                  ),
-                  Spacer(flex: 2,)
-                ],
-              ),
-            ),
-          ),
-          if (_showDialogue) ...[
-            Container(
-                color: Colors.black12.withAlpha(50),
-                child: Column(
+                SizedBox(height: 20),
+                BodyBase(l10n.dateofworkout),
+                SizedBox(height: 10),
+                Row(
                   children: [
                     Spacer(),
-                    Center(
-                      child: DialogueCard(title: l10n.deleteTitle,
-                        body: l10n.cantBeUndone,
-                        onYes: () {
-                          deleteWorkout();
-                          Navigator.pushNamed(context, '/');
-                        },
-                        onNo: _toggle,
-                      ),
-                    ),
-                    Spacer()
+                    BodyStrongText(wdatey),
+                    SizedBox(width: 10),
+                    BodyStrongText(wdatem),
+                    SizedBox(width: 10),
+                    BodyStrongText(wdated),
+                    Spacer(),
                   ],
-                )
+                ),
+                Spacer(flex: 1),
+                SizedBox(height: 20),
+                BodyBase(l10n.durationofworkout),
+                SizedBox(height: 10),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Spacer(),
+                    BodyStrongText('$wdur $wduru'),
+                    Spacer(),
+                  ]
+                ),
+                Spacer(flex: 1),
+                SizedBox(height: 20),
+                BodyBase(l10n.locationofworkout),
+                SizedBox(height: 10),
+                BodyStrongText(wloc),
+                Spacer(flex: 2),
+                Row(
+                  children: [
+                    Spacer(flex: 1),
+                    IconBtn(icon: 'assets/graphics/icons/icons8-remove-32.png', onPressed: () => _toggle()),
+                    Spacer(flex: 2),
+                    IconBtn(icon: 'assets/graphics/icons/icons8-edit-32.png',
+                        onPressed: () => Navigator.pushNamed(context, '/workout/edit', arguments: workOut)),
+                    Spacer(flex: 1),
+                  ],
+                ),
+                Spacer(flex: 2,)
+              ],
+            ),
+          ),
+        ),
+        if (_showDialogue) ...[
+          Container(
+            color: Colors.black12.withAlpha(50),
+            child: Column(
+              children: [
+                Spacer(),
+                Center(
+                  child: DialogueCard(title: l10n.deleteTitle,
+                    body: l10n.cantBeUndone,
+                    onYes: () {
+                      deleteWorkout();
+                      Navigator.pushNamed(context, '/');
+                    },
+                    onNo: _toggle,
+                  ),
+                ),
+                Spacer()
+              ],
             )
-          ]
-        ],
-      )
+          )
+        ]
+      ]
     );
   }
 }

@@ -58,28 +58,60 @@ class RecOut extends StatelessWidget {
       supportedLocales: L10n.supportedLocales,
       initialRoute: '/',
       routes: {
-        '/': (context) => const AuthGate(),
-        '/critique': (context) => const CritiquePage(),
-        '/first': (context) => const FirstPage(),
-        '/languages': (context) => const LanguagePage(),
-        '/login': (context) => const LoginPage(),
-        '/new_activity': (context) => const NewActivityPage(),
-        '/profile': (context) => const AccountPage(),
-        '/profile/edit': (context) => const EditAccountPage(),
-        '/register': (context) => const RegisterPage(),
-        '/settings': (context) => const SettingsPage(),
-        '/themes': (context) => const ThemePage(),
+        '/': (context) => const ScrollWrapper(AuthGate()),
+        '/critique': (context) => const ScrollWrapper(CritiquePage()),
+        '/first': (context) => const ScrollWrapper(FirstPage()),
+        '/languages': (context) => const ScrollWrapper(LanguagePage()),
+        '/login': (context) => const ScrollWrapper(LoginPage()),
+        '/new_activity': (context) => const ScrollWrapper(NewActivityPage()),
+        '/profile': (context) => const ScrollWrapper(AccountPage()),
+        '/profile/edit': (context) => const ScrollWrapper(EditAccountPage()),
+        '/register': (context) => const ScrollWrapper(RegisterPage()),
+        '/settings': (context) => const ScrollWrapper(SettingsPage()),
+        '/themes': (context) => const ScrollWrapper(ThemePage()),
         '/workout': (context) {
-          final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
-          return OpenActivityPage(workOut);
+        final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
+        return ScrollWrapper(OpenActivityPage(workOut));
         },
         '/workout/edit': (context) {
-          final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
-          return EditActivityPage(workOut);
+        final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
+        return ScrollWrapper(EditActivityPage(workOut));
         },
       }
     );
   }
 }
 
+class ScrollWrapper extends StatelessWidget {
+  final PreferredSizeWidget? appBar;
+  final Widget body;
+  final Widget? bottomNavigationBar;
+  final FloatingActionButton? floatingActionButton;
 
+  const ScrollWrapper(
+    this.body,
+    {super.key,
+    this.appBar,
+    this.bottomNavigationBar,
+    this.floatingActionButton,}
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: appBar,
+      bottomNavigationBar: bottomNavigationBar,
+      floatingActionButton: floatingActionButton,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: IntrinsicHeight(child: body),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

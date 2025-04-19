@@ -14,25 +14,23 @@ class CritiquePage extends StatelessWidget {
     MediaQuery.of(context).size.width * 0.9 < 700
         ? MediaQuery.of(context).size.width * 0.9
         : 700;
-    return Scaffold(
-      body: Center(
-        child: SizedBox(
-          width: width,
-          child: Column(
-            children: [
-              const SizedBox(height: 10,),
-              const BackBtn(),
-              SizedBox(height: 20),
-              TitleUndelineText(text: l10n.failcritique),
-              const SizedBox(height: 20,),
-              SmallTitleUndelineText(text: l10n.foundabugline),
-              const SizedBox(height: 10,),
-              BodySmallText(l10n.reportbughere),
-              Spacer(),
-            ],
-          ),
+    return Center(
+      child: SizedBox(
+        width: width,
+        child: Column(
+          children: [
+            const SizedBox(height: 10,),
+            const BackBtn(),
+            SizedBox(height: 20),
+            TitleUndelineText(text: l10n.failcritique),
+            const SizedBox(height: 20,),
+            SmallTitleUndelineText(text: l10n.foundabugline),
+            const SizedBox(height: 10,),
+            BodySmallText(l10n.reportbughere),
+            Spacer(),
+          ],
         ),
-      ),
+      )
     );
   }
 }

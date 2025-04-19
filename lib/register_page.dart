@@ -84,35 +84,31 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
-    return(
-        Scaffold(
-            body: Column(
-                children: [
-                  const SizedBox(height: 10,),
-                  const BackBtn(),
-                  const Spacer(flex: 2),
-                  Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),
-                  Heading(text: l10n.register),
-                  const Spacer(flex: 3),
-                  TextLabel(controller: _unamecontroller, hint: l10n.username),
-                  const SizedBox(height: 20),
-                  TextLabel(controller: _emailcontroller, hint: l10n.emailaddr),
-                  const SizedBox(height: 20),
-                  PasswordLabel(controller: _passcontroller, hint: l10n.password),
-                  const Spacer(flex: 2),
-                  Button(
-                    text: _isLoading ? '...' : l10n.goalright,
-                    onPressed: () {
-                      if (!_isLoading) {
-                        getCredentials();
-                      }
-                    },
-                    bgColor: _isLoading ? const Color(0x99F9DC5C) : const Color(0xFFF9DC5C),
-                  ),
-                  const Spacer(flex: 1,)
-                ]
-            )
-        )
+    return Column(
+      children: [
+        const SizedBox(height: 10,),
+        const BackBtn(),
+        const Spacer(flex: 2),
+        Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),
+        Heading(text: l10n.register),
+        const Spacer(flex: 3),
+        TextLabel(controller: _unamecontroller, hint: l10n.username),
+        const SizedBox(height: 20),
+        TextLabel(controller: _emailcontroller, hint: l10n.emailaddr),
+        const SizedBox(height: 20),
+        PasswordLabel(controller: _passcontroller, hint: l10n.password),
+        const Spacer(flex: 2),
+        Button(
+          text: _isLoading ? '...' : l10n.goalright,
+          onPressed: () {
+            if (!_isLoading) {
+              getCredentials();
+            }
+          },
+          bgColor: _isLoading ? const Color(0x99F9DC5C) : const Color(0xFFF9DC5C),
+        ),
+        const Spacer(flex: 1,)
+      ]
     );
   }
 }
