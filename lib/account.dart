@@ -41,7 +41,9 @@ class _AccountPageState extends State<AccountPage> {
     if(userData?['name'] != null) {
       rname = userData?['name'];
     }
-    email = user!.email!;
+    if(userData?['email'] != null) {
+      email = userData?['email'];
+    }
     if(userData?['dateOfBirth'] != null) {
       dobTmp = userData?['dateOfBirth'];
     }
@@ -63,9 +65,9 @@ class _AccountPageState extends State<AccountPage> {
 
     if (Provider.of<UserState>(context).username == null) {
       uname = l10n.username_s;
+      email = l10n.email_s;
       rname = l10n.name_s;
       dob = l10n.dateofbirth_s;
-      email = l10n.email_s;
     } else {
       uname = Provider.of<UserState>(context).username!;
 
