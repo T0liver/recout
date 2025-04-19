@@ -27,6 +27,8 @@ class _EditAccountPageState extends State<EditAccountPage> {
   String uname = '';
   String email = '';
 
+  bool _isLoading = true;
+
   Future<void> loadUserData() async {
     final user = FirebaseAuth.instance.currentUser;
     if(user == null) return;
@@ -46,6 +48,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
         monthController.text = dob.month.toString().padLeft(2, '0');
         dayController.text = dob.day.toString().padLeft(2, '0');
       }
+      _isLoading = false;
     });
   }
 
@@ -91,7 +94,18 @@ class _EditAccountPageState extends State<EditAccountPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
     final l10n = L10n.of(context)!;
     final double width =
     MediaQuery.of(context).size.width * 0.9 < 700

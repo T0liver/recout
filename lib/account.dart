@@ -19,6 +19,7 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   bool _showDialogue = false;
+  bool _isLoading = true;
 
   late String uname = '', rname = '', dob, email = '';
   DateTime? dobTmp;
@@ -47,6 +48,9 @@ class _AccountPageState extends State<AccountPage> {
     if(userData?['dateOfBirth'] != null) {
       dobTmp = userData?['dateOfBirth'];
     }
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
@@ -57,6 +61,11 @@ class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
     final l10n = L10n.of(context)!;
     final double width =
     MediaQuery.of(context).size.width * 0.9 < 700
