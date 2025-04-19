@@ -65,43 +65,44 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   width: width,
                   child: StreamBuilder<QuerySnapshot>(
-                      stream: FirebaseFirestore.instance
-                          .collection('workouts')
-                          .where('userid', isEqualTo: userId)
-                          .orderBy('date', descending: true)
-                          .snapshots(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
-                          return const CircularProgressIndicator();
-                        }
+                    stream: FirebaseFirestore.instance
+                        .collection('workouts')
+                        .where('userid', isEqualTo: userId)
+                        .orderBy('date', descending: true)
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const CircularProgressIndicator();
+                      }
 
-                        if (!snapshot.hasData ||snapshot.data!.docs.isEmpty) {
-                          return Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: BodyBase(L10n.of(context)!.noListElement),
-                          );
-                        }
-
-                        final workouts = snapshot.data!.docs.map((doc){
-                          final data = doc.data() as Map<String, dynamic>;
-                          return WorkOut(
-                              name: data['name'] ?? '',
-                              date: (data['date'] as Timestamp).toDate(),
-                              duration: data['duration'] ?? 0,
-                              durationUnit: data['durationUnit'] ?? '',
-                              location: data['location'] ?? ''
-                          );
-                        }).toList();
-
-                        return ListView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: workouts.length,
-                            itemBuilder: (context, index) {
-                              return ListCard(workouts[index]);
-                            }
+                      if (!snapshot.hasData ||snapshot.data!.docs.isEmpty) {
+                        return Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: BodyBase(L10n.of(context)!.noListElement),
                         );
                       }
+
+                      final workouts = snapshot.data!.docs.map((doc){
+                        final data = doc.data() as Map<String, dynamic>;
+                        return WorkOut(
+                          wid: doc.id,
+                          name: data['name'] ?? '',
+                          date: (data['date'] as Timestamp).toDate(),
+                          duration: data['duration'] ?? 0,
+                          durationUnit: data['durationUnit'] ?? '',
+                          location: data['location'] ?? ''
+                        );
+                      }).toList();
+
+                      return ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: workouts.length,
+                          itemBuilder: (context, index) {
+                            return ListCard(workouts[index]);
+                          }
+                      );
+                    }
                   )
                 ),
               ],
