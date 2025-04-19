@@ -1,5 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:recout/globals.dart';
 import 'package:recout/labels.dart';
 import 'package:recout/texts.dart';
 
@@ -14,19 +15,41 @@ class EditAccountPage extends StatefulWidget {
 }
 
 class _EditAccountPageState extends State<EditAccountPage> {
-  late TextEditingController nameController = TextEditingController(text: Globals.user?.name);
-  late TextEditingController yearController = TextEditingController(text:
-    Globals.user?.dateofbirth?.year != null
-    ? Globals.user?.dateofbirth?.year.toString()
-    : '');
-  late TextEditingController monthController = TextEditingController(text: Globals.user?.dateofbirth?.month.toString().padLeft(2, '0'));
-  late TextEditingController dayController = TextEditingController(text: Globals.user?.dateofbirth?.day.toString().padLeft(2, '0'));
+  late TextEditingController nameController = TextEditingController();
+  late TextEditingController yearController = TextEditingController();
+  late TextEditingController monthController = TextEditingController();
+  late TextEditingController dayController = TextEditingController();
 
   bool yearValid = true;
   bool monthValid = true;
   bool dayValid = true;
 
-  void getUserData() {
+  String uname = '';
+  String email = '';
+
+  Future<void> loadUserData() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if(user == null) return;
+
+    final doc = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+    final data = doc.data();
+    if (data == null) return;
+
+    setState(() {
+      uname = data['username'] ?? '';
+      email = user.email ?? '';
+      nameController.text = data['name'] ?? '';
+      final Timestamp? dobTimestamp = data['dateOfBirth'];
+      if (dobTimestamp != null) {
+        final dob = dobTimestamp.toDate();
+        yearController.text = dob.year.toString();
+        monthController.text = dob.month.toString().padLeft(2, '0');
+        dayController.text = dob.day.toString().padLeft(2, '0');
+      }
+    });
+  }
+
+  Future<void> saveUserData() async {
     final isYearEmpty = yearController.text.isEmpty;
     final isMonthEmpty = monthController.text.isEmpty;
     final isDayEmpty = dayController.text.isEmpty;
@@ -40,14 +63,29 @@ class _EditAccountPageState extends State<EditAccountPage> {
       dayValid = isDayValid;
     });
 
-    if (isYearValid && isMonthValid && isDayValid) {
-      if(nameController.text.isNotEmpty) {
-        debugPrint("Név: ${nameController.text}");
-      }
-      if (!isYearEmpty && !isMonthEmpty && !isDayEmpty) {
-        DateTime dob = DateTime(int.parse(yearController.text), int.parse(monthController.text), int.parse(dayController.text));
-        debugPrint("Szül.idő: ${dob.toString()}");
-      }
+    if (!isYearValid || !isMonthValid || !isDayValid) return;
+
+    final user = FirebaseAuth.instance.currentUser;
+    if(user == null) return;
+
+    final Map<String, dynamic> updatedData = {};
+
+    if (nameController.text.isNotEmpty) {
+      updatedData['name'] = nameController.text.trim();
+    }
+    if (!isYearEmpty && !isMonthEmpty && !isDayEmpty) {
+      final dob = DateTime(
+        int.parse(yearController.text),
+        int.parse(monthController.text),
+        int.parse(dayController.text),
+      );
+      updatedData['dateOfBirth'] = Timestamp.fromDate(dob);
+    }
+    if (updatedData.isNotEmpty) {
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).update(updatedData);
+    }
+
+    if (mounted) {
       Navigator.pushNamed(context, '/profile');
     }
   }
@@ -60,14 +98,8 @@ class _EditAccountPageState extends State<EditAccountPage> {
         ? MediaQuery.of(context).size.width * 0.9
         : 700;
 
-    String uname, email;
-    if (Globals.user == null) {
-      uname = l10n.username_s;
-      email = l10n.email_s;
-    } else {
-      uname = Globals.user!.username;
-      email = Globals.user!.email;
-    }
+    String funame = uname.isEmpty ? l10n.username_s : uname;
+    String femail = email.isEmpty ? l10n.email_s : email;
 
     return Scaffold(
       body: Center(
@@ -81,7 +113,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
               TitleUndelineText(text: l10n.useracc),
               Spacer(),
               Image.asset('assets/graphics/icons/icons8-test-account-128.png', height: 128,),
-              SmallTitleUndelineText(text: uname, center: true,),
+              SmallTitleUndelineText(text: funame, center: true,),
               Spacer(),
               SmallTitleUndelineInputLabel(controller: nameController, placeholder: l10n.name_s, center: true,),
               Spacer(),
@@ -97,9 +129,9 @@ class _EditAccountPageState extends State<EditAccountPage> {
                 ],
               ),
               Spacer(),
-              SmallTitleUndelineText(text: email, center: true,),
+              SmallTitleUndelineText(text: femail, center: true,),
               Spacer(),
-              Button(text: l10n.allright, onPressed: () => getUserData()),
+              Button(text: l10n.allright, onPressed: saveUserData),
               Spacer(),
             ],
           ),
