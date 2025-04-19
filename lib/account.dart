@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:recout/cards.dart';
 import 'package:recout/texts.dart';
 import 'package:recout/user_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'button.dart';
 import 'l10n/l10n.dart';
@@ -33,18 +34,23 @@ class _AccountPageState extends State<AccountPage> {
 
     final userQuery = await FirebaseFirestore.instance
         .collection('users')
-        .where('email', isEqualTo: user?.email)
-        .limit(1)
+        .doc(user?.uid)
         .get();
-    final userData = userQuery.docs.first.data();
+    final userData = userQuery.data();
 
-    if(userData['name'] != null) {
-      rname = userData['name'];
+    if(userData?['name'] != null) {
+      rname = userData?['name'];
     }
     email = user!.email!;
-    if(userData['dateOfBirth'] != null) {
-      dobTmp = userData['dateOfBirth'];
+    if(userData?['dateOfBirth'] != null) {
+      dobTmp = userData?['dateOfBirth'];
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
   }
 
   @override
@@ -62,8 +68,6 @@ class _AccountPageState extends State<AccountPage> {
       email = l10n.email_s;
     } else {
       uname = Provider.of<UserState>(context).username!;
-
-      getUserData();
 
       if (rname == '') {
         rname = l10n.name_s;
@@ -122,9 +126,37 @@ class _AccountPageState extends State<AccountPage> {
                   Center(
                     child: DialogueCard(title: l10n.deleteTitle,
                       body: l10n.cantBeUndoneAccount,
-                      onYes: () {
-                        //TODO: törlés
-                        Navigator.pushNamed(context, '/first');
+                      onYes: () async {
+                        try {
+                          final user = FirebaseAuth.instance.currentUser;
+                          if (user == null) return;
+                          final uid = user.uid;
+
+                          final workoutsQuery = await FirebaseFirestore.instance
+                              .collection('workouts')
+                              .where('userid', isEqualTo: uid)
+                              .get();
+                          for (var doc in workoutsQuery.docs) {
+                            await doc.reference.delete();
+                          }
+
+                          await FirebaseFirestore.instance.collection('users').doc(uid).delete();
+                          await user.delete();
+
+                          final prefs = await SharedPreferences.getInstance();
+                          await prefs.setBool('isLoggedIn', false);
+
+                          if (mounted && context.mounted) {
+                            Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
+                          }
+                        } catch (e) {
+                          debugPrint('Hiba: $e');
+                          if (mounted && context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('${L10n.of(context)!.deleteError}: $e')),
+                            );
+                          }
+                        }
                       },
                       onNo: _toggle,
                     ),
