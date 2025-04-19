@@ -512,6 +512,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!'**
   String get noListElement;
+
+  /// Üzenet, ha hiba történt a fiók törlése folyamán.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hiba történt a fiók törlésekor'**
+  String get deleteError;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -283,5 +283,9 @@
     "noListElement": "Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!",
     "@noListElement": {
         "description": "Visszajelzés a listánál, hogyha a felhasználó még nem vett fel edzést."
+    },
+    "deleteError": "Hiba történt a fiók törlésekor",
+    "@deleteError": {
+        "description": "Üzenet, ha hiba történt a fiók törlése folyamán."
     }
 }
