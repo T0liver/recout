@@ -220,4 +220,7 @@ class L10nHu extends L10n {
 
   @override
   String get deleteError => 'Hiba történt a fiók törlésekor';
+
+  @override
+  String get sucessfullDelete => 'Sikeresen törölve!';
 }

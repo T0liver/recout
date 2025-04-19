@@ -518,6 +518,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Hiba történt a fiók törlésekor'**
   String get deleteError;
+
+  /// Visszajelzés a sikeres törlésről.
+  ///
+  /// In hu, this message translates to:
+  /// **'Sikeresen törölve!'**
+  String get sucessfullDelete;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

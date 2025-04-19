@@ -287,5 +287,9 @@
     "deleteError": "Hiba történt a fiók törlésekor",
     "@deleteError": {
         "description": "Üzenet, ha hiba történt a fiók törlése folyamán."
+    },
+    "sucessfullDelete": "Sikeresen törölve!",
+    "@sucessfullDelete": {
+        "description": "Visszajelzés a sikeres törlésről."
     }
 }
