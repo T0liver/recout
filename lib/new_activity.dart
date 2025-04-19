@@ -5,6 +5,8 @@ import 'package:recout/labels.dart';
 import 'package:recout/texts.dart';
 import 'package:recout/workout.dart';
 
+// TODO: add firebase to this page and add this somehow to the main activity
+
 class NewActivityPage extends StatefulWidget {
   const NewActivityPage({super.key});
 
