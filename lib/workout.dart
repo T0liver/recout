@@ -1,4 +1,5 @@
 class WorkOut {
+  String wid;
   String name;
   DateTime date;
   double duration;
@@ -7,6 +8,7 @@ class WorkOut {
   String icon;
 
   WorkOut({
+    required this.wid,
     required this.name,
     required this.date,
     required this.duration,
