@@ -150,7 +150,9 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
         await FirebaseFirestore.instance.collection('workouts').add(workoutData);
         debugPrint('Workout mentve Firestore-ba: $workoutData');
 
-        (context.findAncestorStateOfType<_WorkoutRecCardState>() as _WorkoutRecCardState).toggleInputVisibility();
+        if (mounted) {
+          (context.findAncestorStateOfType<_WorkoutRecCardState>() as _WorkoutRecCardState).toggleInputVisibility();
+        }
       } catch (e) {
         debugPrint('Hiba a Firestore mentés során: $e');
       }
