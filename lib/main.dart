@@ -57,26 +57,67 @@ class RecOut extends StatelessWidget {
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
       initialRoute: '/',
-      routes: {
-        '/': (context) => const ScrollWrapper(AuthGate()),
-        '/critique': (context) => const ScrollWrapper(CritiquePage()),
-        '/first': (context) => const ScrollWrapper(FirstPage()),
-        '/languages': (context) => const ScrollWrapper(LanguagePage()),
-        '/login': (context) => const ScrollWrapper(LoginPage()),
-        '/new_activity': (context) => const ScrollWrapper(NewActivityPage()),
-        '/profile': (context) => const ScrollWrapper(AccountPage()),
-        '/profile/edit': (context) => const ScrollWrapper(EditAccountPage()),
-        '/register': (context) => const ScrollWrapper(RegisterPage()),
-        '/settings': (context) => const ScrollWrapper(SettingsPage()),
-        '/themes': (context) => const ScrollWrapper(ThemePage()),
-        '/workout': (context) {
-        final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
-        return ScrollWrapper(OpenActivityPage(workOut));
-        },
-        '/workout/edit': (context) {
-        final workOut = ModalRoute.of(context)!.settings.arguments as WorkOut;
-        return ScrollWrapper(EditActivityPage(workOut));
-        },
+      onGenerateRoute: (route) {
+        Widget page;
+        switch (route.name) {
+          case '/':
+            page = const ScrollWrapper(AuthGate());
+            break;
+          case '/critique':
+            page = const ScrollWrapper(CritiquePage());
+            break;
+          case '/first':
+            page = const ScrollWrapper(FirstPage());
+            break;
+          case '/languages':
+            page = const ScrollWrapper(LanguagePage());
+            break;
+          case '/login':
+            page = const ScrollWrapper(LoginPage());
+            break;
+          case '/new_activity':
+            page = const ScrollWrapper(NewActivityPage());
+            break;
+          case '/profile':
+            page = const ScrollWrapper(AccountPage());
+            break;
+          case '/profile/edit':
+            page = const ScrollWrapper(EditAccountPage());
+            break;
+          case '/register':
+            page = const ScrollWrapper(RegisterPage());
+            break;
+          case '/settings':
+            page = const ScrollWrapper(SettingsPage());
+            break;
+          case '/themes':
+            page = const ScrollWrapper(ThemePage());
+            break;
+          case '/workout':
+            final workOut = route.arguments as WorkOut;
+            page = ScrollWrapper(OpenActivityPage(workOut));
+            break;
+          case '/workout/edit':
+            final workOut = route.arguments as WorkOut;
+            page = ScrollWrapper(EditActivityPage(workOut));
+            break;
+          default:
+            return null;
+        }
+
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => page,
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+
+            final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            final offsetAnimation = animation.drive(tween);
+
+            return SlideTransition(position: offsetAnimation, child: child);
+          },
+        );
       }
     );
   }
