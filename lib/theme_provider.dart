@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:recout/themes/dark_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/widgets.dart';
 import 'package:recout/themes/app_colors.dart';
@@ -8,6 +9,7 @@ import 'package:recout/themes/light_theme.dart';
 class ThemeProvider with ChangeNotifier {
   static final Map<String, (String, AppColors, Brightness)> themes = {
     'light': ("Világos", LightTheme.lightTheme, Brightness.light),
+    'dark': ("Sötét", DarkTheme.theme, Brightness.dark),
   };
 
   static const _themeKey = 'selected_theme';
