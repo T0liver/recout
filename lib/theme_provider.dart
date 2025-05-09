@@ -6,8 +6,8 @@ import 'package:recout/themes/app_colors.dart';
 import 'package:recout/themes/light_theme.dart';
 
 class ThemeProvider with ChangeNotifier {
-  static final Map<String, (AppColors, Brightness)> themes = {
-    'light': (LightTheme.lightTheme, Brightness.light),
+  static final Map<String, (String, AppColors, Brightness)> themes = {
+    'light': ("Világos", LightTheme.lightTheme, Brightness.light),
   };
 
   static const _themeKey = 'selected_theme';
@@ -27,7 +27,7 @@ class ThemeProvider with ChangeNotifier {
     final savedKey = prefs.getString(_themeKey);
 
     if (savedKey != null && themes.containsKey(savedKey)) {
-      final (colors, brightness) = themes[savedKey]!;
+      final (string, colors, brightness) = themes[savedKey]!;
       _currentTheme = createTheme(colors, brightness);
       _currentKey = savedKey;
       notifyListeners();
@@ -35,7 +35,7 @@ class ThemeProvider with ChangeNotifier {
   }
 
   Future<void> setTheme(String key) async {
-    final (colors, brightness) = themes[key]!;
+    final (string, colors, brightness) = themes[key]!;
     _currentTheme = createTheme(colors, brightness);
     _currentKey = key;
     notifyListeners();
