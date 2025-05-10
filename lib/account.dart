@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/cards.dart';
 import 'package:recout/texts.dart';
+import 'package:recout/themes/app_colors.dart';
 import 'package:recout/user_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -114,8 +115,8 @@ class _AccountPageState extends State<AccountPage> {
                 Button(
                     text: l10n.deleteacc,
                     onPressed: _toggle,
-                    bgColor: Colors.white,
-                    border: const BorderSide(width: 2, color: Color(0xFFF9DC5C))
+                    bgColor: context.backgroundColor,
+                    border: BorderSide(width: 2, color: context.buttonColor)
                 ),
                 Spacer(),
               ],
