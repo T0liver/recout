@@ -534,5 +534,3 @@ class DialogueCard extends StatelessWidget {
     );
   }
 }
-
-// TODO: add "ad" card with a cute dog picture from API call
