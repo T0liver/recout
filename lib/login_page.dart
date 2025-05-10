@@ -7,6 +7,7 @@ import "package:recout/button.dart";
 import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
+import "package:recout/themes/app_colors.dart";
 import "package:recout/user_state.dart";
 
 class LoginPage extends StatefulWidget {
@@ -102,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
         PasswordLabel(controller: _passcontroller, hint: l10n.password),
         const Spacer(flex: 2),
         Button(
-          bgColor: _isLoading ? const Color(0x99F9DC5C) : const Color(0xFFF9DC5C),
+          bgColor: _isLoading ? context.tertiaryColor : context.primaryColor,
           text: _isLoading ? '...' : l10n.letsgo,
           onPressed: () {
             if (!_isLoading) {
