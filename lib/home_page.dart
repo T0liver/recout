@@ -35,79 +35,80 @@ class _HomePageState extends State<HomePage> {
         : 500;
 
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(height: 10,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    const SizedBox(width: 20,),
-                    Column(
-                      children: [
-                        const SizedBox(height: 30,),
-                        HelloText(name: uname),
-                      ],
-                    ),
-                    const Spacer(),
-                    SettingsBtn(),
-                    const SizedBox(width: 20,),
-                  ],
-                ),
-                // Spacer(flex: 1,),
-                const SizedBox(height: 50,),
-                WorkoutRecCard(),
-                const SizedBox(height: 20,),
-                TitleUndelineText(text: L10n.of(context)!.prevworkouts),
-                const SizedBox(height: 2,),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const SizedBox(width: 20,),
+                  Column(
+                    children: [
+                      const SizedBox(height: 30,),
+                      HelloText(name: uname),
+                    ],
+                  ),
+                  const Spacer(),
+                  SettingsBtn(),
+                  const SizedBox(width: 20,),
+                ],
+              ),
+              // Spacer(flex: 1,),
+              const SizedBox(height: 50,),
+              WorkoutRecCard(),
+              const SizedBox(height: 20,),
+              TitleUndelineText(text: L10n.of(context)!.prevworkouts),
+              const SizedBox(height: 2,),
 
-                SizedBox(
-                  width: width,
-                  child: StreamBuilder<QuerySnapshot>(
-                    stream: FirebaseFirestore.instance
-                        .collection('workouts')
-                        .where('userid', isEqualTo: userId)
-                        .orderBy('date', descending: true)
-                        .snapshots(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const CircularProgressIndicator();
-                      }
+              SizedBox(
+                width: width,
+                child: StreamBuilder<QuerySnapshot>(
+                  stream: FirebaseFirestore.instance
+                      .collection('workouts')
+                      .where('userid', isEqualTo: userId)
+                      .orderBy('date', descending: true)
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const CircularProgressIndicator();
+                    }
 
-                      if (!snapshot.hasData ||snapshot.data!.docs.isEmpty) {
-                        return Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: BodyBase(L10n.of(context)!.noListElement),
-                        );
-                      }
-
-                      final workouts = snapshot.data!.docs.map((doc){
-                        final data = doc.data() as Map<String, dynamic>;
-                        return WorkOut(
-                          wid: doc.id,
-                          name: data['name'] ?? '',
-                          date: (data['date'] as Timestamp).toDate(),
-                          duration: data['duration'] ?? 0,
-                          durationUnit: data['durationUnit'] ?? '',
-                          location: data['location'] ?? ''
-                        );
-                      }).toList();
-
-                      return ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: workouts.length,
-                          itemBuilder: (context, index) {
-                            return ListCard(workouts[index]);
-                          }
+                    if (!snapshot.hasData ||snapshot.data!.docs.isEmpty) {
+                      return Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: BodyBase(L10n.of(context)!.noListElement),
                       );
                     }
-                  )
-                ),
-              ],
-            )
+
+                    final workouts = snapshot.data!.docs.map((doc){
+                      final data = doc.data() as Map<String, dynamic>;
+                      return WorkOut(
+                        wid: doc.id,
+                        name: data['name'] ?? '',
+                        date: (data['date'] as Timestamp).toDate(),
+                        duration: data['duration'] ?? 0,
+                        durationUnit: data['durationUnit'] ?? '',
+                        location: data['location'] ?? ''
+                      );
+                    }).toList();
+
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: workouts.length,
+                        itemBuilder: (context, index) {
+                          return ListCard(workouts[index]);
+                        }
+                    );
+                  }
+                )
+              ),
+            ],
           )
+        )
       )
     );
   }
