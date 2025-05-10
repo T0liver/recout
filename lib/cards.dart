@@ -1,5 +1,9 @@
+import "dart:convert";
+
+import "package:cached_network_image/cached_network_image.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
+import "package:http/http.dart" as http;
 import "package:intl/intl.dart";
 import "package:cloud_firestore/cloud_firestore.dart";
 import "package:recout/button.dart";
@@ -340,6 +344,95 @@ class ListCard extends StatelessWidget {
                 },
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AdCard extends StatefulWidget {
+  const AdCard({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _AdCardState();
+}
+
+class _AdCardState extends State<AdCard> {
+  String? imageUrl;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchDogImage();
+  }
+
+  Future<void> fetchDogImage() async {
+    final response = await http.get(Uri.parse('https://dog.ceo/api/breeds/image/random'));
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      setState(() {
+        imageUrl = data['message'];
+        isLoading = false;
+      });
+    } else {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width * 0.9 < 500
+        ? MediaQuery.of(context).size.width * 0.9
+        : 500;
+
+    return SizedBox(
+      width: width,
+      child: Container(
+        margin: const EdgeInsets.all(12),
+        child: Center(
+          child: isLoading
+              ? CircularProgressIndicator()
+              : ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                CachedNetworkImage(
+                  imageUrl: imageUrl!,
+                  width: width,
+                  height: 120,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => Container(
+                    color: Colors.grey[300],
+                    height: 100,
+                    width: width,
+                  ),
+                  errorWidget: (context, url, error) => Container(
+                    color: Colors.grey,
+                    height: 100,
+                    width: width,
+                    child: Icon(Icons.error),
+                  ),
+                ),
+                Container(
+                  height: 100,
+                  width: width,
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Heading(
+                      text: 'Nincs hirdetés, helyette itt egy kutyás kép',
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -63,6 +63,8 @@ class _HomePageState extends State<HomePage> {
               TitleUndelineText(text: L10n.of(context)!.prevworkouts),
               const SizedBox(height: 2,),
 
+              AdCard(),
+
               SizedBox(
                 width: width,
                 child: StreamBuilder<QuerySnapshot>(
