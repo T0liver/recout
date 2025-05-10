@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recout/l10n/l10n.dart';
+import 'package:recout/themes/app_colors.dart';
 
 class TextLabel extends StatelessWidget {
   final TextEditingController controller;
@@ -23,25 +24,25 @@ class TextLabel extends StatelessWidget {
         obscureText: pass,
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: const TextStyle(
-            color: Colors.grey,
+          hintStyle: TextStyle(
+            color: context.secondaryColor,
             fontWeight: FontWeight.w600,
           ),
-          enabledBorder: const UnderlineInputBorder(
+          enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.grey,
+              color: context.secondaryColor,
               width: 1.5,
             ),
           ),
-          focusedBorder: const UnderlineInputBorder(
+          focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.grey,
+              color: context.secondaryColor,
               width: 1.5,
             ),
           ),
         ),
-        style: const TextStyle(
-          color: Colors.black,
+        style: TextStyle(
+          color: context.textColor,
           fontWeight: FontWeight.normal,
         ),
       ),
@@ -82,19 +83,19 @@ class _PasswordLabelState extends State<PasswordLabel> {
           obscureText: _obscure,
           decoration: InputDecoration(
             hintText: widget.hint,
-            hintStyle: const TextStyle(
-              color: Colors.grey,
+            hintStyle: TextStyle(
+              color: context.secondaryColor,
               fontWeight: FontWeight.w600,
             ),
-            enabledBorder: const UnderlineInputBorder(
+            enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                color: Colors.grey,
+                color: context.secondaryColor,
                 width: 1.5,
               ),
             ),
-            focusedBorder: const UnderlineInputBorder(
+            focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                color: Colors.grey,
+                color: context.secondaryColor,
                 width: 1.5,
               ),
             ),
@@ -102,13 +103,13 @@ class _PasswordLabelState extends State<PasswordLabel> {
               // TODO: add pixelated icons here
               icon: Icon(
                 _obscure ? Icons.visibility_off : Icons.visibility,
-                color: Colors.grey,
+                color: context.secondaryColor,
               ),
               onPressed: _toggleVisibility,
             ),
           ),
-          style: const TextStyle(
-            color: Colors.black,
+          style: TextStyle(
+            color: context.textColor,
             fontWeight: FontWeight.normal,
           ),
         ),
@@ -135,10 +136,10 @@ class BoxInputLabel extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         hintText: placeholder,
-        hintStyle: TextStyle(color: valid ? Colors.grey : Colors.red),
+        hintStyle: TextStyle(color: valid ? context.tertiaryColor : Theme.of(context).colorScheme.error),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         filled: true,
-        fillColor: Colors.grey.shade100,
+        fillColor: context.secondaryColor,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(24),
           borderSide: BorderSide.none,
@@ -176,14 +177,14 @@ class NumberInputLabel extends StatelessWidget {
           fontFamily: 'Inter',
           fontWeight: FontWeight.w500,
           fontSize: fontSize,
-          color: valid ? Colors.black : Colors.red,
+          color: valid ? context.textColor : Theme.of(context).colorScheme.error,
         ),
         decoration: InputDecoration(
           isDense: true,
           hintText: placeholder,
           contentPadding: const EdgeInsets.symmetric(vertical: 4),
-          hintStyle: TextStyle(color: valid ? Color(0xFFB3B3B3) : Colors.red),
-          border: UnderlineInputBorder(borderSide: BorderSide(color: valid ? Colors.black : Colors.red)),
+          hintStyle: TextStyle(color: valid ? context.secondaryColor : Theme.of(context).colorScheme.error),
+          border: UnderlineInputBorder(borderSide: BorderSide(color: valid ? context.textColor : Theme.of(context).colorScheme.error)),
         ),
       ),
     );
@@ -254,11 +255,11 @@ class _DurationChooserState extends State<DurationChooser> {
             value: choice,
             child: Text(
               choice,
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w600,
                 fontSize: 14,
-                color: Colors.black,
+                color: context.textColor,
                 letterSpacing: 2,
               ),
             ),
@@ -269,7 +270,7 @@ class _DurationChooserState extends State<DurationChooser> {
         borderRadius: BorderRadius.circular(8),
         side: BorderSide.none,
       ),
-      color: Colors.white,
+      color: context.backgroundColor,
       elevation: 0,
       padding: EdgeInsets.zero,
       child: Column(
@@ -277,7 +278,7 @@ class _DurationChooserState extends State<DurationChooser> {
           SizedBox(height: 7,),
           Text(
             duration,
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: 'Inter',
               fontWeight: FontWeight.w500,
               fontSize: 14,
@@ -285,12 +286,12 @@ class _DurationChooserState extends State<DurationChooser> {
               letterSpacing: 2,
               shadows: [
                 Shadow(
-                    color: Colors.black,
+                    color: context.textColor,
                     offset: Offset(0, -4))
               ],
               color: Colors.transparent,
               decoration: TextDecoration.underline,
-              decorationColor: Colors.black,
+              decorationColor: context.textColor,
               decorationThickness: 0.7
             )
           ),
@@ -324,15 +325,15 @@ class StringInputLabel extends StatelessWidget {
           fontFamily: 'Inter',
           fontWeight: FontWeight.w500,
           fontSize: 14,
-          color: valid ? Colors.black : Colors.red,
+          color: valid ? context.textColor : Theme.of(context).colorScheme.error,
         ),
         decoration: InputDecoration(
           isDense: true,
           hintText: placeholder,
           contentPadding: EdgeInsets.symmetric(vertical: 4),
-          border: UnderlineInputBorder(borderSide: BorderSide(color: valid ? Colors.black : Colors.red)),
-          labelStyle: TextStyle(color: valid ? Color(0xFFB3B3B3) : Colors.red),
-          hintStyle: TextStyle(color: valid ? Color(0xFFB3B3B3) : Colors.red)
+          border: UnderlineInputBorder(borderSide: BorderSide(color: valid ? Colors.black : Theme.of(context).colorScheme.error)),
+          labelStyle: TextStyle(color: valid ? context.secondaryColor : Theme.of(context).colorScheme.error),
+          hintStyle: TextStyle(color: valid ? context.secondaryColor : Theme.of(context).colorScheme.error)
         ),
       ),
     );
@@ -343,8 +344,8 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
   final String? placeholder;
   final TextEditingController controller;
   final bool valid;
-  final TextStyle style;
-  final TextStyle hintStyle;
+  final TextStyle? style;
+  final TextStyle? hintStyle;
   final Divider divider;
   final double maxwidth;
   final bool center;
@@ -354,18 +355,8 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
     required this.controller,
     this.placeholder = "...",
     this.valid = true,
-    this.style = const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 24,
-        fontWeight: FontWeight.w400,
-        color: Colors.black
-    ),
-    this.hintStyle = const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 24,
-        fontWeight: FontWeight.w400,
-        color: Color(0xFFB3B3B3)
-    ),
+    this.style,
+    this.hintStyle,
     this.divider = const Divider(height: 1, thickness: 0.8),
     this.maxwidth = 500,
     this.center = false,
@@ -385,11 +376,21 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
           TextField(
             textAlign: center ? TextAlign.center : TextAlign.start,
             controller: controller,
-            style: style,
+            style: style ?? TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 24,
+                fontWeight: FontWeight.w400,
+                color: context.textColor
+            ),
             decoration: InputDecoration(
               hintText: placeholder,
               border: InputBorder.none,
-              hintStyle: hintStyle
+              hintStyle: hintStyle ?? TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 24,
+                  fontWeight: FontWeight.w400,
+                  color: context.secondaryColor
+              )
             ),
           ),
           const SizedBox(height: 8),
