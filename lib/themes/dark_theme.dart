@@ -10,6 +10,6 @@ class DarkTheme {
     background: Color(0xFF0E0E0E),
     text: Color(0xFFFFFFFF),
     cardBackground: Color(0xFF31363F),
-    button: Color(0xFFF9DC5C)
+    button: Color(0xFFFF8000)
   );
 }

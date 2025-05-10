@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:recout/themes/app_colors.dart';
 
 class Button extends StatelessWidget {
   final String text;
-  final Color bgColor;
+  final Color? bgColor;
   final Size? size;
-  final BorderSide border;
+  final BorderSide? border;
   final VoidCallback onPressed;
-  final TextStyle style;
+  final TextStyle? style;
   final EdgeInsetsGeometry padding;
 
   const Button({
     super.key,
     required this.text,
-    this.bgColor = const Color(0xFFF9DC5C),
+    this.bgColor,
     this.size = const Size(331, 66),
-    this.border = const BorderSide(width: 0, color: Color(0xFFF9DC5C)),
-    this.style = const TextStyle(
-        fontFamily: 'Inter',
-        fontWeight: FontWeight.w600,
-        fontSize: 24,
-        color: Colors.black
-    ),
+    this.border,
+    this.style,
     this.padding = const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
     required this.onPressed,
   });
@@ -33,18 +29,23 @@ class Button extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: bgColor,
+          backgroundColor: bgColor ?? context.buttonColor,
           padding: padding,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-            side: border,
+            side: border ?? BorderSide(width: 0, color: context.buttonColor),
           ),
           elevation: 0,
         ), // style
         child: Center(
           child: Text(
             text,
-            style: style,
+            style: style ?? TextStyle(
+                fontFamily: 'Inter',
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+                color: context.textColor
+            ),
           ),
         ),
       ),
@@ -103,11 +104,11 @@ class TextIconBtn extends StatelessWidget {
   final String icon;
   final Size size;
   final Size iconsize;
-  final TextStyle textstyle;
+  final TextStyle? textstyle;
   final VoidCallback onPressed;
-  final Color bgColor;
+  final Color? bgColor;
   final EdgeInsetsGeometry padding;
-  final BorderSide border;
+  final BorderSide? border;
   
   const TextIconBtn({
     super.key,
@@ -115,16 +116,11 @@ class TextIconBtn extends StatelessWidget {
     this.icon = '',
     this.size = const Size(200, 70),
     this.iconsize = const Size(32, 32),
-    this.textstyle = const TextStyle(
-        fontFamily: 'Inter',
-        fontWeight: FontWeight.w600,
-        fontSize: 26,
-        color: Colors.black
-    ),
+    this.textstyle,
     required this.onPressed,
-    this.bgColor = const Color(0xFFF9DC5C),
+    this.bgColor,
     this.padding = const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-    this.border = const BorderSide(width: 0, color: Color(0xFFF9DC5C)),
+    this.border,
   });
 
   @override
@@ -135,11 +131,11 @@ class TextIconBtn extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: bgColor,
+          backgroundColor: bgColor ?? context.buttonColor,
           padding: padding,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-            side: border,
+            side: border ?? BorderSide(width: 0, color: context.buttonColor),
           ),
           elevation: 0,
         ), // style
@@ -149,7 +145,12 @@ class TextIconBtn extends StatelessWidget {
               Spacer(),
               Text(
                 text,
-                style: textstyle,
+                style: textstyle ?? TextStyle(
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 26,
+                    color: context.textColor
+                ),
               ),
               Spacer(),
               Image.asset(icon, width: iconsize.width, height: iconsize.height,),
