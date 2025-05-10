@@ -183,7 +183,7 @@ class BodyBase extends StatelessWidget {
 
 class TitleUndelineText extends StatelessWidget {
   final String text;
-  final TextStyle style;
+  final TextStyle? style;
   final Divider divider;
   final double maxwidth;
   final bool center;
@@ -191,12 +191,7 @@ class TitleUndelineText extends StatelessWidget {
   const TitleUndelineText ({
     super.key,
     required this.text,
-    this.style = const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 26,
-        fontWeight: FontWeight.w800,
-        color: Colors.black
-    ),
+    this.style,
     this.divider = const Divider(height: 2, thickness: 1),
     this.maxwidth = 500,
     this.center = false,
@@ -208,6 +203,7 @@ class TitleUndelineText extends StatelessWidget {
     MediaQuery.of(context).size.width * 0.9 < maxwidth
         ? MediaQuery.of(context).size.width * 0.9
         : maxwidth;
+
     return SizedBox(
       width: width,
       child: Column(
@@ -215,12 +211,21 @@ class TitleUndelineText extends StatelessWidget {
         children: [
           Text(
             text,
-            style: style,
+            style: getStyle(context),
           ),
           const SizedBox(height: 8),
           const Divider(height: 2, thickness: 1),
         ],
       ),
+    );
+  }
+
+  TextStyle getStyle(BuildContext context) {
+    return style ?? TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 26,
+        fontWeight: FontWeight.w800,
+        color: Theme.of(context).textTheme.bodyMedium!.color
     );
   }
 }
@@ -229,14 +234,19 @@ class SmallTitleUndelineText extends TitleUndelineText {
   const SmallTitleUndelineText({
     super.key,
     required super.text,
-    super.style = const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 24,
-        fontWeight: FontWeight.w400,
-        color: Colors.black
-    ),
+    super.style,
     super.divider = const Divider(height: 1, thickness: 0.8),
     super.maxwidth = 500,
     super.center,
   });
+
+  @override
+  TextStyle getStyle(BuildContext context) {
+    return style ?? TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        color: Theme.of(context).textTheme.bodyMedium!.color
+    );
+  }
 }
