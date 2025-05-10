@@ -32,7 +32,7 @@ class ThemePage extends StatelessWidget {
                   onPressed: () {
                     themeProvider.setTheme(entry.key);
                   },
-                  child: SmallTitleUndelineText(text: entry.value.$1)
+                  child: SmallTitleUndelineText(text: themeProvider.getThemeName(context, entry.key))
               )
             ],
 

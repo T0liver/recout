@@ -526,6 +526,18 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Sikeresen törölve!'**
   String get sucessfullDelete;
+
+  /// Világos téma.
+  ///
+  /// In hu, this message translates to:
+  /// **'Világos'**
+  String get light;
+
+  /// Sötét téma.
+  ///
+  /// In hu, this message translates to:
+  /// **'Sötét'**
+  String get dark;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

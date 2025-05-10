@@ -291,5 +291,13 @@
     "sucessfullDelete": "Sikeresen törölve!",
     "@sucessfullDelete": {
         "description": "Visszajelzés a sikeres törlésről."
+    },
+    "light": "Világos",
+    "@light": {
+        "description": "Világos téma."
+    },
+    "dark": "Sötét",
+    "@dark": {
+        "description": "Sötét téma."
     }
 }

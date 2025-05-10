@@ -71,5 +71,7 @@
   "logout": "Logout",
   "noListElement": "Your list is still empty.\\nTry adding a workout above!",
   "deleteError": "Error occurred while deleting the account",
-  "sucessfullDelete": "Successfully deleted!"
+  "sucessfullDelete": "Successfully deleted!",
+  "light": "Light",
+  "dark": "Dark"
 }

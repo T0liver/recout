@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:recout/themes/app_colors.dart';
 import 'package:recout/themes/light_theme.dart';
 
+import 'l10n/l10n.dart';
+
 class ThemeProvider with ChangeNotifier {
   static final Map<String, (String, AppColors, Brightness)> themes = {
     'light': ("Világos", LightTheme.lightTheme, Brightness.light),
@@ -42,5 +44,12 @@ class ThemeProvider with ChangeNotifier {
 
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_themeKey, key);
+  }
+
+  String getThemeName(BuildContext context, String key) {
+    final l10n = L10n.of(context);
+    if (key == "light") return l10n?.light ?? "Luma reĝimo"; // Light mode in Esperanto language... just in case
+    if (key == "dark") return l10n?.dark ?? "Malhela reĝimo"; // Dark mode in Esperanto language
+    return themes[key]?.$1 ?? "null";
   }
 }

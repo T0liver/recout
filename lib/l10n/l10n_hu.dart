@@ -223,4 +223,10 @@ class L10nHu extends L10n {
 
   @override
   String get sucessfullDelete => 'Sikeresen törölve!';
+
+  @override
+  String get light => 'Világos';
+
+  @override
+  String get dark => 'Sötét';
 }
