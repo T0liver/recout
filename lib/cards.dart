@@ -425,7 +425,7 @@ class _AdCardState extends State<AdCard> {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Heading(
-                      text: 'Nincs hirdetés, helyette itt egy kutyás kép',
+                      text: L10n.of(context)!.noad,
                       fontSize: 20,
                       color: Colors.white,
                     ),

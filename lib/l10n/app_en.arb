@@ -73,5 +73,6 @@
   "deleteError": "Error occurred while deleting the account",
   "sucessfullDelete": "Successfully deleted!",
   "light": "Light",
-  "dark": "Dark"
+  "dark": "Dark",
+  "noad": "There is no ad but a dog picture!"
 }

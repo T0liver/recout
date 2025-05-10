@@ -299,5 +299,9 @@
     "dark": "Sötét",
     "@dark": {
         "description": "Sötét téma."
+    },
+    "noad": "Nincs hirdetés, helyette itt egy kutyás kép",
+    "@noad": {
+        "description": "The funny text for the false advertisement."
     }
 }

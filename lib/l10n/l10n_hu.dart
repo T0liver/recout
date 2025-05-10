@@ -229,4 +229,7 @@ class L10nHu extends L10n {
 
   @override
   String get dark => 'Sötét';
+
+  @override
+  String get noad => 'Nincs hirdetés, helyette itt egy kutyás kép';
 }

@@ -229,4 +229,7 @@ class L10nEn extends L10n {
 
   @override
   String get dark => 'Dark';
+
+  @override
+  String get noad => 'There is no ad but a dog picture!';
 }

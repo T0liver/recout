@@ -538,6 +538,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Sötét'**
   String get dark;
+
+  /// The funny text for the false advertisement.
+  ///
+  /// In hu, this message translates to:
+  /// **'Nincs hirdetés, helyette itt egy kutyás kép'**
+  String get noad;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
