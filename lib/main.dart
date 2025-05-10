@@ -19,7 +19,6 @@ import 'package:recout/edit_activity.dart';
 import 'package:recout/first_page.dart';
 import 'package:recout/language.dart';
 import 'package:recout/login_page.dart';
-import 'package:recout/new_activity.dart';
 import 'package:recout/open_activity.dart';
 import 'package:recout/register_page.dart';
 import 'package:recout/settings.dart';
@@ -88,9 +87,6 @@ class RecOut extends StatelessWidget {
             break;
           case '/login':
             page = const ScrollWrapper(LoginPage());
-            break;
-          case '/new_activity':
-            page = const ScrollWrapper(NewActivityPage());
             break;
           case '/profile':
             page = const ScrollWrapper(AccountPage());
