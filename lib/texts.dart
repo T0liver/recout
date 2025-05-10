@@ -14,7 +14,7 @@ class Heading extends StatelessWidget {
     super.key,
     required this.text,
     this.size,
-    this.color = Colors.black,
+    this.color,
     this.font = "Inter",
     this.fontSize = 48,
     this.fontWeight = FontWeight.w700,
@@ -31,7 +31,7 @@ class Heading extends StatelessWidget {
           fontFamily: font,
           fontWeight: fontWeight,
           fontSize: fontSize,
-          color: color,
+          color: color ?? context.textColor,
         ),
         textAlign: TextAlign.center,
       ),
@@ -68,11 +68,11 @@ class LanguageLabel extends StatelessWidget {
           const SizedBox(width: 8),
           Text(
             l10n.setLanguage,
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: "Inter",
               fontSize: 16,
               fontWeight: FontWeight.w400,
-              color: Colors.black
+              color: context.textColor
             ),
           )
         ],
@@ -92,20 +92,20 @@ class HelloText extends StatelessWidget {
       children: [
         Text(
           L10n.of(context)!.hello,
-          style: const TextStyle(
+          style: TextStyle(
               fontFamily: "Inter",
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF757575),
+              color: context.tertiaryColor,
           ),
         ),
         Text(
           "$name!",
-          style: const TextStyle(
+          style: TextStyle(
               fontFamily: "Inter",
               fontSize: 24,
               fontWeight: FontWeight.w600,
-              color: Colors.black
+              color: context.textColor
           ),
         )
       ],
@@ -119,19 +119,23 @@ class BodyStrongText extends StatelessWidget {
 
   const BodyStrongText(this.text, {
     super.key,
-    this.style = const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 16,
-        fontWeight: FontWeight.w700,
-        color: Colors.black
-    ),
+    this.style,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: style,
+      style: getStyle(context),
+    );
+  }
+
+  TextStyle getStyle(BuildContext context) {
+    return style ?? TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+        color: context.textColor
     );
   }
 }
@@ -142,19 +146,23 @@ class BodySmallText extends StatelessWidget {
 
   const BodySmallText(this.text, {
     super.key,
-    this.style = const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 12,
-        fontWeight: FontWeight.w400,
-        color: Colors.black
-    ),
+    this.style,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: style,
+      style: getStyle(context),
+    );
+  }
+
+  TextStyle getStyle(BuildContext context) {
+    return style ?? TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: context.textColor
     );
   }
 }
@@ -215,7 +223,7 @@ class TitleUndelineText extends StatelessWidget {
             style: getStyle(context),
           ),
           const SizedBox(height: 8),
-          const Divider(height: 2, thickness: 1),
+          Divider(height: 2, thickness: 1, color: context.secondaryColor,),
         ],
       ),
     );
