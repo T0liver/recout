@@ -168,10 +168,8 @@ class ScrollWrapper extends StatelessWidget {
 }
 
 
-// TODO: ikonok hozzáadása
 // TODO: alkalmazásikon hozzáadása
 // TODO: hirdetés kátrya hozzáadása
-// TODO: felesleges dolgok eltávolítása
 // TODO: sport ikonok hozzáadása választóhoz
 
 // TODO: build
