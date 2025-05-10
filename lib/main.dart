@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/auth_gate.dart';
+import 'package:recout/l10n/language_provider.dart';
 import 'package:recout/theme_provider.dart';
 import 'package:recout/user_state.dart';
 import 'firebase_options.dart';
@@ -37,6 +38,7 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => UserState()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => LanguageProvider())
       ],
     child: const RecOut(),
     )
@@ -49,13 +51,25 @@ class RecOut extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final locale = Provider.of<LanguageProvider>(context).locale;
+
     // the changes here will be just test for running and testing if the UI is working
     return MaterialApp(
       // debugShowCheckedModeBanner: false,
       title: 'RecOut!',
       theme: Provider.of<ThemeProvider>(context).currentTheme,
+      locale: locale,
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
+      localeResolutionCallback: (deviceLoc, supportedLocs) {
+        if (locale != null) return locale;
+        for (var l in supportedLocs) {
+          if (l.languageCode == deviceLoc?.languageCode) {
+            return l;
+          }
+        }
+        return supportedLocs.first;
+      },
       initialRoute: '/',
       onGenerateRoute: (route) {
         Widget page;
