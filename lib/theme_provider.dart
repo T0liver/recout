@@ -1,8 +1,6 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:recout/themes/dark_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/widgets.dart';
 import 'package:recout/themes/app_colors.dart';
 import 'package:recout/themes/light_theme.dart';
 

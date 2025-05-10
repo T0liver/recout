@@ -53,9 +53,7 @@ class RecOut extends StatelessWidget {
     return MaterialApp(
       // debugShowCheckedModeBanner: false,
       title: 'RecOut!',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
-      ),
+      theme: Provider.of<ThemeProvider>(context).currentTheme,
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
       initialRoute: '/',
