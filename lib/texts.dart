@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recout/l10n/l10n.dart';
+import 'package:recout/themes/app_colors.dart';
 
 class Heading extends StatelessWidget {
   final String text;
@@ -225,7 +226,7 @@ class TitleUndelineText extends StatelessWidget {
         fontFamily: 'Inter',
         fontSize: 26,
         fontWeight: FontWeight.w800,
-        color: Theme.of(context).textTheme.bodyMedium!.color
+        color: context.textColor
     );
   }
 }
@@ -246,7 +247,7 @@ class SmallTitleUndelineText extends TitleUndelineText {
         fontFamily: 'Inter',
         fontSize: 24,
         fontWeight: FontWeight.w400,
-        color: Theme.of(context).textTheme.bodyMedium!.color
+        color: context.textColor
     );
   }
 }
