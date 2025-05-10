@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:recout/l10n/l10n.dart';
 import 'package:recout/button.dart';
 import 'package:recout/texts.dart';
+import 'package:recout/themes/app_colors.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -27,8 +28,8 @@ class FirstPage extends StatelessWidget {
         Button(text: l10n.register, onPressed: () {
           Navigator.pushNamed(context, '/register');
         },
-          bgColor: Colors.white,
-          border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
+          bgColor: context.backgroundColor,
+          border: BorderSide(color: context.buttonColor, width: 2),
         ),
         const Spacer(flex: 1,)
       ]
