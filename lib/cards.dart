@@ -6,6 +6,7 @@ import "package:recout/button.dart";
 import "package:recout/l10n/l10n.dart";
 import "package:recout/labels.dart";
 import "package:recout/texts.dart";
+import "package:recout/themes/app_colors.dart";
 import "package:recout/workout.dart";
 
 class RecWorkoutCard extends StatelessWidget {
@@ -24,9 +25,9 @@ class RecWorkoutCard extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: context.cardBackgroundColor,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.grey.shade300),
+            border: Border.all(color: context.secondaryColor),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,34 +39,34 @@ class RecWorkoutCard extends StatelessWidget {
                     Heading(text: l10n.homemsg, fontSize: 18,),
                     SizedBox(height: 12),
                     Row(
-                        children: [
-                          Button(
-                            text: l10n.recworkout,
-                            size: Size(width * 0.62, 50),
-                            onPressed: () {
-                              (context.
-                              findAncestorStateOfType<_WorkoutRecCardState>()
-                              as _WorkoutRecCardState)
-                                  .toggleInputVisibility();
-                            },
-                            style: const TextStyle(
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                                color: Colors.black
-                            ),
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      children: [
+                        Button(
+                          text: l10n.recworkout,
+                          size: Size(width * 0.62, 50),
+                          onPressed: () {
+                            (context.
+                            findAncestorStateOfType<_WorkoutRecCardState>()
+                            as _WorkoutRecCardState)
+                                .toggleInputVisibility();
+                          },
+                          style: TextStyle(
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w700,
+                              fontSize: 16,
+                              color: context.textColor
                           ),
-                          const SizedBox(width: 16),
-                          SizedBox(
-                            width: 72,
-                            height: 72,
-                            child: Image.asset(
-                              'assets/graphics/icons/icons8-strong-arm-128.png',
-                              fit: BoxFit.contain,
-                            ),
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        ),
+                        const SizedBox(width: 16),
+                        SizedBox(
+                          width: 72,
+                          height: 72,
+                          child: Image.asset(
+                            'assets/graphics/icons/icons8-strong-arm-128.png',
+                            fit: BoxFit.contain,
                           ),
-                        ]
+                        ),
+                      ]
                     ),
                     const SizedBox(height: 8),
                     Text(
@@ -74,7 +75,7 @@ class RecWorkoutCard extends StatelessWidget {
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w300,
                         fontSize: 14,
-                        color: Color(0xFFB3B3B3),
+                        color: context.secondaryColor,
                       ),
                     ),
                   ],
@@ -178,9 +179,9 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: context.cardBackgroundColor,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.grey.shade300),
+            border: Border.all(color: context.secondaryColor),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,11 +242,11 @@ class _InputWorkoutCardState extends State<InputWorkoutCard> {
                     child: Button(
                       text: l10n.recworkout,
                       size: const Size(200, 50),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
-                        color: Colors.black,
+                        color: context.textColor,
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                       onPressed: () {
@@ -312,8 +313,8 @@ class ListCard extends StatelessWidget {
           margin: const EdgeInsets.all(12),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.grey.shade300),
+            color: context.cardBackgroundColor,
+            border: Border.all(color: context.secondaryColor),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
@@ -379,9 +380,9 @@ class DialogueCard extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: context.cardBackgroundColor,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.grey.shade300),
+              border: Border.all(color: context.secondaryColor),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -390,11 +391,11 @@ class DialogueCard extends StatelessWidget {
                 const SizedBox(height: 8,),
                 BodySmallText(
                   body,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                    color: Colors.black
+                    color: context.textColor
                   ),
                 ),
                 const SizedBox(height: 20,),
@@ -405,11 +406,11 @@ class DialogueCard extends StatelessWidget {
                     TextIconBtn(
                         text: okText,
                         icon: okIcon,
-                        textstyle: const TextStyle(
+                        textstyle: TextStyle(
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
-                            color: Colors.black
+                            color: context.textColor
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 5),
                         size: Size(128, 50),
@@ -418,14 +419,14 @@ class DialogueCard extends StatelessWidget {
                     Spacer(),
                     Button(
                         text: noText,
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
-                            color: Colors.black
+                            color: context.textColor
                         ),
-                        bgColor: Colors.white,
-                        border: BorderSide(color: const Color(0xFFF9DC5C), width: 2),
+                        bgColor: context.cardBackgroundColor,
+                        border: BorderSide(color: context.tertiaryColor, width: 2),
                         padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 5),
                         size: Size(128, 50),
                         onPressed: onNo
