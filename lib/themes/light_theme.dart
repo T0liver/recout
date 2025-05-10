@@ -10,6 +10,5 @@ class LightTheme {
     background: Color(0xFFFEFEFE),
     text: Color(0xFF000000),
     cardBackground: Color(0xFFFFFFFF),
-    button: Color(0xFFF9DC5C)
   );
 }

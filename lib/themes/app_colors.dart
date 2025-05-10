@@ -7,7 +7,6 @@ class AppColors {
   final Color text;
   final Color tertiary;
   final Color cardBackground;
-  final Color button;
 
   const AppColors({
     required this.primary,
@@ -16,7 +15,6 @@ class AppColors {
     required this.text,
     required this.tertiary,
     required this.cardBackground,
-    required this.button
   });
 }
 
@@ -28,7 +26,7 @@ ThemeData createTheme(AppColors colors, Brightness brightness) {
     colorScheme: ColorScheme(
       brightness: brightness,
       primary: colors.primary,
-      onPrimary: colors.button,
+      onPrimary: colors.text,
       secondary: colors.secondary,
       onSecondary: Colors.white,
       tertiary: colors.tertiary,
@@ -52,5 +50,5 @@ extension AppcolorExtension on BuildContext {
   Color get backgroundColor => Theme.of(this).scaffoldBackgroundColor;
   Color get textColor => Theme.of(this).textTheme.bodyMedium?.color ?? Colors.black;
   Color get cardBackgroundColor  => Theme.of(this).colorScheme.primaryContainer;
-  Color get buttonColor  => Theme.of(this).colorScheme.onPrimary;
+  Color get buttonColor  => Theme.of(this).colorScheme.primary;
 }
