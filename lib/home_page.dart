@@ -63,8 +63,6 @@ class _HomePageState extends State<HomePage> {
               TitleUndelineText(text: L10n.of(context)!.prevworkouts),
               const SizedBox(height: 2,),
 
-              AdCard(),
-
               SizedBox(
                 width: width,
                 child: StreamBuilder<QuerySnapshot>(
@@ -97,13 +95,27 @@ class _HomePageState extends State<HomePage> {
                       );
                     }).toList();
 
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: workouts.length,
-                        itemBuilder: (context, index) {
-                          return ListCard(workouts[index]);
+                    final List<Widget> cardList = [];
+                    final random = DateTime.now().millisecondsSinceEpoch % 6 + 5;
+
+                    if (workouts.length >= 10) {
+                      for (int i = 0; i < workouts.length; i++) {
+                        if (i != 0 && i % random == 0) {
+                          cardList.add(const AdCard());
                         }
+                        cardList.add(ListCard(workouts[i]));
+                      }
+                    } else {
+                      for (int i = 0; i < workouts.length; i++) {
+                        cardList.add(ListCard(workouts[i]));
+                      }
+                      cardList.add(const AdCard());
+                    }
+
+                    return ListView(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: cardList,
                     );
                   }
                 )
