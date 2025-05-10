@@ -35,3 +35,10 @@ ThemeData createTheme(AppColors colors, Brightness brightness) {
     ),
   );
 }
+
+extension AppcolorExtension on BuildContext {
+  Color get primaryColor => Theme.of(this).colorScheme.primary;
+  Color get secondaryColor => Theme.of(this).colorScheme.secondary;
+  Color get backgroundColor => Theme.of(this).scaffoldBackgroundColor;
+  Color get textColor => Theme.of(this).textTheme.bodyMedium?.color ?? Colors.black;
+}
