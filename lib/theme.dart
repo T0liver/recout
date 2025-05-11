@@ -37,7 +37,7 @@ class ThemePage extends StatelessWidget {
             ],
 
             Spacer(flex: 3,),
-            BodySmallText(l10n.helptranslate),
+            BodySmallText(l10n.helptheme),
             Spacer(flex: 1,),
           ],
         ),
