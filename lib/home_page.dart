@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                         wid: doc.id,
                         name: data['name'] ?? '',
                         date: (data['date'] as Timestamp).toDate(),
-                        duration: data['duration'] ?? 0,
+                        duration: data['duration'] == null ? 0.0 : data['duration'].toDouble(),
                         durationUnit: data['durationUnit'] ?? '',
                         location: data['location'] ?? ''
                       );
