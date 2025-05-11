@@ -69,6 +69,7 @@ class BackBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(top: 15),
       alignment: Alignment(-0.9, 0.9),
       child: SizedBox(
         width: 32, height: 32,
