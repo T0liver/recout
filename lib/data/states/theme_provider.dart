@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:recout/themes/app_colors.dart';
 import 'package:recout/themes/light_theme.dart';
 
-import 'l10n/l10n.dart';
+import '../../l10n/l10n.dart';
 
 class ThemeProvider with ChangeNotifier {
   static final Map<String, (String, AppColors, Brightness)> themes = {

@@ -3,9 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:recout/first_page.dart';
-import 'package:recout/home_page.dart';
-import 'package:recout/user_state.dart';
+import 'package:recout/ui/pages/first_page.dart';
+import 'package:recout/ui/pages/home_page.dart';
+import 'package:recout/data/states/user_state.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});

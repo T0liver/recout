@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:recout/button.dart';
-import 'package:recout/cards.dart';
+import 'package:recout/ui/legos/button.dart';
+import 'package:recout/ui/lego_boxes/cards.dart';
 import 'package:recout/l10n/l10n.dart';
-import 'package:recout/texts.dart';
-import 'package:recout/user_state.dart';
-import 'package:recout/workout.dart';
+import 'package:recout/ui/legos/texts.dart';
+import 'package:recout/data/states/user_state.dart';
+import 'package:recout/data/models/workout.dart';
 
 class HomePage extends StatefulWidget {
 

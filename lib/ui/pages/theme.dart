@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:recout/texts.dart';
-import 'package:recout/theme_provider.dart';
+import 'package:recout/ui/legos/texts.dart';
+import 'package:recout/data/states/theme_provider.dart';
 
-import 'button.dart';
-import 'l10n/l10n.dart';
+import '../legos/button.dart';
+import '../../l10n/l10n.dart';
 
 class ThemePage extends StatelessWidget {
   const ThemePage({super.key});

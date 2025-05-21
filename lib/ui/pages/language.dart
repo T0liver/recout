@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/l10n/language_provider.dart';
-import 'package:recout/texts.dart';
+import 'package:recout/ui/legos/texts.dart';
 
-import 'button.dart';
-import 'l10n/l10n.dart';
+import '../legos/button.dart';
+import '../../l10n/l10n.dart';
 
 class LanguagePage extends StatefulWidget {
 

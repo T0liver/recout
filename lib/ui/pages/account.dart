@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:recout/cards.dart';
-import 'package:recout/texts.dart';
+import 'package:recout/ui/lego_boxes/cards.dart';
+import 'package:recout/ui/legos/texts.dart';
 import 'package:recout/themes/app_colors.dart';
-import 'package:recout/user_state.dart';
+import 'package:recout/data/states/user_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'button.dart';
-import 'l10n/l10n.dart';
+import '../legos/button.dart';
+import '../../l10n/l10n.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});

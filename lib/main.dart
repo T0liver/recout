@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'package:recout/auth_gate.dart';
+import 'package:recout/ui/pages/auth_gate.dart';
 import 'package:recout/l10n/language_provider.dart';
-import 'package:recout/theme_provider.dart';
-import 'package:recout/user_state.dart';
-import 'firebase_options.dart';
+import 'package:recout/data/states/theme_provider.dart';
+import 'package:recout/data/states/user_state.dart';
+import 'data/firebase_options.dart';
 
-import 'package:recout/globals.dart';
+import 'package:recout/data/globals.dart';
 import 'package:recout/l10n/l10n.dart';
-import 'package:recout/workout.dart';
+import 'package:recout/data/models/workout.dart';
 
-import 'package:recout/account.dart';
-import 'package:recout/critique.dart';
-import 'package:recout/edit_account.dart';
-import 'package:recout/edit_activity.dart';
-import 'package:recout/first_page.dart';
-import 'package:recout/language.dart';
-import 'package:recout/login_page.dart';
-import 'package:recout/open_activity.dart';
-import 'package:recout/register_page.dart';
-import 'package:recout/settings.dart';
-import 'package:recout/theme.dart';
+import 'package:recout/ui/pages/account.dart';
+import 'package:recout/ui/pages/critique.dart';
+import 'package:recout/ui/pages/edit_account.dart';
+import 'package:recout/ui/pages/edit_activity.dart';
+import 'package:recout/ui/pages/first_page.dart';
+import 'package:recout/ui/pages/language.dart';
+import 'package:recout/ui/pages/login_page.dart';
+import 'package:recout/ui/pages/open_activity.dart';
+import 'package:recout/ui/pages/register_page.dart';
+import 'package:recout/ui/pages/settings.dart';
+import 'package:recout/ui/pages/theme.dart';
 
 Future<void> main() async {
   GlobalMaterialLocalizations.delegate;

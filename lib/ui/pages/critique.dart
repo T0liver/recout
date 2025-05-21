@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recout/texts.dart';
+import 'package:recout/ui/legos/texts.dart';
 
-import 'button.dart';
-import 'l10n/l10n.dart';
+import '../legos/button.dart';
+import '../../l10n/l10n.dart';
 
 class CritiquePage extends StatelessWidget {
   const CritiquePage({super.key});

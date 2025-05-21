@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:recout/labels.dart';
-import 'package:recout/texts.dart';
+import 'package:recout/ui/legos/labels.dart';
+import 'package:recout/ui/legos/texts.dart';
 
-import 'button.dart';
-import 'l10n/l10n.dart';
+import '../legos/button.dart';
+import '../../l10n/l10n.dart';
 
 class EditAccountPage extends StatefulWidget {
   const EditAccountPage({super.key});

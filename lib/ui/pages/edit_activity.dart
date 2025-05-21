@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:recout/texts.dart';
-import 'package:recout/workout.dart';
+import 'package:recout/ui/legos/texts.dart';
+import 'package:recout/data/models/workout.dart';
 
-import 'button.dart';
-import 'l10n/l10n.dart';
-import 'labels.dart';
+import '../legos/button.dart';
+import '../../l10n/l10n.dart';
+import '../legos/labels.dart';
 
 class EditActivityPage extends StatefulWidget {
   final WorkOut workout;

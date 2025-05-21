@@ -1,7 +1,7 @@
 library;
 
-import 'package:recout/user.dart';
-import 'package:recout/workout.dart';
+import 'package:recout/data/models/user.dart';
+import 'package:recout/data/models/workout.dart';
 
 class Globals {
   static  String language = "hu";

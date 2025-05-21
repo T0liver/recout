@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:recout/l10n/l10n.dart';
-import 'package:recout/button.dart';
-import 'package:recout/texts.dart';
+import 'package:recout/ui/legos/button.dart';
+import 'package:recout/ui/legos/texts.dart';
 import 'package:recout/themes/app_colors.dart';
 
 class FirstPage extends StatelessWidget {

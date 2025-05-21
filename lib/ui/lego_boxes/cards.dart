@@ -6,12 +6,12 @@ import "package:flutter/material.dart";
 import "package:http/http.dart" as http;
 import "package:intl/intl.dart";
 import "package:cloud_firestore/cloud_firestore.dart";
-import "package:recout/button.dart";
+import "package:recout/ui/legos/button.dart";
 import "package:recout/l10n/l10n.dart";
-import "package:recout/labels.dart";
-import "package:recout/texts.dart";
+import "package:recout/ui/legos/labels.dart";
+import "package:recout/ui/legos/texts.dart";
 import "package:recout/themes/app_colors.dart";
-import "package:recout/workout.dart";
+import "package:recout/data/models/workout.dart";
 
 class RecWorkoutCard extends StatelessWidget {
 
