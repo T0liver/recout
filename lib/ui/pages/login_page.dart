@@ -53,7 +53,6 @@ class _LoginPageState extends State<LoginPage> {
 
       if (mounted) {
         Provider.of<UserState>(context, listen: false).setUsername(userData['username']);
-        //Navigator.pushReplacementNamed(context, '/');
         context.go('/');
       }
     } on FirebaseAuthException catch (e) {

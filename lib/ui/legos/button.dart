@@ -93,7 +93,7 @@ class SettingsBtn extends StatelessWidget {
         child: SizedBox(
           width: 50, height: 50,
           child: IconButton(
-              onPressed: () => context.go('/settings'),
+              onPressed: () => context.push('/settings'),
               icon: Image.asset('assets/graphics/icons/icons8-settings-64.png')
           ),
         )

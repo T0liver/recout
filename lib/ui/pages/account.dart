@@ -98,7 +98,7 @@ class _AccountPageState extends State<AccountPage> {
             child: Column(
               children: [
                 Spacer(),
-                const BackBtn(whereto: '/settings'),
+                const BackBtn(),
                 Spacer(),
                 TitleUndelineText(text: l10n.useracc),
                 Spacer(),
