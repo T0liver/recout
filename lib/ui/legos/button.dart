@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recout/themes/app_colors.dart';
 
 class Button extends StatelessWidget {
@@ -60,9 +61,9 @@ class BackBtn extends StatelessWidget {
 
   void goback(BuildContext context) {
     if (whereto != null) {
-      Navigator.pushNamed(context, whereto!);
+      context.go(whereto!);
     } else {
-      Navigator.pop(context);
+      context.pop();
     }
   }
 
@@ -92,7 +93,7 @@ class SettingsBtn extends StatelessWidget {
         child: SizedBox(
           width: 50, height: 50,
           child: IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
+              onPressed: () => context.go('/settings'),
               icon: Image.asset('assets/graphics/icons/icons8-settings-64.png')
           ),
         )

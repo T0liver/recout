@@ -3,6 +3,7 @@ import "dart:convert";
 import "package:cached_network_image/cached_network_image.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
+import "package:go_router/go_router.dart";
 import "package:http/http.dart" as http;
 import "package:intl/intl.dart";
 import "package:cloud_firestore/cloud_firestore.dart";
@@ -311,7 +312,7 @@ class ListCard extends StatelessWidget {
       width: width,
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/workout', arguments: workOut);
+          context.push('/workout', extra: workOut);
         },
         child: Container(
           margin: const EdgeInsets.all(12),
@@ -340,7 +341,7 @@ class ListCard extends StatelessWidget {
               IconButton(
                 icon: Image.asset('assets/graphics/icons/icons8-editing-32.png', width: 24, height: 24,),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/workout/edit', arguments: workOut);
+                  context.push('/workout/edit', extra: workOut);
                 },
               ),
             ],

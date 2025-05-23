@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import "package:go_router/go_router.dart";
 import "package:provider/provider.dart";
 
 import "package:recout/l10n/l10n.dart";
@@ -49,7 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
       if (mounted) {
         Provider.of<UserState>(context, listen: false).setUsername(_unamecontroller.text.trim());
-        Navigator.pushReplacementNamed(context, '/');
+        context.go('/');
       }
     } on FirebaseAuthException catch (e) {
       String msg;

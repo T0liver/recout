@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/ui/pages/auth_gate.dart';
 import 'package:recout/l10n/language_provider.dart';
@@ -51,12 +52,77 @@ class RecOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locale = Provider.of<LanguageProvider>(context).locale;
+    final theme = Provider.of<ThemeProvider>(context).currentTheme;
+
+    final GoRouter router = GoRouter(
+      initialLocation: '/',
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const ScrollWrapper(AuthGate()),
+        ),
+        GoRoute(
+          path: '/critique',
+          builder: (context, state) => const ScrollWrapper(CritiquePage()),
+        ),
+        GoRoute(
+          path: '/first',
+          builder: (context, state) => const ScrollWrapper(FirstPage()),
+        ),
+        GoRoute(
+          path: '/languages',
+          builder: (context, state) => const ScrollWrapper(LanguagePage()),
+        ),
+        GoRoute(
+          path: '/login',
+          builder: (context, state) => const ScrollWrapper(LoginPage()),
+        ),
+        GoRoute(
+          path: '/profile',
+          builder: (context, state) => const ScrollWrapper(AccountPage()),
+          routes: [
+            GoRoute(
+              path: 'edit',
+              builder: (context, state) => const ScrollWrapper(EditAccountPage()),
+            ),
+          ]
+        ),
+        GoRoute(
+          path: '/register',
+          builder: (context, state) => const ScrollWrapper(RegisterPage()),
+        ),
+        GoRoute(
+          path: '/settings',
+          builder: (context, state) => const ScrollWrapper(SettingsPage()),
+        ),
+        GoRoute(
+          path: '/themes',
+          builder: (context, state) => const ScrollWrapper(ThemePage()),
+        ),
+        GoRoute(
+          path: '/workout',
+          builder: (context, state) {
+            final workOut = state.extra as WorkOut;
+            return ScrollWrapper(OpenActivityPage(workOut));
+          },
+          routes: [
+            GoRoute(
+              path: 'edit',
+              builder: (context, state) {
+                final workOut = state.extra as WorkOut;
+                return ScrollWrapper(EditActivityPage(workOut));
+              },
+            ),
+          ]
+        ),
+      ],
+    );
 
     // the changes here will be just test for running and testing if the UI is working
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'RecOut!',
-      theme: Provider.of<ThemeProvider>(context).currentTheme,
+      theme: theme,
       locale: locale,
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
@@ -69,66 +135,7 @@ class RecOut extends StatelessWidget {
         }
         return supportedLocs.first;
       },
-      initialRoute: '/',
-      onGenerateRoute: (route) {
-        Widget page;
-        switch (route.name) {
-          case '/':
-            page = const ScrollWrapper(AuthGate());
-            break;
-          case '/critique':
-            page = const ScrollWrapper(CritiquePage());
-            break;
-          case '/first':
-            page = const ScrollWrapper(FirstPage());
-            break;
-          case '/languages':
-            page = const ScrollWrapper(LanguagePage());
-            break;
-          case '/login':
-            page = const ScrollWrapper(LoginPage());
-            break;
-          case '/profile':
-            page = const ScrollWrapper(AccountPage());
-            break;
-          case '/profile/edit':
-            page = const ScrollWrapper(EditAccountPage());
-            break;
-          case '/register':
-            page = const ScrollWrapper(RegisterPage());
-            break;
-          case '/settings':
-            page = const ScrollWrapper(SettingsPage());
-            break;
-          case '/themes':
-            page = const ScrollWrapper(ThemePage());
-            break;
-          case '/workout':
-            final workOut = route.arguments as WorkOut;
-            page = ScrollWrapper(OpenActivityPage(workOut));
-            break;
-          case '/workout/edit':
-            final workOut = route.arguments as WorkOut;
-            page = ScrollWrapper(EditActivityPage(workOut));
-            break;
-          default:
-            return null;
-        }
-
-        return PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => page,
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            const begin = Offset(1.0, 0.0);
-            const end = Offset.zero;
-            const curve = Curves.ease;
-
-            final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-            final offsetAnimation = animation.drive(tween);
-
-            return SlideTransition(position: offsetAnimation, child: child);
-          },
-        );
-      }
+      routerConfig: router,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recout/ui/legos/texts.dart';
 import 'package:recout/data/models/workout.dart';
 
@@ -136,7 +137,7 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                     IconBtn(icon: 'assets/graphics/icons/icons8-remove-32.png', onPressed: () => _toggle()),
                     Spacer(flex: 2),
                     IconBtn(icon: 'assets/graphics/icons/icons8-edit-32.png',
-                        onPressed: () => Navigator.pushNamed(context, '/workout/edit', arguments: workOut)),
+                        onPressed: () => context.push('/workout/edit', extra: workOut)),
                     Spacer(flex: 1),
                   ],
                 ),
@@ -156,7 +157,7 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                     body: l10n.cantBeUndone,
                     onYes: () {
                       deleteWorkout();
-                      Navigator.pushNamed(context, '/');
+                      context.go('/');
                     },
                     onNo: _toggle,
                   ),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recout/ui/legos/labels.dart';
 import 'package:recout/ui/legos/texts.dart';
 
@@ -89,7 +90,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
     }
 
     if (mounted) {
-      Navigator.pushNamed(context, '/profile');
+      context.go('/profile');
     }
   }
 

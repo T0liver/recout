@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:cloud_firestore/cloud_firestore.dart";
+import "package:go_router/go_router.dart";
 import "package:provider/provider.dart";
 
 import "package:recout/ui/legos/button.dart";
@@ -52,7 +53,8 @@ class _LoginPageState extends State<LoginPage> {
 
       if (mounted) {
         Provider.of<UserState>(context, listen: false).setUsername(userData['username']);
-        Navigator.pushReplacementNamed(context, '/');
+        //Navigator.pushReplacementNamed(context, '/');
+        context.go('/');
       }
     } on FirebaseAuthException catch (e) {
       String msg;

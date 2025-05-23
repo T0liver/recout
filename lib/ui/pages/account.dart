@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/ui/lego_boxes/cards.dart';
 import 'package:recout/ui/legos/texts.dart';
@@ -110,7 +111,7 @@ class _AccountPageState extends State<AccountPage> {
                 Spacer(),
                 SmallTitleUndelineText(text: email, center: true,),
                 Spacer(),
-                Button(text: l10n.editdatas, onPressed: () => Navigator.pushNamed(context, '/profile/edit')),
+                Button(text: l10n.editdatas, onPressed: () => context.push('/profile/edit')),
                 Spacer(),
                 Button(
                     text: l10n.deleteacc,
@@ -153,7 +154,8 @@ class _AccountPageState extends State<AccountPage> {
                         await prefs.setBool('isLoggedIn', false);
 
                         if (mounted && context.mounted) {
-                          Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
+                          // Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
+                          context.go('/first');
                         }
                       } catch (e) {
                         debugPrint('Hiba: $e');

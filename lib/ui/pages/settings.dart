@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recout/ui/legos/texts.dart';
 import 'package:recout/data/states/user_state.dart';
@@ -29,22 +30,22 @@ class SettingsPage extends StatelessWidget {
             TitleUndelineText(text: l10n.settings),
             const SizedBox(height: 20,),
             TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/languages'),
+              onPressed: () => context.push('/languages'),
               child: SmallTitleUndelineText(text: l10n.language),
             ),
             const SizedBox(height: 10,),
             TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/themes'),
+              onPressed: () => context.push('/themes'),
               child: SmallTitleUndelineText(text: l10n.changetheme),
             ),
             const SizedBox(height: 10,),
             TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/profile'),
+              onPressed: () => context.push('/profile'),
               child: SmallTitleUndelineText(text: l10n.useracc),
             ),
             const SizedBox(height: 10,),
             TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/critique'),
+              onPressed: () => context.push('/critique'),
               child: SmallTitleUndelineText(text: l10n.reporterror),
             ),
             const SizedBox(height: 10,),
@@ -57,7 +58,8 @@ class SettingsPage extends StatelessWidget {
 
                 if (context.mounted) {
                   Provider.of<UserState>(context, listen: false).clear();
-                  Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
+                  // Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
+                  context.go('/first');
                 }
             },
               child: SmallTitleUndelineText(text: l10n.logout),

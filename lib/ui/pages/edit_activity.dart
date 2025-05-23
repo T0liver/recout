@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recout/ui/legos/texts.dart';
 import 'package:recout/data/models/workout.dart';
 
@@ -91,7 +92,7 @@ class _EditActivityPageState extends State<EditActivityPage> {
 
         debugPrint('Frissítve Firestore-ban: $workoutUpdate');
         if (mounted) {
-          Navigator.pushNamed(context, '/');
+          context.go('/');
         }
       } catch (e) {
         debugPrint('Hiba: $e');

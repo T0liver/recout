@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:recout/l10n/l10n.dart';
 import 'package:recout/ui/legos/button.dart';
@@ -19,14 +20,14 @@ class FirstPage extends StatelessWidget {
           child: Heading(text: l10n.firstGreet),
         ),
         const Spacer(flex: 2),
-        LanguageLabel(onPressed: () =>Navigator.pushNamed(context, '/languages'),),
+        LanguageLabel(onPressed: () => context.push('/languages')),
         const Spacer(flex: 4),
         Button(text: l10n.login, onPressed: () {
-          Navigator.pushNamed(context, '/login');
+          context.push('/login');
         }),
         SizedBox(height: 20,),
         Button(text: l10n.register, onPressed: () {
-          Navigator.pushNamed(context, '/register');
+          context.push('/register');
         },
           bgColor: context.backgroundColor,
           border: BorderSide(color: context.buttonColor, width: 2),
