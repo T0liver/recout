@@ -544,6 +544,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Nincs hirdetés, helyette itt egy kutyás kép'**
   String get noad;
+
+  /// Hibaüzenet, ha nem létező ezdést akar a felhasználó felkeresni.
+  ///
+  /// In hu, this message translates to:
+  /// **'Edzés nem található!'**
+  String get workoutNotFound;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

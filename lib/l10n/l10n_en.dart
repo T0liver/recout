@@ -232,4 +232,7 @@ class L10nEn extends L10n {
 
   @override
   String get noad => 'There is no ad but a dog picture!';
+
+  @override
+  String get workoutNotFound => 'Workout not found!';
 }

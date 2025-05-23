@@ -303,5 +303,9 @@
     "noad": "Nincs hirdetés, helyette itt egy kutyás kép",
     "@noad": {
         "description": "The funny text for the false advertisement."
+    },
+    "workoutNotFound": "Edzés nem található!",
+    "@workoutNotFound": {
+        "description": "Hibaüzenet, ha nem létező ezdést akar a felhasználó felkeresni."
     }
 }

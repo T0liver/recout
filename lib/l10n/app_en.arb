@@ -74,5 +74,6 @@
   "sucessfullDelete": "Successfully deleted!",
   "light": "Light",
   "dark": "Dark",
-  "noad": "There is no ad but a dog picture!"
+  "noad": "There is no ad but a dog picture!",
+  "workoutNotFound": "Workout not found!"
 }
