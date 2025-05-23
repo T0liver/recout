@@ -15,6 +15,29 @@ class OpenActivityPage extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _OpenActivityPageState();
+
+  static Future<WorkOut?> fromId(String id) async {
+    try {
+      DocumentSnapshot doc = await FirebaseFirestore.instance.collection('workouts').doc(id).get();
+
+      if (!doc.exists) {
+        return null;
+      }
+
+      final data = doc.data() as Map<String, dynamic>;
+      return WorkOut(
+          wid: doc.id,
+          name: data['name'] ?? '',
+          date: (data['date'] as Timestamp).toDate(),
+          duration: data['duration'] == null ? 0.0 : data['duration'].toDouble(),
+          durationUnit: data['durationUnit'] ?? '',
+          location: data['location'] ?? ''
+      );
+    } catch (e) {
+      debugPrint('Hiba WorkOut betöltése közben: $e');
+      return null;
+    }
+  }
 }
 
 class _OpenActivityPageState extends State<OpenActivityPage> {
