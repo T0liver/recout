@@ -232,6 +232,3 @@ class ScrollWrapper extends StatelessWidget {
     );
   }
 }
-
-// TODO: build
-// TODO: publikálásra képes alkalmazás elkészítése
