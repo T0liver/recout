@@ -312,7 +312,7 @@ class ListCard extends StatelessWidget {
       width: width,
       child: GestureDetector(
         onTap: () {
-          context.push('/workout', extra: workOut);
+          context.pushNamed('/workout/${workOut.wid}');
         },
         child: Container(
           margin: const EdgeInsets.all(12),
@@ -341,7 +341,7 @@ class ListCard extends StatelessWidget {
               IconButton(
                 icon: Image.asset('assets/graphics/icons/icons8-editing-32.png', width: 24, height: 24,),
                 onPressed: () {
-                  context.push('/workout/edit', extra: workOut);
+                  context.pushNamed('/workout/${workOut.wid}/edit');
                 },
               ),
             ],

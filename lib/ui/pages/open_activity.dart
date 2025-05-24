@@ -160,7 +160,7 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
                     IconBtn(icon: 'assets/graphics/icons/icons8-remove-32.png', onPressed: () => _toggle()),
                     Spacer(flex: 2),
                     IconBtn(icon: 'assets/graphics/icons/icons8-edit-32.png',
-                        onPressed: () => context.push('/workout/edit', extra: workOut)),
+                        onPressed: () => context.pushNamed('/workout/${workOut.wid}/edit')),
                     Spacer(flex: 1),
                   ],
                 ),

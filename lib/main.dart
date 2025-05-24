@@ -3,6 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
+
 import 'package:recout/ui/pages/auth_gate.dart';
 import 'package:recout/l10n/language_provider.dart';
 import 'package:recout/data/states/theme_provider.dart';
@@ -33,6 +35,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
+  usePathUrlStrategy();
 
   runApp(MultiProvider(
       providers: [
@@ -55,7 +58,7 @@ class RecOut extends StatelessWidget {
     final theme = Provider.of<ThemeProvider>(context).currentTheme;
 
     final GoRouter router = GoRouter(
-      initialLocation: '/',
+      initialLocation: '#',
       routes: [
         GoRoute(
           path: '/',
@@ -100,17 +103,55 @@ class RecOut extends StatelessWidget {
           builder: (context, state) => const ScrollWrapper(ThemePage()),
         ),
         GoRoute(
-          path: '/workout',
+          path: '/workout/:id',
           builder: (context, state) {
-            final workOut = state.extra as WorkOut;
-            return ScrollWrapper(OpenActivityPage(workOut));
+            final id = state.pathParameters['id']!;
+            return FutureBuilder<WorkOut?>(
+              future: OpenActivityPage.fromId(id),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+
+                if (!snapshot.hasData || snapshot.data == null) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(L10n.of(context)!.workoutNotFound)),
+                    );
+                    context.go('/');
+                  });
+                  return const SizedBox.shrink();
+                }
+
+                return ScrollWrapper(OpenActivityPage(snapshot.data!));
+              },
+            );
           },
           routes: [
             GoRoute(
               path: 'edit',
               builder: (context, state) {
-                final workOut = state.extra as WorkOut;
-                return ScrollWrapper(EditActivityPage(workOut));
+                final id = state.pathParameters['id']!;
+                return FutureBuilder<WorkOut?>(
+                  future: OpenActivityPage.fromId(id),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
+                    if (!snapshot.hasData || snapshot.data == null) {
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(L10n.of(context)!.workoutNotFound)),
+                        );
+                        context.go('/');
+                      });
+                      return const SizedBox.shrink();
+                    }
+
+                    return ScrollWrapper(EditActivityPage(snapshot.data!));
+                  },
+                );
               },
             ),
           ]
@@ -120,6 +161,7 @@ class RecOut extends StatelessWidget {
 
     // the changes here will be just test for running and testing if the UI is working
     return MaterialApp.router(
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
       title: 'RecOut!',
       theme: theme,
@@ -135,7 +177,6 @@ class RecOut extends StatelessWidget {
         }
         return supportedLocs.first;
       },
-      routerConfig: router,
     );
   }
 }
