@@ -8,6 +8,7 @@ import 'package:recout/l10n/l10n.dart';
 import 'package:recout/ui/legos/texts.dart';
 import 'package:recout/data/states/user_state.dart';
 import 'package:recout/data/models/workout.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -25,8 +26,32 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  Future<void> _syncUserData(BuildContext context, User user) async {
+    final prefs = await SharedPreferences.getInstance();
+    if (context.mounted) {
+      final uname = Provider.of<UserState>(context, listen: false).username;
+      if (uname != null) return;
+    }
+
+    final query = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .get();
+
+    if (query.exists) {
+      final data = query.data();
+      if (data != null && data['username'] != null) {
+        if (context.mounted) {
+          Provider.of<UserState>(context, listen: false).setUsername(data['username']);
+        }
+        await prefs.setBool('isLoggedIn', true);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _syncUserData(context, FirebaseAuth.instance.currentUser as User);
 
     final uname = Provider.of<UserState>(context).username ?? L10n.of(context)!.username_s;
 

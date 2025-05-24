@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -5,10 +6,10 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
-import 'package:recout/ui/pages/auth_gate.dart';
 import 'package:recout/l10n/language_provider.dart';
 import 'package:recout/data/states/theme_provider.dart';
 import 'package:recout/data/states/user_state.dart';
+import 'package:recout/ui/pages/home_page.dart';
 import 'data/firebase_options.dart';
 
 import 'package:recout/data/globals.dart';
@@ -58,11 +59,23 @@ class RecOut extends StatelessWidget {
     final theme = Provider.of<ThemeProvider>(context).currentTheme;
 
     final GoRouter router = GoRouter(
-      initialLocation: '#',
+      initialLocation: '/',
+      redirect: (BuildContext context, GoRouterState state) {
+        bool goNoGo = FirebaseAuth.instance.currentUser == null;
+        goNoGo = goNoGo && state.fullPath != '/login';
+        goNoGo = goNoGo && state.fullPath != '/first';
+        goNoGo = goNoGo && state.fullPath != '/register';
+        goNoGo = goNoGo && state.fullPath != '/languages';
+        if (goNoGo) {
+          return '/first';
+        } else {
+          return null;
+        }
+      },
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => const ScrollWrapper(AuthGate()),
+          builder: (context, state) => const ScrollWrapper(HomePage()),
         ),
         GoRoute(
           path: '/critique',
