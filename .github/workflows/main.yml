@@ -55,6 +55,11 @@ jobs:
       - name: Build appBundle
         run: flutter build appbundle
 
+      # auto-patch the ifos target
+      - name: Set iOS Deployment Target to 13.0
+        run: |
+          sed -i '' "s/^#\? *platform :ios, .*/platform :ios, '13.0'/" ios/Podfile
+
       # build for ifos
       - name: Build IPA
         run: flutter build ipa --no-codesign
