@@ -55,6 +55,11 @@ jobs:
       - name: Build appBundle
         run: flutter build appbundle
 
+      # build for ifos
+      - name: Build IPA
+        run: flutter build ipa --no-codesign
+
+      # compressing ios thing or whatever
       - name: Compress Archives and IPAs
         run: |
          cd build
