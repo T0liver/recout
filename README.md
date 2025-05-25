@@ -49,7 +49,7 @@ Elkészítendő widgetek listája
 <details>
 	<summary>Főképernyő</summary>
 
-- [ ] főképernyő oldal
+- [x] főképernyő oldal
 	- [x] felső üdv felirat
 	- [x] Edzés gyors hozzáadása panel
 		- [x] normál állapot
@@ -58,7 +58,6 @@ Elkészítendő widgetek listája
 		- [x] Korábbi edzések felirat
 		- [x] Edzés elem panel
 		- [ ] hirdetés panel
-	- [ ] edzés hozzáadása "+" gomb
 
 </details>
 
@@ -229,3 +228,24 @@ Elkészítendő widgetek listája
 	- [x] rendben gomb
 
 </details>
+
+... és még egy csomó firebase-es dolog, amit nem volt időm dokumentálni, de most kész az alkalmazás, és működik, ahogy elterveztem! ([többnyire.](#fejlesztés-todo-lista))
+
+## Fejlesztés TODO lista
+
+Összeszedett lista, hogy mika azok a dolog, amiket az 1.0 verzió kiadása óta feljegyeztem, hogy javítani kell, és pipálva azok, amik készek, a végére jöbbek az újak.
+
+Még kellene egy prioritás jelző rendszer is, hogy az adott funkció / bug mennyire fontos. Pl. egy gomb kinézete nem olyan fontos, mint pl. ha a firebase nem működik vagy hasonló.
+
+Legyen 5 osztály, a 0 a nagyon fontos, a 4 a ráér, és egy új funkció / javításkor a sor végére zárójelben felvesszük a prioritását a feladatnak, de ez nem lesz kötelező, mivel ha egy javítást már pl. issue-ból máris implementálunk, akkor nem kell felvenni prioritást, mivel már kész.
+
+Na, ebben a szellemben kezdjük is ez a funkciókat!
+
+- [ ] androidon több helyet adni a tetején, mert a vissza gomb a navigációs sáv alatt van (3)
+- [ ] üres edzéslistánál a szövegben benne van egy "\n", mivel így akartam megoldani a sortörést. Erre vagy legyen egy másik megoldás, vagy ne legyen sortörés (4)
+- [ ] ugyanez a szöveg sötét témában fekete marad, nem látható (4)
+- [ ] bejelentkezés, regisztrációs, illetve egyéb nagyobb gombokban a szövegük valami margón túlcsordulhat, és levágja a száras betűk alját (3)
+- [ ] regisztrációnál nem kap megerősítő emailt a felhasználó (1)
+- [ ] androidon új edzéskor a név beírásánál a billentyűzet nem automatikusan nagybetűsen kezdődik
+- [ ] elfelejtett jelszó funkció (0) (első regisztrált fióknak elfelejtettem a jelszavát lmao)
+- [ ] web-en a bejelentkezést megkönnyíteni, azaz enter = bejelentkezés gomb, felhasználónév helyes felismerése (1)
