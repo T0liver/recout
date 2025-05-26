@@ -229,7 +229,7 @@ class L10nEn extends L10n {
 
   @override
   String get noListElement =>
-      'Your list is still empty.\\nTry adding a workout above!';
+      'Your list is still empty.\nTry adding a workout above!';
 
   @override
   String get deleteError => 'Error occurred while deleting the account';

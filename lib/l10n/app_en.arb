@@ -71,7 +71,7 @@
   "wrongCredentials": "Incorrect username or password!",
   "errorOccurred": "An error occurred",
   "logout": "Logout",
-  "noListElement": "Your list is still empty.\\nTry adding a workout above!",
+  "noListElement": "Your list is still empty.\nTry adding a workout above!",
   "deleteError": "Error occurred while deleting the account",
   "sucessfullDelete": "Successfully deleted!",
   "light": "Light",

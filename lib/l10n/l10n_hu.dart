@@ -230,7 +230,7 @@ class L10nHu extends L10n {
 
   @override
   String get noListElement =>
-      'Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!';
+      'Még üres a listád.\nPróbálj felvenni egy edzést itt feljebb!';
 
   @override
   String get deleteError => 'Hiba történt a fiók törlésekor';

@@ -526,7 +526,7 @@ abstract class L10n {
   /// Visszajelzés a listánál, hogyha a felhasználó még nem vett fel edzést.
   ///
   /// In hu, this message translates to:
-  /// **'Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!'**
+  /// **'Még üres a listád.\nPróbálj felvenni egy edzést itt feljebb!'**
   String get noListElement;
 
   /// Üzenet, ha hiba történt a fiók törlése folyamán.
