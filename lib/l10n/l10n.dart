@@ -505,6 +505,12 @@ abstract class L10n {
   /// **'Hibás jelszó!'**
   String get wrongPassword;
 
+  /// Hiba, ha bejelentkezéskor hibás szemályazonossággal próbálkoznak.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hibás felhasználónév vagy jelszó!'**
+  String get wrongCredentials;
+
   /// Egy hiba állt be.
   ///
   /// In hu, this message translates to:

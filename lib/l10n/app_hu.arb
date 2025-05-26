@@ -276,6 +276,10 @@
     "@wrongPassword": {
         "description": "Hiba, ha bejelentkezéskor hibás jelszóval próbálkoznak."
     },
+    "wrongCredentials": "Hibás felhasználónév vagy jelszó!",
+    "@wrongCredentials": {
+            "description": "Hiba, ha bejelentkezéskor hibás szemályazonossággal próbálkoznak."
+    },
     "errorOccurred": "Hiba történt",
     "@errorOccurred": {
         "description": "Egy hiba állt be."

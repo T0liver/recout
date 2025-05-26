@@ -219,6 +219,9 @@ class L10nEn extends L10n {
   String get wrongPassword => 'Incorrect password!';
 
   @override
+  String get wrongCredentials => 'Incorrect username or password!';
+
+  @override
   String get errorOccurred => 'An error occurred';
 
   @override

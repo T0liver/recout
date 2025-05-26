@@ -220,6 +220,9 @@ class L10nHu extends L10n {
   String get wrongPassword => 'Hibás jelszó!';
 
   @override
+  String get wrongCredentials => 'Hibás felhasználónév vagy jelszó!';
+
+  @override
   String get errorOccurred => 'Hiba történt';
 
   @override

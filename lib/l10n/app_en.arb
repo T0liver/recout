@@ -68,6 +68,7 @@
   "userNotFound": "Username does not exist!",
   "invalidEmailLogin": "The email associated with the username is not valid.",
   "wrongPassword": "Incorrect password!",
+  "wrongCredentials": "Incorrect username or password!",
   "errorOccurred": "An error occurred",
   "logout": "Logout",
   "noListElement": "Your list is still empty.\\nTry adding a workout above!",
