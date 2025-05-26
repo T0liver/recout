@@ -457,6 +457,12 @@ abstract class L10n {
   /// **'Ez az email cím már használatban van.'**
   String get emailAlreadyInUse;
 
+  /// Hiba üzenet, ha regisztrációkor a felhasználónevet már más regisztrálta.
+  ///
+  /// In hu, this message translates to:
+  /// **'Ez a felhasználónév már használatban van.'**
+  String get usernameAlreadyInUse;
+
   /// Hiba üzenet, ha regisztrációkor az e-mail cím nem megfelelő formátumu.
   ///
   /// In hu, this message translates to:

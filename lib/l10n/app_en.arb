@@ -60,6 +60,7 @@
   "dateofbirth_s": "[date of birth]",
   "email_s": "[email address]",
   "emailAlreadyInUse": "This email address is already in use.",
+  "usernameAlreadyInUse": "This username is already in use.",
   "invalidEmail": "Invalid email format.",
   "weakPassword": "Your password is like leaving your front door wide open!",
   "unknownError": "Unknown error",

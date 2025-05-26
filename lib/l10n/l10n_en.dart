@@ -193,6 +193,9 @@ class L10nEn extends L10n {
   String get emailAlreadyInUse => 'This email address is already in use.';
 
   @override
+  String get usernameAlreadyInUse => 'This username is already in use.';
+
+  @override
   String get invalidEmail => 'Invalid email format.';
 
   @override

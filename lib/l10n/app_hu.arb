@@ -244,6 +244,10 @@
     "@emailAlreadyInUse": {
         "description": "Hiba üzenet, ha regisztrációkor az email címet már más regisztrálta."
     },
+    "usernameAlreadyInUse": "Ez a felhasználónév már használatban van.",
+    "@usernameAlreadyInUse": {
+        "description": "Hiba üzenet, ha regisztrációkor a felhasználónevet már más regisztrálta."
+    },
     "invalidEmail": "Hibás e-mail formátum.",
     "@invalidEmail": {
         "description": "Hiba üzenet, ha regisztrációkor az e-mail cím nem megfelelő formátumu."

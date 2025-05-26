@@ -34,6 +34,15 @@ class _RegisterPageState extends State<RegisterPage> {
     });
 
     try {
+      final userIsIn = await FirebaseFirestore.instance
+        .collection('users')
+        .where('username', isEqualTo: _unamecontroller.text.trim())
+        .get();
+      
+      if (userIsIn.docs.isNotEmpty) {
+        throw FirebaseAuthException(code: 'username-already-in-use');
+      }
+      
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailcontroller.text.trim(),
         password: _passcontroller.text.trim(),
@@ -60,6 +69,9 @@ class _RegisterPageState extends State<RegisterPage> {
           break;
         case 'invalid-email':
           msg = l10n.invalidEmail;
+          break;
+        case 'username-already-in-use':
+          msg = 'A felhasználónév már foglalt.';
           break;
         case 'weak-password':
           msg = l10n.weakPassword;

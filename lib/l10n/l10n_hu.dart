@@ -193,6 +193,10 @@ class L10nHu extends L10n {
   String get emailAlreadyInUse => 'Ez az email cím már használatban van.';
 
   @override
+  String get usernameAlreadyInUse =>
+      'Ez a felhasználónév már használatban van.';
+
+  @override
   String get invalidEmail => 'Hibás e-mail formátum.';
 
   @override
