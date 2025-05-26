@@ -248,4 +248,7 @@ class L10nEn extends L10n {
 
   @override
   String get workoutNotFound => 'Workout not found!';
+
+  @override
+  String get privacy => 'Privacy policy';
 }

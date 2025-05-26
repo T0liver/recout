@@ -11,6 +11,7 @@ import 'package:recout/l10n/language_provider.dart';
 import 'package:recout/data/states/theme_provider.dart';
 import 'package:recout/data/states/user_state.dart';
 import 'package:recout/ui/pages/home_page.dart';
+import 'package:recout/ui/pages/privacy.dart';
 import 'data/firebase_options.dart';
 
 import 'package:recout/data/globals.dart';
@@ -119,6 +120,10 @@ class RecOut extends StatelessWidget {
         GoRoute(
           path: '/themes',
           builder: (context, state) => const ScrollWrapper(ThemePage()),
+        ),
+        GoRoute(
+          path: '/privacy',
+          builder: (context, state) => const ScrollWrapper(PrivacyPage()),
         ),
         GoRoute(
           path: '/workout/:id',

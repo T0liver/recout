@@ -564,6 +564,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Edzés nem található!'**
   String get workoutNotFound;
+
+  /// Adatvédelmi tájékoztató szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Adatvédelmi tájékoztató'**
+  String get privacy;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

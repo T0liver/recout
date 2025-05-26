@@ -249,4 +249,7 @@ class L10nHu extends L10n {
 
   @override
   String get workoutNotFound => 'Edzés nem található!';
+
+  @override
+  String get privacy => 'Adatvédelmi tájékoztató';
 }

@@ -315,5 +315,9 @@
     "workoutNotFound": "Edzés nem található!",
     "@workoutNotFound": {
         "description": "Hibaüzenet, ha nem létező ezdést akar a felhasználó felkeresni."
+    },
+    "privacy": "Adatvédelmi tájékoztató",
+    "@privacy": {
+        "description": "Adatvédelmi tájékoztató szöveg."
     }
 }

@@ -50,6 +50,11 @@ class SettingsPage extends StatelessWidget {
             ),
             const SizedBox(height: 10,),
             TextButton(
+              onPressed: () => context.push('/privacy'),
+              child: SmallTitleUndelineText(text: l10n.privacy),
+            ),
+            const SizedBox(height: 10,),
+            TextButton(
               onPressed: () async {
                 await FirebaseAuth.instance.signOut();
 

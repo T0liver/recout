@@ -77,5 +77,6 @@
   "light": "Light",
   "dark": "Dark",
   "noad": "There is no ad but a dog picture!",
-  "workoutNotFound": "Workout not found!"
+  "workoutNotFound": "Workout not found!",
+  "privacy": "Privacy policy"
 }
