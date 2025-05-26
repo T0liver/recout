@@ -54,7 +54,7 @@ jobs:
     steps:
       - name: Checking out
         uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v3
+      - uses: subosito/flutter-action@v1
         with:
           channel: 'stable'
           flutter-version: 3.32.0
