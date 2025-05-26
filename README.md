@@ -251,3 +251,4 @@ Na, ebben a szellemben kezdjük is ez a funkciókat!
 - [ ] web-en a bejelentkezést megkönnyíteni, azaz enter = bejelentkezés gomb, felhasználónév helyes felismerése (1)
 - [ ] felhasználó profil frissítése után a vissza gomb navigáció sem a BackBtn-el, sem a navigációs visszagombbal nem működik (2)
 - [x] regisztráció ne lehessen lehetséges olyan felhasználónévvel, amit már használtak vagy bejelentkezés e-mail cím alapján legyen (0)
+- [ ] privacy policy oldal (/privacy) (0)
