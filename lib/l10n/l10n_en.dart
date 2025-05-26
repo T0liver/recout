@@ -99,7 +99,8 @@ class L10nEn extends L10n {
   String get cantBeUndone => 'This action cannot be undone.';
 
   @override
-  String get cantBeUndoneAccount => 'This is your account. If you delete it, all in-app activity will be lost along with it!\nThis action cannot be undone.';
+  String get cantBeUndoneAccount =>
+      'This is your account. If you delete it, all in-app activity will be lost along with it!\nThis action cannot be undone.';
 
   @override
   String get recordnewactivity => 'Record New Activity...';
@@ -138,16 +139,19 @@ class L10nEn extends L10n {
   String get reporterror => 'Report Error';
 
   @override
-  String get impressum => 'This app was developed by Olivér Taschner for the\nBME VIAUAV45 course.\nIcons are from icons8.com.';
+  String get impressum =>
+      'This app was developed by Olivér Taschner for the\nBME VIAUAV45 course.\nIcons are from icons8.com.';
 
   @override
-  String get helptranslate => 'Not available in your language?\nHelp translate!';
+  String get helptranslate =>
+      'Not available in your language?\nHelp translate!';
 
   @override
   String get theme => 'Theme';
 
   @override
-  String get helptheme => 'Want to see the app with a different look?\nAdd a new theme!';
+  String get helptheme =>
+      'Want to see the app with a different look?\nAdd a new theme!';
 
   @override
   String get failcritique => 'Error, critique';
@@ -192,7 +196,8 @@ class L10nEn extends L10n {
   String get invalidEmail => 'Invalid email format.';
 
   @override
-  String get weakPassword => 'Your password is like leaving your front door wide open!';
+  String get weakPassword =>
+      'Your password is like leaving your front door wide open!';
 
   @override
   String get unknownError => 'Unknown error';
@@ -204,7 +209,8 @@ class L10nEn extends L10n {
   String get userNotFound => 'Username does not exist!';
 
   @override
-  String get invalidEmailLogin => 'The email associated with the username is not valid.';
+  String get invalidEmailLogin =>
+      'The email associated with the username is not valid.';
 
   @override
   String get wrongPassword => 'Incorrect password!';
@@ -216,7 +222,8 @@ class L10nEn extends L10n {
   String get logout => 'Logout';
 
   @override
-  String get noListElement => 'Your list is still empty.\\nTry adding a workout above!';
+  String get noListElement =>
+      'Your list is still empty.\\nTry adding a workout above!';
 
   @override
   String get deleteError => 'Error occurred while deleting the account';
