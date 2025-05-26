@@ -45,8 +45,9 @@ jobs:
         with:
           args: deploy --only hosting --public web-build
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RECOUT_13B03 }}
-          PROJECT_ID: recout-13b03
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RECOUT_13B03 }}
+          projectId: recout-13b03
 
   #build_and_preview:
   #  if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
