@@ -190,6 +190,38 @@ class BodyBase extends StatelessWidget {
   }
 }
 
+class BodyBaseButton extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+  final VoidCallback onPressed;
+
+  const BodyBaseButton(this.text, this.onPressed, {
+    super.key,
+    this.style = const TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: Colors.black
+    ),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
+          splashFactory: NoSplash.splashFactory,
+          overlayColor: WidgetStateProperty.all<Color>(Colors.transparent)
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: style,
+      )
+    );
+  }
+}
+
 class TitleUndelineText extends StatelessWidget {
   final String text;
   final TextStyle? style;
