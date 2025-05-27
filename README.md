@@ -243,7 +243,7 @@ Na, ebben a szellemben kezdjük is ez a funkciókat!
 
 - [ ] androidon több helyet adni a tetején, mert a vissza gomb a navigációs sáv alatt van (3)
 - [x] üres edzéslistánál a szövegben benne van egy "\n", mivel így akartam megoldani a sortörést. Erre vagy legyen egy másik megoldás, vagy ne legyen sortörés (4)
-- [ ] ugyanez a szöveg sötét témában fekete marad, nem látható (4)
+- [x] ugyanez a szöveg sötét témában fekete marad, nem látható (4)
 - [ ] bejelentkezés, regisztrációs, illetve egyéb nagyobb gombokban a szövegük valami margón túlcsordulhat, és levágja a száras betűk alját (3)
 - [x] regisztrációnál nem kap megerősítő emailt a felhasználó (1)
 - [ ] androidon új edzéskor a név beírásánál a billentyűzet nem automatikusan nagybetűsen kezdődik
