@@ -154,7 +154,6 @@ class _AccountPageState extends State<AccountPage> {
                         await prefs.setBool('isLoggedIn', false);
 
                         if (mounted && context.mounted) {
-                          // Navigator.pushNamedAndRemoveUntil(context, '/first', (route) => false);
                           context.go('/first');
                         }
                       } catch (e) {
