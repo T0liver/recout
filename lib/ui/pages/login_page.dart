@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
 
       if (userQuery.docs.isEmpty) {
         throw FirebaseAuthException(code: 'user-not-found');
-      }
+      }      
       final userData = userQuery.docs.first.data();
       final email = userData['email'];
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -51,6 +51,10 @@ class _LoginPageState extends State<LoginPage> {
         password: enteredPassword,
       );
 
+      if (!FirebaseAuth.instance.currentUser!.emailVerified) {
+        FirebaseAuth.instance.signOut();
+        throw FirebaseAuthException(code: 'not-verified');
+      } else
       if (mounted) {
         Provider.of<UserState>(context, listen: false).setUsername(userData['username']);
         context.go('/');
@@ -69,6 +73,9 @@ class _LoginPageState extends State<LoginPage> {
           break;
         case 'invalid-email':
           msg = l10n.invalidEmailLogin;
+          break;
+        case 'not-verified':
+          msg = l10n.notVerifiedEmail;
           break;
         default:
           msg = '${l10n.errorOccurred}: ${e.message}';

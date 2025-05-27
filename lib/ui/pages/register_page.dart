@@ -57,9 +57,14 @@ class _RegisterPageState extends State<RegisterPage> {
         'createdAt': Timestamp.now(),
       });
 
+      await credential.user?.sendEmailVerification();
+
       if (mounted) {
         Provider.of<UserState>(context, listen: false).setUsername(_unamecontroller.text.trim());
-        context.go('/');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.verifyEmail)),
+        );
+        context.go('/login');
       }
     } on FirebaseAuthException catch (e) {
       String msg;

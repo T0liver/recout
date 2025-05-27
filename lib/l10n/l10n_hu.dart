@@ -252,4 +252,12 @@ class L10nHu extends L10n {
 
   @override
   String get privacy => 'Adatvédelmi tájékoztató';
+
+  @override
+  String get verifyEmail =>
+      'Kérlek erősítsd meg az email címedet, majd jelentkezz be!';
+
+  @override
+  String get notVerifiedEmail =>
+      'Még nem erősítetted meg az e-mail címedet. Kérlek keresd ki az e-mail ládádban!';
 }

@@ -251,4 +251,11 @@ class L10nEn extends L10n {
 
   @override
   String get privacy => 'Privacy policy';
+
+  @override
+  String get verifyEmail => 'Please verify your email address and log-in!';
+
+  @override
+  String get notVerifiedEmail =>
+      'You have not yet confirmed your email address. Please check your email inbox!';
 }

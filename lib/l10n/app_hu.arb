@@ -319,5 +319,13 @@
     "privacy": "Adatvédelmi tájékoztató",
     "@privacy": {
         "description": "Adatvédelmi tájékoztató szöveg."
+    },
+    "verifyEmail": "Kérlek erősítsd meg az email címedet, majd jelentkezz be!",
+    "@verifyEmail": {
+        "description": "Figyelmeztető szöveg az e-mail cím megerősítésére."
+    },
+    "notVerifiedEmail": "Még nem erősítetted meg az e-mail címedet. Kérlek keresd ki az e-mail ládádban!",
+    "@notVerifiedEmail": {
+        "description": "Figyelmeztető szöveg, hogy a felhasználó még nem erősítette meg az e-mail címét."
     }
 }

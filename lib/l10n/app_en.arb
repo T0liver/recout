@@ -78,5 +78,7 @@
   "dark": "Dark",
   "noad": "There is no ad but a dog picture!",
   "workoutNotFound": "Workout not found!",
-  "privacy": "Privacy policy"
+  "privacy": "Privacy policy",
+  "verifyEmail": "Please verify your email address and log-in!",
+  "notVerifiedEmail": "You have not yet confirmed your email address. Please check your email inbox!"
 }

@@ -67,7 +67,8 @@ class RecOut extends StatelessWidget {
     final GoRouter router = GoRouter(
       initialLocation: '/',
       redirect: (BuildContext context, GoRouterState state) {
-        bool goNoGo = FirebaseAuth.instance.currentUser == null;
+        bool goNoGo = FirebaseAuth.instance.currentUser == null
+          || FirebaseAuth.instance.currentUser!.emailVerified;
         goNoGo = goNoGo && state.fullPath != '/login';
         goNoGo = goNoGo && state.fullPath != '/first';
         goNoGo = goNoGo && state.fullPath != '/register';
@@ -183,7 +184,6 @@ class RecOut extends StatelessWidget {
       ],
     );
 
-    // the changes here will be just test for running and testing if the UI is working
     return MaterialApp.router(
       routerConfig: router,
       debugShowCheckedModeBanner: false,

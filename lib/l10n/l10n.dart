@@ -570,6 +570,18 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Adatvédelmi tájékoztató'**
   String get privacy;
+
+  /// Figyelmeztető szöveg az e-mail cím megerősítésére.
+  ///
+  /// In hu, this message translates to:
+  /// **'Kérlek erősítsd meg az email címedet, majd jelentkezz be!'**
+  String get verifyEmail;
+
+  /// Figyelmeztető szöveg, hogy a felhasználó még nem erősítette meg az e-mail címét.
+  ///
+  /// In hu, this message translates to:
+  /// **'Még nem erősítetted meg az e-mail címedet. Kérlek keresd ki az e-mail ládádban!'**
+  String get notVerifiedEmail;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
