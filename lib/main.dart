@@ -67,8 +67,7 @@ class RecOut extends StatelessWidget {
     final GoRouter router = GoRouter(
       initialLocation: '/',
       redirect: (BuildContext context, GoRouterState state) {
-        bool goNoGo = FirebaseAuth.instance.currentUser == null
-          || FirebaseAuth.instance.currentUser!.emailVerified;
+        bool goNoGo = FirebaseAuth.instance.currentUser == null;
         goNoGo = goNoGo && state.fullPath != '/login';
         goNoGo = goNoGo && state.fullPath != '/first';
         goNoGo = goNoGo && state.fullPath != '/register';
@@ -77,6 +76,10 @@ class RecOut extends StatelessWidget {
         if (goNoGo) {
           return '/first';
         } else {
+          final cuser = FirebaseAuth.instance.currentUser;
+          if (cuser != null && !cuser.emailVerified) {
+            return '/first';
+          }
           return null;
         }
       },
