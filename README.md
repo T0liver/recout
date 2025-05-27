@@ -245,7 +245,7 @@ Na, ebben a szellemben kezdjük is ez a funkciókat!
 - [x] üres edzéslistánál a szövegben benne van egy "\n", mivel így akartam megoldani a sortörést. Erre vagy legyen egy másik megoldás, vagy ne legyen sortörés (4)
 - [ ] ugyanez a szöveg sötét témában fekete marad, nem látható (4)
 - [ ] bejelentkezés, regisztrációs, illetve egyéb nagyobb gombokban a szövegük valami margón túlcsordulhat, és levágja a száras betűk alját (3)
-- [ ] regisztrációnál nem kap megerősítő emailt a felhasználó (1)
+- [x] regisztrációnál nem kap megerősítő emailt a felhasználó (1)
 - [ ] androidon új edzéskor a név beírásánál a billentyűzet nem automatikusan nagybetűsen kezdődik
 - [ ] elfelejtett jelszó funkció (0) (első regisztrált fióknak elfelejtettem a jelszavát lmao)
 - [ ] web-en a bejelentkezést megkönnyíteni, azaz enter = bejelentkezés gomb, felhasználónév helyes felismerése (1)
