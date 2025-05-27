@@ -72,6 +72,7 @@ class RecOut extends StatelessWidget {
         goNoGo = goNoGo && state.fullPath != '/first';
         goNoGo = goNoGo && state.fullPath != '/register';
         goNoGo = goNoGo && state.fullPath != '/languages';
+        goNoGo = goNoGo && state.fullPath != '/privacy';
         if (goNoGo) {
           return '/first';
         } else {
