@@ -58,6 +58,9 @@ class _LoginPageState extends State<LoginPage> {
     } on FirebaseAuthException catch (e) {
       String msg;
       switch (e.code) {
+        case 'invalid-credential':
+          msg = l10n.wrongCredentials;
+          break;
         case 'user-not-found':
           msg = l10n.userNotFound;
           break;

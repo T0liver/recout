@@ -62,7 +62,8 @@ import 'l10n_hu.dart';
 /// be consistent with the languages listed in the L10n.supportedLocales
 /// property.
 abstract class L10n {
-  L10n(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  L10n(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -82,17 +83,18 @@ abstract class L10n {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('hu')
+    Locale('hu'),
   ];
 
   /// A nyelv neve, amire a fordítás történik, első betű nagybetű
@@ -455,6 +457,12 @@ abstract class L10n {
   /// **'Ez az email cím már használatban van.'**
   String get emailAlreadyInUse;
 
+  /// Hiba üzenet, ha regisztrációkor a felhasználónevet már más regisztrálta.
+  ///
+  /// In hu, this message translates to:
+  /// **'Ez a felhasználónév már használatban van.'**
+  String get usernameAlreadyInUse;
+
   /// Hiba üzenet, ha regisztrációkor az e-mail cím nem megfelelő formátumu.
   ///
   /// In hu, this message translates to:
@@ -497,6 +505,12 @@ abstract class L10n {
   /// **'Hibás jelszó!'**
   String get wrongPassword;
 
+  /// Hiba, ha bejelentkezéskor hibás szemályazonossággal próbálkoznak.
+  ///
+  /// In hu, this message translates to:
+  /// **'Hibás felhasználónév vagy jelszó!'**
+  String get wrongCredentials;
+
   /// Egy hiba állt be.
   ///
   /// In hu, this message translates to:
@@ -512,7 +526,7 @@ abstract class L10n {
   /// Visszajelzés a listánál, hogyha a felhasználó még nem vett fel edzést.
   ///
   /// In hu, this message translates to:
-  /// **'Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!'**
+  /// **'Még üres a listád.\nPróbálj felvenni egy edzést itt feljebb!'**
   String get noListElement;
 
   /// Üzenet, ha hiba történt a fiók törlése folyamán.
@@ -550,6 +564,12 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Edzés nem található!'**
   String get workoutNotFound;
+
+  /// Adatvédelmi tájékoztató szöveg.
+  ///
+  /// In hu, this message translates to:
+  /// **'Adatvédelmi tájékoztató'**
+  String get privacy;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
@@ -561,25 +581,26 @@ class _L10nDelegate extends LocalizationsDelegate<L10n> {
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'hu'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'hu'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_L10nDelegate old) => false;
 }
 
 L10n lookupL10n(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return L10nEn();
-    case 'hu': return L10nHu();
+    case 'en':
+      return L10nEn();
+    case 'hu':
+      return L10nHu();
   }
 
   throw FlutterError(
     'L10n.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
+    'that was used.',
   );
 }

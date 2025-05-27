@@ -99,7 +99,8 @@ class L10nHu extends L10n {
   String get cantBeUndone => 'Ez a művelet nem vonható vissza.';
 
   @override
-  String get cantBeUndoneAccount => 'A fiókodról van szó. Ha törlöd, minden alkalmazásbeli tevékenységed elveszik a fiókoddal együtt!\nEz a művelet nem vonható vissza.';
+  String get cantBeUndoneAccount =>
+      'A fiókodról van szó. Ha törlöd, minden alkalmazásbeli tevékenységed elveszik a fiókoddal együtt!\nEz a művelet nem vonható vissza.';
 
   @override
   String get recordnewactivity => 'Új aktivitás rögzítése...';
@@ -138,16 +139,19 @@ class L10nHu extends L10n {
   String get reporterror => 'Hiba bejelentése';
 
   @override
-  String get impressum => 'Az alkalmazást Taschner Olivér készítette a\nBME VIAUAV45 tantárgy keretében.\nAz ikonok az icons8.com-ról származnak.';
+  String get impressum =>
+      'Az alkalmazást Taschner Olivér készítette a\nBME VIAUAV45 tantárgy keretében.\nAz ikonok az icons8.com-ról származnak.';
 
   @override
-  String get helptranslate => 'Nem elérhető a nyelveden?\nSegíts a fordításban!';
+  String get helptranslate =>
+      'Nem elérhető a nyelveden?\nSegíts a fordításban!';
 
   @override
   String get theme => 'Téma';
 
   @override
-  String get helptheme => 'Szeretnéd más külsőben látni az appot?\nAdj hozzá új témát!';
+  String get helptheme =>
+      'Szeretnéd más külsőben látni az appot?\nAdj hozzá új témát!';
 
   @override
   String get failcritique => 'Hiba, kritika';
@@ -189,10 +193,15 @@ class L10nHu extends L10n {
   String get emailAlreadyInUse => 'Ez az email cím már használatban van.';
 
   @override
+  String get usernameAlreadyInUse =>
+      'Ez a felhasználónév már használatban van.';
+
+  @override
   String get invalidEmail => 'Hibás e-mail formátum.';
 
   @override
-  String get weakPassword => 'A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!';
+  String get weakPassword =>
+      'A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!';
 
   @override
   String get unknownError => 'Ismeretlen hiba';
@@ -204,10 +213,14 @@ class L10nHu extends L10n {
   String get userNotFound => 'A felhasználónév nem létezik!';
 
   @override
-  String get invalidEmailLogin => 'A felhasználónévhez tartozó email nem érvényes.';
+  String get invalidEmailLogin =>
+      'A felhasználónévhez tartozó email nem érvényes.';
 
   @override
   String get wrongPassword => 'Hibás jelszó!';
+
+  @override
+  String get wrongCredentials => 'Hibás felhasználónév vagy jelszó!';
 
   @override
   String get errorOccurred => 'Hiba történt';
@@ -216,7 +229,8 @@ class L10nHu extends L10n {
   String get logout => 'Kijelentkezés';
 
   @override
-  String get noListElement => 'Még üres a listád.\\nPróbálj felvenni egy edzést itt feljebb!';
+  String get noListElement =>
+      'Még üres a listád.\nPróbálj felvenni egy edzést itt feljebb!';
 
   @override
   String get deleteError => 'Hiba történt a fiók törlésekor';
@@ -235,4 +249,7 @@ class L10nHu extends L10n {
 
   @override
   String get workoutNotFound => 'Edzés nem található!';
+
+  @override
+  String get privacy => 'Adatvédelmi tájékoztató';
 }

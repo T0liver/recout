@@ -60,6 +60,7 @@
   "dateofbirth_s": "[date of birth]",
   "email_s": "[email address]",
   "emailAlreadyInUse": "This email address is already in use.",
+  "usernameAlreadyInUse": "This username is already in use.",
   "invalidEmail": "Invalid email format.",
   "weakPassword": "Your password is like leaving your front door wide open!",
   "unknownError": "Unknown error",
@@ -67,13 +68,15 @@
   "userNotFound": "Username does not exist!",
   "invalidEmailLogin": "The email associated with the username is not valid.",
   "wrongPassword": "Incorrect password!",
+  "wrongCredentials": "Incorrect username or password!",
   "errorOccurred": "An error occurred",
   "logout": "Logout",
-  "noListElement": "Your list is still empty.\\nTry adding a workout above!",
+  "noListElement": "Your list is still empty.\nTry adding a workout above!",
   "deleteError": "Error occurred while deleting the account",
   "sucessfullDelete": "Successfully deleted!",
   "light": "Light",
   "dark": "Dark",
   "noad": "There is no ad but a dog picture!",
-  "workoutNotFound": "Workout not found!"
+  "workoutNotFound": "Workout not found!",
+  "privacy": "Privacy policy"
 }
