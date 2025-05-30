@@ -469,6 +469,12 @@ abstract class L10n {
   /// **'Hibás e-mail formátum.'**
   String get invalidEmail;
 
+  /// Hiba üzenet, ha az e-mail cím hiányzik.
+  ///
+  /// In hu, this message translates to:
+  /// **'Az e-mail cím hiányzik!'**
+  String get missingEmail;
+
   /// Hiba üzenet, ha regisztrációkor a jelszó túl gyenge.
   ///
   /// In hu, this message translates to:
@@ -491,7 +497,13 @@ abstract class L10n {
   ///
   /// In hu, this message translates to:
   /// **'A felhasználónév nem létezik!'**
-  String get userNotFound;
+  String get usernameNotFound;
+
+  /// Hiba, ha jelszóvisszaállításnál olyan címmel próbálkoznak, ami nincs is regisztrálva.
+  ///
+  /// In hu, this message translates to:
+  /// **'Az email cím nincs regisztrálva!'**
+  String get emailNotFound;
 
   /// Hiba, ha bejelentkezéskor a felhasználónévhez tartozó email nem érvényes.
   ///
@@ -582,6 +594,30 @@ abstract class L10n {
   /// In hu, this message translates to:
   /// **'Még nem erősítetted meg az e-mail címedet. Kérlek keresd ki az e-mail ládádban!'**
   String get notVerifiedEmail;
+
+  /// Kattintható szöveg, a jelszó visszaállításához
+  ///
+  /// In hu, this message translates to:
+  /// **'Elfelejtetted a jelszavadat?'**
+  String get forgottenPassword;
+
+  /// Főszöveg a jelszó visszaállítása oldalra
+  ///
+  /// In hu, this message translates to:
+  /// **'Jelszó\nvisszaállítása'**
+  String get resetPassword;
+
+  /// Vicces szöveg, a jelszóvisszaállító levél kiküldésére
+  ///
+  /// In hu, this message translates to:
+  /// **'Mehet a mail!'**
+  String get letsgoMail;
+
+  /// Jelző szöveg, hogy a levelet elküldtük az e-mail címre.
+  ///
+  /// In hu, this message translates to:
+  /// **'E-mail elküldve! Nézd meg a leveles ládádat!'**
+  String get emailSent;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

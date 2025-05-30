@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
           msg = l10n.wrongCredentials;
           break;
         case 'user-not-found':
-          msg = l10n.userNotFound;
+          msg = l10n.usernameNotFound;
           break;
         case 'wrong-password':
           msg = l10n.wrongPassword;
@@ -122,6 +122,8 @@ class _LoginPageState extends State<LoginPage> {
             }
           },
         ),
+        const Spacer(flex: 1),
+        BodyBaseButton(l10n.forgottenPassword, () => context.push('/password-reset')),
         const Spacer(flex: 1),
       ],
     );

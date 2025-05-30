@@ -62,10 +62,12 @@
   "emailAlreadyInUse": "This email address is already in use.",
   "usernameAlreadyInUse": "This username is already in use.",
   "invalidEmail": "Invalid email format.",
+  "missingEmail": "The e-mail address is missing!",
   "weakPassword": "Your password is like leaving your front door wide open!",
   "unknownError": "Unknown error",
   "successfulRegister": "Registration successful!",
-  "userNotFound": "Username does not exist!",
+  "usernameNotFound": "Username does not exist!",
+  "emailNotFound": "The email address is not registered!",
   "invalidEmailLogin": "The email associated with the username is not valid.",
   "wrongPassword": "Incorrect password!",
   "wrongCredentials": "Incorrect username or password!",
@@ -80,5 +82,9 @@
   "workoutNotFound": "Workout not found!",
   "privacy": "Privacy policy",
   "verifyEmail": "Please verify your email address and log-in!",
-  "notVerifiedEmail": "You have not yet confirmed your email address. Please check your email inbox!"
+  "notVerifiedEmail": "You have not yet confirmed your email address. Please check your email inbox!",
+  "forgottenPassword": "Did you forget your password?",
+  "resetPassword": "Reset\npassword",
+  "letsgoMail": "Send the mail!",
+  "emailSent": "E-mail sent! Check your inbox!"
 }

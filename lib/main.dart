@@ -11,6 +11,7 @@ import 'package:recout/l10n/language_provider.dart';
 import 'package:recout/data/states/theme_provider.dart';
 import 'package:recout/data/states/user_state.dart';
 import 'package:recout/ui/pages/home_page.dart';
+import 'package:recout/ui/pages/password_reset.dart';
 import 'package:recout/ui/pages/privacy.dart';
 import 'data/firebase_options.dart';
 
@@ -73,6 +74,7 @@ class RecOut extends StatelessWidget {
         goNoGo = goNoGo && state.fullPath != '/register';
         goNoGo = goNoGo && state.fullPath != '/languages';
         goNoGo = goNoGo && state.fullPath != '/privacy';
+        goNoGo = goNoGo && state.fullPath != '/password-reset';
         if (goNoGo) {
           return '/first';
         } else {
@@ -129,6 +131,10 @@ class RecOut extends StatelessWidget {
         GoRoute(
           path: '/privacy',
           builder: (context, state) => const ScrollWrapper(PrivacyPage()),
+        ),
+        GoRoute(
+          path: '/password-reset',
+          builder: (context, state) => const ScrollWrapper(PasswordResetPage()),
         ),
         GoRoute(
           path: '/workout/:id',

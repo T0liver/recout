@@ -199,6 +199,9 @@ class L10nEn extends L10n {
   String get invalidEmail => 'Invalid email format.';
 
   @override
+  String get missingEmail => 'The e-mail address is missing!';
+
+  @override
   String get weakPassword =>
       'Your password is like leaving your front door wide open!';
 
@@ -209,7 +212,10 @@ class L10nEn extends L10n {
   String get successfulRegister => 'Registration successful!';
 
   @override
-  String get userNotFound => 'Username does not exist!';
+  String get usernameNotFound => 'Username does not exist!';
+
+  @override
+  String get emailNotFound => 'The email address is not registered!';
 
   @override
   String get invalidEmailLogin =>
@@ -258,4 +264,16 @@ class L10nEn extends L10n {
   @override
   String get notVerifiedEmail =>
       'You have not yet confirmed your email address. Please check your email inbox!';
+
+  @override
+  String get forgottenPassword => 'Did you forget your password?';
+
+  @override
+  String get resetPassword => 'Reset\npassword';
+
+  @override
+  String get letsgoMail => 'Send the mail!';
+
+  @override
+  String get emailSent => 'E-mail sent! Check your inbox!';
 }
