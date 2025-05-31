@@ -207,6 +207,9 @@ jobs:
           name: ios_release
           path: ./
 
+      - name: List all things
+        run: ls -R
+
       # rename this to don't be soooo boring
       - name: Rename Artifacts
         run: |
