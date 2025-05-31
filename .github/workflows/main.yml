@@ -123,9 +123,9 @@ jobs:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
-      # checning out
-      - name: Checking out
-        uses: actions/checkout@v3
+      # checkout repo
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       # getting flutter
       - uses: subosito/flutter-action@v1
@@ -170,6 +170,10 @@ jobs:
       - build_ios
     if: ${{ github.event_name }}" == "push"
     steps:
+      # checkout repo
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       # extracting version number
       - name: Extract version from pubspec.yaml
         id: extract_version
