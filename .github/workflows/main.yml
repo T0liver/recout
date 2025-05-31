@@ -64,7 +64,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-         name: Releases
+         name: android_release
          path: |
            build/app/outputs/flutter-apk/app-release.apk
            build/app/outputs/bundle/release/app-release.aab
@@ -114,11 +114,12 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Releases
+          name: ios_release
           path: |
             build/ios_build.tar.gz
 
   build_web:
+    name: Build web
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
@@ -190,10 +191,16 @@ jobs:
           fi
 
       # downloading the... you know... things...
-      - name: Download artifacts
+      - name: Download android artifacts
         uses: actions/download-artifact@v4
         with:
-          name: Releases
+          name: android_release
+          path: ./
+
+      - name: Download iOS artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: ios_release
           path: ./
 
       # rename this to don't be soooo boring
