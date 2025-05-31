@@ -90,7 +90,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
     }
 
     if (mounted) {
-      context.go('/profile');
+      context.pop();
     }
   }
 

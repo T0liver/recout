@@ -173,19 +173,59 @@ class BodyBase extends StatelessWidget {
 
   const BodyBase(this.text, {
     super.key,
-    this.style = const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-        color: Colors.black
-    ),
+    this.style,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: style,
+      style: getStyle(context),
+    );
+  }
+
+  TextStyle getStyle(BuildContext context) {
+    return style ?? TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: context.textColor
+    );
+  }
+}
+
+class BodyBaseButton extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+  final VoidCallback onPressed;
+
+  const BodyBaseButton(this.text, this.onPressed, {
+    super.key,
+    this.style,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
+          splashFactory: NoSplash.splashFactory,
+          overlayColor: WidgetStateProperty.all<Color>(Colors.transparent)
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: getStyle(context),
+      )
+    );
+  }
+
+  TextStyle getStyle(BuildContext context) {
+    return style ?? TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: context.textColor
     );
   }
 }

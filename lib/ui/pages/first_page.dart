@@ -21,6 +21,8 @@ class FirstPage extends StatelessWidget {
         ),
         const Spacer(flex: 2),
         LanguageLabel(onPressed: () => context.push('/languages')),
+        const Spacer(flex: 1),
+        BodyBaseButton(l10n.privacy, () => context.push('/privacy')),
         const Spacer(flex: 4),
         Button(text: l10n.login, onPressed: () {
           context.push('/login');
@@ -32,7 +34,7 @@ class FirstPage extends StatelessWidget {
           bgColor: context.backgroundColor,
           border: BorderSide(color: context.buttonColor, width: 2),
         ),
-        const Spacer(flex: 1,)
+        const Spacer(flex: 2,)
       ]
     );
   }

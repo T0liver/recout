@@ -200,6 +200,9 @@ class L10nHu extends L10n {
   String get invalidEmail => 'Hibás e-mail formátum.';
 
   @override
+  String get missingEmail => 'Az e-mail cím hiányzik!';
+
+  @override
   String get weakPassword =>
       'A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!';
 
@@ -210,7 +213,10 @@ class L10nHu extends L10n {
   String get successfulRegister => 'Sikeres regisztráció!';
 
   @override
-  String get userNotFound => 'A felhasználónév nem létezik!';
+  String get usernameNotFound => 'A felhasználónév nem létezik!';
+
+  @override
+  String get emailNotFound => 'Az email cím nincs regisztrálva!';
 
   @override
   String get invalidEmailLogin =>
@@ -252,4 +258,24 @@ class L10nHu extends L10n {
 
   @override
   String get privacy => 'Adatvédelmi tájékoztató';
+
+  @override
+  String get verifyEmail =>
+      'Kérlek erősítsd meg az email címedet, majd jelentkezz be!';
+
+  @override
+  String get notVerifiedEmail =>
+      'Még nem erősítetted meg az e-mail címedet. Kérlek keresd ki az e-mail ládádban!';
+
+  @override
+  String get forgottenPassword => 'Elfelejtetted a jelszavadat?';
+
+  @override
+  String get resetPassword => 'Jelszó\nvisszaállítása';
+
+  @override
+  String get letsgoMail => 'Mehet a mail!';
+
+  @override
+  String get emailSent => 'E-mail elküldve! Nézd meg a leveles ládádat!';
 }

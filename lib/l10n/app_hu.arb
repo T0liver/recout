@@ -252,6 +252,10 @@
     "@invalidEmail": {
         "description": "Hiba üzenet, ha regisztrációkor az e-mail cím nem megfelelő formátumu."
     },
+    "missingEmail": "Az e-mail cím hiányzik!",
+    "@missingEmail": {
+        "description": "Hiba üzenet, ha az e-mail cím hiányzik."
+    },
     "weakPassword": "A jelszavad olyan, mintha tárva nyitva hagynád a bejárati ajtódat!",
     "@weakPassword": {
         "description": "Hiba üzenet, ha regisztrációkor a jelszó túl gyenge."
@@ -264,9 +268,13 @@
     "@successfulRegister": {
         "description": "Ha sikerült a regisztráció."
     },
-    "userNotFound": "A felhasználónév nem létezik!",
-    "@userNotFound": {
+    "usernameNotFound": "A felhasználónév nem létezik!",
+    "@usernameNotFound": {
         "description": "Hiba, ha bejelentkezésnél nem létező felhasználónévvel próbálkoznak."
+    },
+    "emailNotFound": "Az email cím nincs regisztrálva!",
+    "@emailNotFound": {
+        "description": "Hiba, ha jelszóvisszaállításnál olyan címmel próbálkoznak, ami nincs is regisztrálva."
     },
     "invalidEmailLogin": "A felhasználónévhez tartozó email nem érvényes.",
     "@invalidEmailLogin": {
@@ -319,5 +327,29 @@
     "privacy": "Adatvédelmi tájékoztató",
     "@privacy": {
         "description": "Adatvédelmi tájékoztató szöveg."
+    },
+    "verifyEmail": "Kérlek erősítsd meg az email címedet, majd jelentkezz be!",
+    "@verifyEmail": {
+        "description": "Figyelmeztető szöveg az e-mail cím megerősítésére."
+    },
+    "notVerifiedEmail": "Még nem erősítetted meg az e-mail címedet. Kérlek keresd ki az e-mail ládádban!",
+    "@notVerifiedEmail": {
+        "description": "Figyelmeztető szöveg, hogy a felhasználó még nem erősítette meg az e-mail címét."
+    },
+    "forgottenPassword": "Elfelejtetted a jelszavadat?",
+    "@forgottenPassword": {
+        "description": "Kattintható szöveg, a jelszó visszaállításához"
+    },
+    "resetPassword": "Jelszó\nvisszaállítása",
+    "@resetPassword": {
+        "description": "Főszöveg a jelszó visszaállítása oldalra"
+    },
+    "letsgoMail": "Mehet a mail!",
+    "@letsgoMail": {
+        "description": "Vicces szöveg, a jelszóvisszaállító levél kiküldésére"
+    },
+    "emailSent": "E-mail elküldve! Nézd meg a leveles ládádat!",
+    "@emailSent": {
+        "description": "Jelző szöveg, hogy a levelet elküldtük az e-mail címre."
     }
 }
