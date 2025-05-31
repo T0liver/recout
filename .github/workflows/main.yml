@@ -213,8 +213,8 @@ jobs:
       # rename this to don't be soooo boring
       - name: Rename Artifacts
         run: |
-          mv android_release/app-release.apk recout-v${{ env.VERSION }}.apk
-          mv android_release/app-release.aab recout-v${{ env.VERSION }}.aab
+          mv flutter-apk/app-release.apk recout-v${{ env.VERSION }}.apk
+          mv bundle/release/app-release.aab recout-v${{ env.VERSION }}.aab
           mv ios_release/ios_build.tar.gz recout-v${{ env.VERSION }}_ios.tar.gz
 
       # releasing!!
