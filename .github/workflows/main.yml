@@ -120,7 +120,6 @@ jobs:
 
   build_web:
     name: Build web
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
       # checkout repo
