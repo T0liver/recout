@@ -246,7 +246,7 @@ Na, ebben a szellemben kezdjük is ez a funkciókat!
 - [x] ugyanez a szöveg sötét témában fekete marad, nem látható (4)
 - [x] bejelentkezés, regisztrációs, illetve egyéb nagyobb gombokban a szövegük valami margón túlcsordulhat, és levágja a száras betűk alját (3)
 - [x] regisztrációnál nem kap megerősítő emailt a felhasználó (1)
-- [ ] androidon új edzéskor a név beírásánál a billentyűzet nem automatikusan nagybetűsen kezdődik
+- [x] androidon új edzéskor a név beírásánál a billentyűzet nem automatikusan nagybetűsen kezdődik
 - [x] elfelejtett jelszó funkció (0) (első regisztrált fióknak elfelejtettem a jelszavát lmao)
 - [x] web-en a bejelentkezést megkönnyíteni, azaz enter = bejelentkezés gomb, felhasználónév helyes felismerése (1)
 - [x] felhasználó profil frissítése után a vissza gomb navigáció sem a BackBtn-el, sem a navigációs visszagombbal nem működik (2)
