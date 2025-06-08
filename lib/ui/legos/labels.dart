@@ -138,6 +138,7 @@ class BoxInputLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
         hintText: placeholder,
         hintStyle: TextStyle(color: valid ? context.tertiaryColor : Theme.of(context).colorScheme.error),
@@ -325,6 +326,7 @@ class StringInputLabel extends StatelessWidget {
       width: width,
       child: TextField(
         controller: controller,
+        textCapitalization: TextCapitalization.sentences,
         style: TextStyle(
           fontFamily: 'Inter',
           fontWeight: FontWeight.w500,
@@ -380,6 +382,7 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
           TextField(
             textAlign: center ? TextAlign.center : TextAlign.start,
             controller: controller,
+            textCapitalization: TextCapitalization.sentences,
             style: style ?? TextStyle(
                 fontFamily: 'Inter',
                 fontSize: 24,
