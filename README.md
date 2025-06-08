@@ -241,7 +241,7 @@ Legyen 5 osztály, a 0 a nagyon fontos, a 4 a ráér, és egy új funkció / jav
 
 Na, ebben a szellemben kezdjük is ez a funkciókat!
 
-- [ ] androidon több helyet adni a tetején, mert a vissza gomb a navigációs sáv alatt van (3)
+- [x] androidon több helyet adni a tetején, mert a vissza gomb a navigációs sáv alatt van (3)
 - [x] üres edzéslistánál a szövegben benne van egy "\n", mivel így akartam megoldani a sortörést. Erre vagy legyen egy másik megoldás, vagy ne legyen sortörés (4)
 - [x] ugyanez a szöveg sötét témában fekete marad, nem látható (4)
 - [ ] bejelentkezés, regisztrációs, illetve egyéb nagyobb gombokban a szövegük valami margón túlcsordulhat, és levágja a száras betűk alját (3)
