@@ -46,7 +46,8 @@ class Button extends StatelessWidget {
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w600,
                 fontSize: 24,
-                color: context.textColor
+                color: context.textColor,
+                height: 1.0
             ),
           ),
         ),
