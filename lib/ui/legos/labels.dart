@@ -6,11 +6,13 @@ class TextLabel extends StatelessWidget {
   final TextEditingController controller;
   final String? hint;
   final bool pass;
+  final List<String> autofillHint;
 
   const TextLabel({
     super.key,
     required this.controller,
     this.hint,
+    this.autofillHint = const [],
     this.pass = false,
   });
 
@@ -20,32 +22,33 @@ class TextLabel extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 300),
         child: TextField(
-        controller: controller,
-        obscureText: pass,
-        decoration: InputDecoration(
-          hintText: hint,
-          hintStyle: TextStyle(
-            color: context.secondaryColor,
-            fontWeight: FontWeight.w600,
-          ),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
+          controller: controller,
+          obscureText: pass,
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: TextStyle(
               color: context.secondaryColor,
-              width: 1.5,
+              fontWeight: FontWeight.w600,
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: context.secondaryColor,
+                width: 1.5,
+              ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: context.secondaryColor,
+                width: 1.5,
+              ),
             ),
           ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-              color: context.secondaryColor,
-              width: 1.5,
-            ),
+          style: TextStyle(
+            color: context.textColor,
+            fontWeight: FontWeight.normal,
           ),
+          autofillHints: autofillHint,
         ),
-        style: TextStyle(
-          color: context.textColor,
-          fontWeight: FontWeight.normal,
-        ),
-      ),
       ),
     );
   }
@@ -112,6 +115,7 @@ class _PasswordLabelState extends State<PasswordLabel> {
             color: context.textColor,
             fontWeight: FontWeight.normal,
           ),
+          autofillHints: const [AutofillHints.password],
         ),
       ),
     );

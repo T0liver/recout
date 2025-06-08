@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
         Heading(text: l10n.login),
         const Spacer(flex: 3),
-        TextLabel(controller: _unamecontroller, hint: l10n.username),
+        TextLabel(controller: _unamecontroller, hint: l10n.username, autofillHint: const [AutofillHints.username]),
         const SizedBox(height: 20),
         PasswordLabel(controller: _passcontroller, hint: l10n.password),
         const Spacer(flex: 2),
