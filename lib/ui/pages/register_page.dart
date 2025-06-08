@@ -105,7 +105,6 @@ class _RegisterPageState extends State<RegisterPage> {
     final l10n = L10n.of(context)!;
     return Column(
       children: [
-        const SizedBox(height: 10,),
         const BackBtn(),
         const Spacer(flex: 2),
         Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),

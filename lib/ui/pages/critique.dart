@@ -19,7 +19,6 @@ class CritiquePage extends StatelessWidget {
         width: width,
         child: Column(
           children: [
-            const SizedBox(height: 10,),
             const BackBtn(),
             SizedBox(height: 20),
             TitleUndelineText(text: l10n.failcritique),

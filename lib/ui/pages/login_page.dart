@@ -100,7 +100,6 @@ class _LoginPageState extends State<LoginPage> {
     final l10n = L10n.of(context)!;
     return Column(
       children: [
-        const SizedBox(height: 10),
         const BackBtn(),
         const Spacer(flex: 2),
         Image.asset(

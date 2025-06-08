@@ -30,7 +30,6 @@ class _PrivacyPageState extends State<PrivacyPage> {
     return
       Column(
         children: [
-          const SizedBox(height: 10,),
           const BackBtn(),
           SizedBox(height: 20),
           ConstrainedBox(
