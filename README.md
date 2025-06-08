@@ -253,3 +253,16 @@ Na, ebben a szellemben kezdjük is ez a funkciókat!
 - [x] regisztráció ne lehessen lehetséges olyan felhasználónévvel, amit már használtak vagy bejelentkezés e-mail cím alapján legyen (0)
 - [x] privacy policy oldal (/privacy) (0)
 - [x] alkalmazás nevének megváltoztatása androidon és ios-en (recout -> RecOut! legyen az ikon alatti kis címke)
+
+```
+*2025.06.08.*
+Nos, sikerült az összeset implementálni.
+Lehet... lehet, hogy...
+Nem, az nem lehet.
+De igen.
+Lehet, itt az ideje az 1.0.0-nak.
+
+...
+
+Vágjunk bele.
+```
