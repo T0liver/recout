@@ -248,7 +248,7 @@ Na, ebben a szellemben kezdjük is ez a funkciókat!
 - [x] regisztrációnál nem kap megerősítő emailt a felhasználó (1)
 - [ ] androidon új edzéskor a név beírásánál a billentyűzet nem automatikusan nagybetűsen kezdődik
 - [x] elfelejtett jelszó funkció (0) (első regisztrált fióknak elfelejtettem a jelszavát lmao)
-- [ ] web-en a bejelentkezést megkönnyíteni, azaz enter = bejelentkezés gomb, felhasználónév helyes felismerése (1)
+- [x] web-en a bejelentkezést megkönnyíteni, azaz enter = bejelentkezés gomb, felhasználónév helyes felismerése (1)
 - [x] felhasználó profil frissítése után a vissza gomb navigáció sem a BackBtn-el, sem a navigációs visszagombbal nem működik (2)
 - [x] regisztráció ne lehessen lehetséges olyan felhasználónévvel, amit már használtak vagy bejelentkezés e-mail cím alapján legyen (0)
 - [x] privacy policy oldal (/privacy) (0)
