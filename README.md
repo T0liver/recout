@@ -57,7 +57,7 @@ Elkészítendő widgetek listája
 	- [x] Korábbi edzések panel
 		- [x] Korábbi edzések felirat
 		- [x] Edzés elem panel
-		- [ ] hirdetés panel
+		- [x] hirdetés panel
 
 </details>
 
