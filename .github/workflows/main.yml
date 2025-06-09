@@ -109,7 +109,6 @@ jobs:
       - name: Generate Podfile and install pods
         run: |
           cd ios
-          pod init
           echo "platform :ios, '13.0'" > Podfile
           echo "target 'Runner' do" >> Podfile
           echo "  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))" >> Podfile
