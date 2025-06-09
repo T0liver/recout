@@ -106,23 +106,35 @@ jobs:
         run: flutter create .
 
       # podfile generate?
-      - name: Generate Podfile and install pods
+      - name: Generate Podfile
         run: |
           cd ios
-          echo "platform :ios, '13.0'" > Podfile
-          echo "target 'Runner' do" >> Podfile
-          echo "  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))" >> Podfile
-          echo "end" >> Podfile
-          echo "" >> Podfile
-          echo "post_install do |installer|" >> Podfile
-          echo "  installer.pods_project.targets.each do |target|" >> Podfile
-          echo "    target.build_configurations.each do |config|" >> Podfile
-          echo "      config.build_settings['SWIFT_VERSION'] = '5.9'" >> Podfile
-          echo "    end" >> Podfile
-          echo "  end" >> Podfile
-          echo "end" >> Podfile
+          cat > Podfile <<EOF
+          platform :ios, '13.0'
+      
+          ENV['FLUTTER_FRAMEWORK_DIR'] ||= File.join(ENV['FLUTTER_ROOT'], 'bin', 'cache', 'artifacts', 'engine', 'ios')
+      
+          load File.join(__dir__, 'Flutter', 'podhelper.rb')
+      
+          target 'Runner' do
+            use_frameworks!
+            use_modular_headers!
+      
+            flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+          end
+      
+          post_install do |installer|
+            installer.pods_project.targets.each do |target|
+              target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '5.9'
+              end
+            end
+          end
+          EOF
+      
           pod install
           cd ..
+
 
       # auto-patch the ifos target
       #- name: Set iOS Deployment Target to 13.0
