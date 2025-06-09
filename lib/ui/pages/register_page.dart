@@ -105,15 +105,14 @@ class _RegisterPageState extends State<RegisterPage> {
     final l10n = L10n.of(context)!;
     return Column(
       children: [
-        const SizedBox(height: 10,),
         const BackBtn(),
         const Spacer(flex: 2),
         Image.asset('assets/graphics/icons/icons8-strong-arm-128.png', height: MediaQuery.sizeOf(context).height * 0.15,),
         Heading(text: l10n.register),
         const Spacer(flex: 3),
-        TextLabel(controller: _unamecontroller, hint: l10n.username),
+        TextLabel(controller: _unamecontroller, hint: l10n.username, autofillHint: [AutofillHints.username]),
         const SizedBox(height: 20),
-        TextLabel(controller: _emailcontroller, hint: l10n.emailaddr),
+        TextLabel(controller: _emailcontroller, hint: l10n.emailaddr, autofillHint: [AutofillHints.email]),
         const SizedBox(height: 20),
         PasswordLabel(controller: _passcontroller, hint: l10n.password),
         const Spacer(flex: 2),

@@ -111,7 +111,6 @@ class _OpenActivityPageState extends State<OpenActivityPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 20,),
                 const BackBtn(),
                 Spacer(flex: 1),
                 Image.asset(

@@ -6,11 +6,13 @@ class TextLabel extends StatelessWidget {
   final TextEditingController controller;
   final String? hint;
   final bool pass;
+  final List<String> autofillHint;
 
   const TextLabel({
     super.key,
     required this.controller,
     this.hint,
+    this.autofillHint = const [],
     this.pass = false,
   });
 
@@ -20,32 +22,33 @@ class TextLabel extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 300),
         child: TextField(
-        controller: controller,
-        obscureText: pass,
-        decoration: InputDecoration(
-          hintText: hint,
-          hintStyle: TextStyle(
-            color: context.secondaryColor,
-            fontWeight: FontWeight.w600,
-          ),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
+          controller: controller,
+          obscureText: pass,
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: TextStyle(
               color: context.secondaryColor,
-              width: 1.5,
+              fontWeight: FontWeight.w600,
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: context.secondaryColor,
+                width: 1.5,
+              ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: context.secondaryColor,
+                width: 1.5,
+              ),
             ),
           ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-              color: context.secondaryColor,
-              width: 1.5,
-            ),
+          style: TextStyle(
+            color: context.textColor,
+            fontWeight: FontWeight.normal,
           ),
+          autofillHints: autofillHint,
         ),
-        style: TextStyle(
-          color: context.textColor,
-          fontWeight: FontWeight.normal,
-        ),
-      ),
       ),
     );
   }
@@ -112,6 +115,7 @@ class _PasswordLabelState extends State<PasswordLabel> {
             color: context.textColor,
             fontWeight: FontWeight.normal,
           ),
+          autofillHints: const [AutofillHints.password],
         ),
       ),
     );
@@ -134,6 +138,7 @@ class BoxInputLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
         hintText: placeholder,
         hintStyle: TextStyle(color: valid ? context.tertiaryColor : Theme.of(context).colorScheme.error),
@@ -321,6 +326,7 @@ class StringInputLabel extends StatelessWidget {
       width: width,
       child: TextField(
         controller: controller,
+        textCapitalization: TextCapitalization.sentences,
         style: TextStyle(
           fontFamily: 'Inter',
           fontWeight: FontWeight.w500,
@@ -376,6 +382,7 @@ class SmallTitleUndelineInputLabel extends StatelessWidget {
           TextField(
             textAlign: center ? TextAlign.center : TextAlign.start,
             controller: controller,
+            textCapitalization: TextCapitalization.sentences,
             style: style ?? TextStyle(
                 fontFamily: 'Inter',
                 fontSize: 24,

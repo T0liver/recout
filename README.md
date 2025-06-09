@@ -57,7 +57,7 @@ Elkészítendő widgetek listája
 	- [x] Korábbi edzések panel
 		- [x] Korábbi edzések felirat
 		- [x] Edzés elem panel
-		- [ ] hirdetés panel
+		- [x] hirdetés panel
 
 </details>
 
@@ -241,15 +241,28 @@ Legyen 5 osztály, a 0 a nagyon fontos, a 4 a ráér, és egy új funkció / jav
 
 Na, ebben a szellemben kezdjük is ez a funkciókat!
 
-- [ ] androidon több helyet adni a tetején, mert a vissza gomb a navigációs sáv alatt van (3)
+- [x] androidon több helyet adni a tetején, mert a vissza gomb a navigációs sáv alatt van (3)
 - [x] üres edzéslistánál a szövegben benne van egy "\n", mivel így akartam megoldani a sortörést. Erre vagy legyen egy másik megoldás, vagy ne legyen sortörés (4)
 - [x] ugyanez a szöveg sötét témában fekete marad, nem látható (4)
-- [ ] bejelentkezés, regisztrációs, illetve egyéb nagyobb gombokban a szövegük valami margón túlcsordulhat, és levágja a száras betűk alját (3)
+- [x] bejelentkezés, regisztrációs, illetve egyéb nagyobb gombokban a szövegük valami margón túlcsordulhat, és levágja a száras betűk alját (3)
 - [x] regisztrációnál nem kap megerősítő emailt a felhasználó (1)
-- [ ] androidon új edzéskor a név beírásánál a billentyűzet nem automatikusan nagybetűsen kezdődik
+- [x] androidon új edzéskor a név beírásánál a billentyűzet nem automatikusan nagybetűsen kezdődik
 - [x] elfelejtett jelszó funkció (0) (első regisztrált fióknak elfelejtettem a jelszavát lmao)
-- [ ] web-en a bejelentkezést megkönnyíteni, azaz enter = bejelentkezés gomb, felhasználónév helyes felismerése (1)
+- [x] web-en a bejelentkezést megkönnyíteni, azaz enter = bejelentkezés gomb, felhasználónév helyes felismerése (1)
 - [x] felhasználó profil frissítése után a vissza gomb navigáció sem a BackBtn-el, sem a navigációs visszagombbal nem működik (2)
 - [x] regisztráció ne lehessen lehetséges olyan felhasználónévvel, amit már használtak vagy bejelentkezés e-mail cím alapján legyen (0)
 - [x] privacy policy oldal (/privacy) (0)
 - [x] alkalmazás nevének megváltoztatása androidon és ios-en (recout -> RecOut! legyen az ikon alatti kis címke)
+
+```
+*2025.06.08.*
+Nos, sikerült az összeset implementálni.
+Lehet... lehet, hogy...
+Nem, az nem lehet.
+De igen.
+Lehet, itt az ideje az 1.0.0-nak.
+
+...
+
+Vágjunk bele.
+```

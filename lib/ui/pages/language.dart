@@ -36,7 +36,6 @@ class _LanguagePageState extends State<LanguagePage> {
         width: width,
         child: Column(
           children: [
-            const SizedBox(height: 10),
             const BackBtn(),
             const SizedBox(height: 20),
             TitleUndelineText(text: l10n.language),

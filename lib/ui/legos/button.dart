@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recout/themes/app_colors.dart';
@@ -45,7 +46,8 @@ class Button extends StatelessWidget {
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w600,
                 fontSize: 24,
-                color: context.textColor
+                color: context.textColor,
+                height: 1.0
             ),
           ),
         ),
@@ -69,8 +71,11 @@ class BackBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (kIsWeb) {
+      return const SizedBox.shrink();
+    }
     return Container(
-      padding: EdgeInsets.only(top: 15),
+      padding: EdgeInsets.only(top: 30),
       alignment: Alignment(-0.9, 0.9),
       child: SizedBox(
         width: 32, height: 32,
