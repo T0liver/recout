@@ -58,7 +58,7 @@ jobs:
 
       # bundeling
       - name: Build appBundle
-        run: flutter build appbundle
+        run: flutter build appbundle --release
 
       # upload artifacts
       - name: Upload Artifacts
