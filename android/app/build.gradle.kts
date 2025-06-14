@@ -8,13 +8,12 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-/*
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file("android/key.properties")
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
-*/
+
 
 android {
     namespace = "hu.toliver.recout"
@@ -39,7 +38,7 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
-/*
+
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
@@ -48,10 +47,10 @@ android {
             storePassword keystoreProperties['storePassword']
         }
     }
-*/
+
     buildTypes {
         getByName("release") {
-            // signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName("release")
             isShrinkResources = true
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
